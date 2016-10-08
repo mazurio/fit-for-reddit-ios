@@ -23,16 +23,6 @@ class HomeViewController: UIViewController {
         
         self.setNavigationBar()
 
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "plus"),
-            landscapeImagePhone: nil,
-            style: .Plain,
-            target: self,
-            action: #selector(routine)
-        )
-
-        self.tabBarController?.title = "Bodyweight Fitness"
-
         self.stackView.axis = UILayoutConstraintAxis.Vertical;
         self.stackView.distribution = UIStackViewDistribution.EqualSpacing;
         self.stackView.alignment = UIStackViewAlignment.Top;
@@ -47,6 +37,21 @@ class HomeViewController: UIViewController {
             self.renderWorkoutProgressView()
             self.renderStatisticsView()
         })
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.tabBarController?.navigationItem.titleView = nil
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                image: UIImage(named: "plus"),
+                landscapeImagePhone: nil,
+                style: .Plain,
+                target: self,
+                action: #selector(routine))
+
+        self.tabBarController?.title = "Bodyweight Fitness"
     }
 
     func renderWorkoutProgressView() {

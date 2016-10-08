@@ -47,24 +47,6 @@ class WorkoutViewController: UIViewController {
         
         self.setNavigationBar()
         
-        let menuItem = UIBarButtonItem(
-            image: UIImage(named: "menu"),
-            landscapeImagePhone: nil,
-            style: .Plain,
-            target: self,
-            action: #selector(dismiss))
-
-        let dashboardItem = UIBarButtonItem(
-            image: UIImage(named: "dashboard"),
-            landscapeImagePhone: nil,
-            style: .Plain,
-            target: self,
-            action: #selector(dashboard))
-
-        self.tabBarController?.navigationItem.leftBarButtonItem = menuItem
-        self.tabBarController?.navigationItem.rightBarButtonItem = dashboardItem
-        self.tabBarController?.navigationItem.titleView = navigationViewController.view
-        
         self.timedViewController.updateLabel()
         
         let rate = RateMyApp.sharedInstance
@@ -80,7 +62,16 @@ class WorkoutViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
+        self.tabBarController?.navigationItem.titleView = navigationViewController.view
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+                image: UIImage(named: "dashboard"),
+                landscapeImagePhone: nil,
+                style: .Plain,
+                target: self,
+                action: #selector(dashboard))
+
         setTitle()
     }
     
