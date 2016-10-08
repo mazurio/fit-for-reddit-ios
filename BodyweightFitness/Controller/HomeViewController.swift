@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.tabBarController?.navigationItem.titleView = nil
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
                 image: UIImage(named: "plus"),

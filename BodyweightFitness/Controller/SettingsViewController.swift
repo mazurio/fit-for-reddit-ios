@@ -61,10 +61,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.tabBarController?.navigationItem.titleView = nil
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
-
         self.tabBarController?.title = "Settings"
     }
 

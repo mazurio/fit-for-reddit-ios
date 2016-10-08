@@ -40,7 +40,10 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
     override func viewDidLoad() {
         self.setNavigationBar()
         
-        self.navigationItem.title = "Support Developer"
+        
+        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.title = "Support Developer"
         
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         

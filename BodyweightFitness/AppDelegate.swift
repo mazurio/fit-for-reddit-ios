@@ -3,7 +3,7 @@ import CoreData
 import Fabric
 import Crashlytics
 
-class DashboardTabBarController: UITabBarController {
+class TabBarController: UITabBarController {
     let homeViewController = HomeViewController()
     let workoutLogViewController = WorkoutLogViewController()
     let supportDeveloperViewController = SupportDeveloperViewController()
@@ -15,27 +15,31 @@ class DashboardTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.primary()
         self.tabBar.barTintColor = UIColor.whiteColor()
 
-        homeViewController.tabBarItem = UITabBarItem(
+        self.homeViewController.tabBarItem = UITabBarItem(
                 title: "Home",
-                image: UIImage(named: "tab_home.png"),
-                selectedImage: UIImage(named: "tab_home.png"))
+                image: UIImage(named: "tab_home"),
+                selectedImage: UIImage(named: "tab_home"))
 
-        workoutLogViewController.tabBarItem = UITabBarItem(
-                title: "Workout Log",
-                image: UIImage(named: "tab_workout_log.png"),
-                selectedImage: UIImage(named: "tab_workout_log.png"))
+        self.workoutLogViewController.tabBarItem = UITabBarItem(
+            title: "Workout Log",
+            image: UIImage(named: "tab_workout_log"),
+            selectedImage: UIImage(named: "tab_workout_log"))
+        
+        self.supportDeveloperViewController.tabBarItem = UITabBarItem(
+            title: "Support Developer",
+            image: UIImage(named: "tab_support_developer"),
+            selectedImage: UIImage(named: "tab_support_developer"))
 
-        settingsViewController.tabBarItem = UITabBarItem(
+        self.settingsViewController.tabBarItem = UITabBarItem(
                 title: "Settings",
-                image: UIImage(named: "tab_settings.png"),
-                selectedImage: UIImage(named: "tab_settings.png"))
+                image: UIImage(named: "tab_settings"),
+                selectedImage: UIImage(named: "tab_settings"))
 
-        let controllers = [
-                homeViewController,
-                workoutLogViewController,
-                settingsViewController]
-
-        self.viewControllers = controllers
+        self.viewControllers = [
+            self.homeViewController,
+            self.workoutLogViewController,
+            self.supportDeveloperViewController,
+            self.settingsViewController]
     }
 }
 
@@ -52,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.tintColor = UIColor.primaryDark()
         self.window?.backgroundColor = UIColor.primary()
-        self.window?.rootViewController = UINavigationController(rootViewController: DashboardTabBarController())
+        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         self.window?.makeKeyAndVisible()
         
         return true
