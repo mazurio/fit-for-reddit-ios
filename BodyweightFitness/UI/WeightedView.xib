@@ -50,7 +50,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1Z-fA-buL" userLabel="Plus Button" customClass="ActionView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                            <color key="backgroundColor" red="0.0" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.27058823529411763" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="oOk-Jt-CXu"/>
                                 <constraint firstAttribute="height" constant="45" id="zU5-GB-qpx"/>
@@ -75,7 +75,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNb-eu-Yms" userLabel="Log Button" customClass="ActionView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                            <color key="backgroundColor" red="0.0" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.27058823529411763" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="frD-5l-e8g"/>
                                 <constraint firstAttribute="width" constant="60" id="sAw-VB-Fb7"/>
@@ -98,7 +98,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-OF-qab" userLabel="Minus Button" customClass="ActionView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                            <color key="backgroundColor" red="0.0" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.27058823529411763" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="Dcb-EM-o6R"/>
                                 <constraint firstAttribute="height" constant="45" id="GPI-db-Wyj"/>
