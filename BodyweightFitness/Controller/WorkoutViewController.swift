@@ -120,14 +120,16 @@ class WorkoutViewController: UIViewController {
         
         let logWorkoutController = LogWorkoutController()
         
-        logWorkoutController.parentController = self.tabBarController
-        logWorkoutController.setRepositoryRoutine(current, repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
+        logWorkoutController.parentController = self.navigationController
+        logWorkoutController.setRepositoryRoutine(
+            current,
+            repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
         
         logWorkoutController.modalTransitionStyle = .CoverVertical
         logWorkoutController.modalPresentationStyle = .Custom
     
-        self.tabBarController?.dim(.In, alpha: 0.5, speed: 0.5)
-        self.tabBarController?.presentViewController(logWorkoutController, animated: true, completion: nil)
+        self.navigationController?.dim(.In, alpha: 0.5, speed: 0.5)
+        self.navigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
     }
 
     internal func changeExercise(currentExercise: Exercise, updateTitle: Bool = true) {

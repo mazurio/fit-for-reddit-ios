@@ -394,23 +394,10 @@ class LogWorkoutController: UIViewController {
                 }
             }
             
-//            self.parentController?.
-
-            if let tabBarController = self.parentController as? UITabBarController {
-                if let navigationController = tabBarController.selectedViewController as? WorkoutViewController {
-//                    if let rootViewController = navigationController.viewControllers.first as? WorkoutViewController {
-                        navigationController.weightedViewController.updateLabels()
-//                    }
-                }
-            }
+            RoutineStream.sharedInstance.setRepository()
 
             self.parentController?.dim(.Out, alpha: 0.5, speed: 0.5)
-            
             self.dismissViewControllerAnimated(true, completion: nil)
-            
-            // Enable Navigation Drawer
-//            let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-//            appDelegate?.sideNavigationViewController?.enabled = true
         }
     }
     
