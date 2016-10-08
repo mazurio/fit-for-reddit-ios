@@ -61,19 +61,23 @@ class WorkoutViewController: UIViewController {
                 style: .Plain,
                 target: self,
                 action: #selector(dashboard))
-    }
-
-    override func viewDidLayoutSubviews() {
-        self.changeExercise(current)
+        
+        self.setTitle()
     }
     
-    func setTitle(title: String, subtitle: String) -> UIView {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.changeExercise(current, updateTitle: false)
+    }
+    
+    func setTitle() {
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 0, 0))
 
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.textColor = UIColor.blackColor()
         titleLabel.font = UIFont.systemFontOfSize(16)
-        titleLabel.text = title
+        titleLabel.text = self.current.title
         titleLabel.sizeToFit()
 
         let subtitleLabel = UILabel(frame: CGRectMake(0, 20, 0, 0))
@@ -81,7 +85,7 @@ class WorkoutViewController: UIViewController {
         subtitleLabel.backgroundColor = UIColor.clearColor()
         subtitleLabel.textColor = UIColor.primaryDark()
         subtitleLabel.font = UIFont.systemFontOfSize(13)
-        subtitleLabel.text = subtitle
+        subtitleLabel.text = self.current.section!.title + ", " + self.current.desc
         subtitleLabel.sizeToFit()
 
         let titleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
@@ -98,8 +102,8 @@ class WorkoutViewController: UIViewController {
 
         titleView.addSubview(titleLabel)
         titleView.addSubview(subtitleLabel)
-
-        return titleView
+        
+        self.navigationItem.titleView = titleView
     }
     
     func dismiss(sender: UIBarButtonItem) {
@@ -131,7 +135,7 @@ class WorkoutViewController: UIViewController {
         self.sideNavigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
     }
 
-    internal func changeExercise(currentExercise: Exercise) {
+    internal func changeExercise(currentExercise: Exercise, updateTitle: Bool = true) {
         self.current = currentExercise
         
         self.timedViewController.changeExercise(currentExercise)
@@ -161,10 +165,9 @@ class WorkoutViewController: UIViewController {
             self.weightedViewController.view.hidden = false
         }
 
-        let title = self.current.title
-        let subtitle = self.current.section!.title + ", " + self.current.desc
-
-        self.navigationItem.titleView = setTitle(title, subtitle: subtitle)
+        if (updateTitle) {
+            self.setTitle()
+        }
     }
     
     func setVideo(videoId: String) {
