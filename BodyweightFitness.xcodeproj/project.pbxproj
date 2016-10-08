@@ -1259,6 +1259,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Damian Mazurkiewicz (32UU4L8Z8S)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Damian Mazurkiewicz (32UU4L8Z8S)";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 32UU4L8Z8S;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1269,7 +1270,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.mazur.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Bodyweight Fitness";
-				PROVISIONING_PROFILE = "09f92075-d0bc-4f2e-aa1a-adc0c26cb22d";
+				PROVISIONING_PROFILE = "5c72059a-1796-4292-8312-c1fc5dbb1543";
+				PROVISIONING_PROFILE_SPECIFIER = BWF_DISTRIBUTION;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 2.3;

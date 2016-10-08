@@ -36,6 +36,8 @@ class HomeViewController: UIViewController {
         _ = RoutineStream.sharedInstance.routineObservable().subscribeNext({ (it) in
             self.renderWorkoutProgressView()
             self.renderStatisticsView()
+            
+            self.tabBarController?.title = it.title
         })
     }
 
