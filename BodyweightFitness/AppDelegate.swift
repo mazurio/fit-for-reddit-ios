@@ -3,40 +3,92 @@ import CoreData
 import Fabric
 import Crashlytics
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
-
-    var main: UINavigationController? = nil
-
-    var sideNavigationViewController: SideNavigationController?
-    let sideViewController = SideViewController()
-
+class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
     let homeViewController = HomeViewController()
     let workoutViewController = WorkoutViewController()
     let workoutLogViewController = WorkoutLogViewController()
     let supportDeveloperViewController = SupportDeveloperViewController()
     let settingsViewController = SettingsViewController()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = self
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        homeViewController.tabBarItem = UITabBarItem(
+                title: "Home",
+                image: UIImage(named: "someImage.png"),
+                selectedImage: UIImage(named: "otherImage.png"))
+
+        workoutViewController.tabBarItem = UITabBarItem(
+                title: "Workout",
+                image: UIImage(named: "someImage.png"),
+                selectedImage: UIImage(named: "otherImage.png"))
+
+        workoutLogViewController.tabBarItem = UITabBarItem(
+                title: "Workout Log",
+                image: UIImage(named: "someImage.png"),
+                selectedImage: UIImage(named: "otherImage.png"))
+
+        settingsViewController.tabBarItem = UITabBarItem(
+                title: "Settings",
+                image: UIImage(named: "someImage.png"),
+                selectedImage: UIImage(named: "otherImage.png"))
+
+        let controllers = [
+                homeViewController,
+                workoutViewController,
+                workoutLogViewController,
+                settingsViewController
+        ]
+
+        self.viewControllers = controllers
+    }
+
+    //Delegate methods
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+        print("Should select viewController: \(viewController.title) ?")
+        return true;
+    }
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+
+    var main: UINavigationController? = nil
+//
+//    var sideNavigationViewController: SideNavigationController?
+//    let sideViewController = SideViewController()
+//
+//    let homeViewController = HomeViewController()
+//    let workoutViewController = WorkoutViewController()
+//    let workoutLogViewController = WorkoutLogViewController()
+//    let supportDeveloperViewController = SupportDeveloperViewController()
+//    let settingsViewController = SettingsViewController()
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self])
 
-        self.main = UINavigationController(rootViewController: homeViewController)
+        main = UINavigationController(rootViewController: DashboardTabBarController())
 
         self.migrateSchemaIfNeeded()
         self.setDefaultSettings()
         
-        self.sideNavigationViewController = SideNavigationController(
-            rootViewController: self.main!,
-            leftViewController: self.sideViewController
-        )
-
-        self.sideNavigationViewController?.setLeftViewWidth(260, hidden: true, animated: false)
+//        self.sideNavigationViewController = SideNavigationController(
+//            rootViewController: self.main!,
+//            leftViewController: self.sideViewController
+//        )
+//
+//        self.sideNavigationViewController?.setLeftViewWidth(260, hidden: true, animated: false)
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.tintColor = UIColor.primaryDark()
         self.window?.backgroundColor = UIColor.primary()
-        self.window?.rootViewController = self.sideNavigationViewController!
+        self.window?.rootViewController = main!
         self.window?.makeKeyAndVisible()
         
         return true

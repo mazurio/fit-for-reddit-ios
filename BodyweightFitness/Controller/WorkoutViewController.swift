@@ -32,27 +32,15 @@ class WorkoutViewController: UIViewController {
         
         self.timedViewController.rootViewController = self
         self.weightedViewController.rootViewController = self
-        
-        
-        
         self.timedViewController.view.frame = self.topView.frame
         self.timedViewController.willMoveToParentViewController(self)
-        
         self.addChildViewController(self.timedViewController)
-        
         self.topView.addSubview(self.timedViewController.view)
-        
         self.timedViewController.didMoveToParentViewController(self)
-        
-        
-        
         self.weightedViewController.view.frame = self.topView.frame
         self.weightedViewController.willMoveToParentViewController(self)
-        
         self.addChildViewController(self.weightedViewController)
-        
         self.topView.addSubview(self.weightedViewController.view)
-        
         self.weightedViewController.didMoveToParentViewController(self)
         
         
@@ -72,10 +60,10 @@ class WorkoutViewController: UIViewController {
             style: .Plain,
             target: self,
             action: #selector(dashboard))
-        
-        self.navigationItem.leftBarButtonItem = menuItem
-        self.navigationItem.rightBarButtonItem = dashboardItem
-        self.navigationItem.titleView = navigationViewController.view
+
+        self.tabBarController?.navigationItem.leftBarButtonItem = menuItem
+        self.tabBarController?.navigationItem.rightBarButtonItem = dashboardItem
+        self.tabBarController?.navigationItem.titleView = navigationViewController.view
         
         self.timedViewController.updateLabel()
         
@@ -141,10 +129,10 @@ class WorkoutViewController: UIViewController {
     
     func setTitle() {
         let navigationBarSize = self.navigationController?.navigationBar.frame.size
-        let titleView = self.navigationItem.titleView
+        let titleView = self.tabBarController?.navigationItem.titleView
         var titleViewFrame = titleView?.frame
         titleViewFrame?.size = navigationBarSize!
-        self.navigationItem.titleView?.frame = titleViewFrame!
+        self.tabBarController?.navigationItem.titleView?.frame = titleViewFrame!
         
         titleView?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
         titleView?.autoresizesSubviews = true
@@ -264,8 +252,8 @@ class WorkoutViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Today's Workout", style: .Default) { (action) in
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
-            
-            self.navigationItem.backBarButtonItem = backItem
+
+            self.tabBarController?.navigationItem.backBarButtonItem = backItem
             
             let progressViewController = ProgressViewController()
             

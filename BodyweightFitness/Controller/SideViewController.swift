@@ -89,26 +89,26 @@ class SideViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch(indexPath.row) {
-        case 0:
-            appDelegate?.main!.setViewControllers([(appDelegate?.homeViewController)!], animated: false)
-        break;
-        case 1:
-            appDelegate?.main!.setViewControllers([(appDelegate?.workoutViewController)!], animated: false)
-            break;
-        case 2:
-            appDelegate?.main!.setViewControllers([(appDelegate?.workoutLogViewController)!], animated: false)
-            break;
-        case 3:
-            appDelegate?.main!.setViewControllers([(appDelegate?.supportDeveloperViewController)!], animated: false)
-            break;
-        case 4:
-            appDelegate?.main!.setViewControllers([(appDelegate?.settingsViewController)!], animated: false)
-            break;
-        default:
-            break;
-        }
+//        switch(indexPath.row) {
+//        case 0:
+//            appDelegate?.main!.setViewControllers([(appDelegate?.homeViewController)!], animated: false)
+//        break;
+//        case 1:
+//            appDelegate?.main!.setViewControllers([(appDelegate?.workoutViewController)!], animated: false)
+//            break;
+//        case 2:
+//            appDelegate?.main!.setViewControllers([(appDelegate?.workoutLogViewController)!], animated: false)
+//            break;
+//        case 3:
+//            appDelegate?.main!.setViewControllers([(appDelegate?.supportDeveloperViewController)!], animated: false)
+//            break;
+//        case 4:
+//            appDelegate?.main!.setViewControllers([(appDelegate?.settingsViewController)!], animated: false)
+//            break;
+//        default:
+//            break;
+//        }
         
-        sideNavigationController?.toggleLeftView()
+//        sideNavigationController?.toggleLeftView()
     }
 }

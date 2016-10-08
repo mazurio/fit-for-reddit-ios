@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 import RxSwift
 
@@ -23,25 +22,17 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.setNavigationBar()
-    
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(named: "menu"),
-            landscapeImagePhone: nil,
-            style: .Plain,
-            target: self,
-            action: #selector(dismiss)
-        )
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "plus"),
             landscapeImagePhone: nil,
             style: .Plain,
             target: self,
             action: #selector(routine)
         )
-        
-        self.navigationItem.title = "Bodyweight Fitness"
-        
+
+        self.tabBarController?.title = "Bodyweight Fitness"
+
         self.stackView.axis = UILayoutConstraintAxis.Vertical;
         self.stackView.distribution = UIStackViewDistribution.EqualSpacing;
         self.stackView.alignment = UIStackViewAlignment.Top;
@@ -120,10 +111,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func dismiss(sender: UIBarButtonItem) {
-        self.sideNavigationController?.toggleLeftView()
-    }
-    
     func routine(sender: UIBarButtonItem) {
         let alertController = UIAlertController(
             title: "Choose Workout Routine",
@@ -147,13 +134,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startWorkout(sender: AnyObject) {
-        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-
-        appDelegate?.sideViewController.tableView.selectRowAtIndexPath(
-                NSIndexPath(forRow: 1, inSection: 0),
-                animated: false,
-                scrollPosition: UITableViewScrollPosition.None)
-
-        appDelegate?.main!.setViewControllers([(appDelegate?.workoutViewController)!], animated: false)
+//        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+//
+//        appDelegate?.sideViewController.tableView.selectRowAtIndexPath(
+//                NSIndexPath(forRow: 1, inSection: 0),
+//                animated: false,
+//                scrollPosition: UITableViewScrollPosition.None)
+//
+//        appDelegate?.main!.setViewControllers([(appDelegate?.workoutViewController)!], animated: false)
     }
 }
