@@ -13,7 +13,6 @@ class WorkoutViewController: UIViewController {
     
     @IBOutlet weak var middleViewHeightConstraint: NSLayoutConstraint!
     
-    let navigationViewController: NavigationViewController = NavigationViewController()
     let timedViewController: TimedViewController = TimedViewController()
     let weightedViewController: WeightedViewController = WeightedViewController()
     
@@ -106,10 +105,6 @@ class WorkoutViewController: UIViewController {
         self.navigationItem.titleView = titleView
     }
     
-    func dismiss(sender: UIBarButtonItem) {
-        self.sideNavigationController?.toggleLeftView()
-    }
-    
     func dashboard(sender: UIBarButtonItem) {
         let dashboard = DashboardViewController()
         dashboard.currentExercise = current
@@ -125,14 +120,14 @@ class WorkoutViewController: UIViewController {
         
         let logWorkoutController = LogWorkoutController()
         
-        logWorkoutController.parentController = self.sideNavigationController
+        logWorkoutController.parentController = self.tabBarController
         logWorkoutController.setRepositoryRoutine(current, repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
         
         logWorkoutController.modalTransitionStyle = .CoverVertical
         logWorkoutController.modalPresentationStyle = .Custom
     
-        self.sideNavigationController?.dim(.In, alpha: 0.5, speed: 0.5)
-        self.sideNavigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
+        self.tabBarController?.dim(.In, alpha: 0.5, speed: 0.5)
+        self.tabBarController?.presentViewController(logWorkoutController, animated: true, completion: nil)
     }
 
     internal func changeExercise(currentExercise: Exercise, updateTitle: Bool = true) {
@@ -141,10 +136,6 @@ class WorkoutViewController: UIViewController {
         self.timedViewController.changeExercise(currentExercise)
         self.weightedViewController.changeExercise(currentExercise)
         
-        self.navigationViewController.topLabel?.text = currentExercise.title
-        self.navigationViewController.bottomLeftLabel?.text = currentExercise.section?.title
-        self.navigationViewController.bottomRightLabel?.text = currentExercise.desc
-
         self.setVideo(currentExercise.videoId)
         
         if (currentExercise.section?.mode == SectionMode.All) {

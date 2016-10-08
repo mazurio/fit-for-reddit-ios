@@ -3,17 +3,11 @@ import CoreData
 import Fabric
 import Crashlytics
 
-class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
+class DashboardTabBarController: UITabBarController {
     let homeViewController = HomeViewController()
     let workoutLogViewController = WorkoutLogViewController()
     let supportDeveloperViewController = SupportDeveloperViewController()
     let settingsViewController = SettingsViewController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.delegate = self
-    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,10 +36,6 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
                 settingsViewController]
 
         self.viewControllers = controllers
-    }
-
-    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        return true;
     }
 }
 

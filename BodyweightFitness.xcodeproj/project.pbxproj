@@ -71,7 +71,6 @@
 		734B70051C4BF7C700CFB6BD /* RepositoryRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */; };
 		734B70081C4BF7DD00CFB6BD /* RepositoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */; };
 		734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B700A1C4BF7E900CFB6BD /* RepositorySection.swift */; };
-		735BEA071CBD1E56003616C5 /* SideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA061CBD1E56003616C5 /* SideView.xib */; };
 		735BEA0A1CBD1F38003616C5 /* SideViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */; };
 		735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */; };
 		7366D8D11C4EE9CC00819790 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */; };
@@ -148,7 +147,6 @@
 		738B96C11D761B78009A8625 /* RxBlocking.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 738B96BE1D761B77009A8625 /* RxBlocking.framework.dSYM */; };
 		738B96C21D761B78009A8625 /* RxCocoa.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 738B96BF1D761B77009A8625 /* RxCocoa.framework.dSYM */; };
 		738B96C31D761B78009A8625 /* RxSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 738B96C01D761B78009A8625 /* RxSwift.framework.dSYM */; };
-		738B96CB1D762931009A8625 /* SideViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B96CA1D762931009A8625 /* SideViewHeaderCell.swift */; };
 		738B96CD1D763319009A8625 /* HomeBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 738B96CC1D763319009A8625 /* HomeBarView.xib */; };
 		738B96CF1D76337C009A8625 /* HomeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B96CE1D76337C009A8625 /* HomeBarView.swift */; };
 		73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA28E91CABE69200DEED79 /* DashboardViewController.swift */; };
@@ -178,12 +176,8 @@
 		73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */; };
 		73BF3BBF1CBF02D200E0258D /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BBE1CBF02D200E0258D /* Window.xib */; };
 		73BF3BC11CBF05ED00E0258D /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BC01CBF05ED00E0258D /* SnackBar.swift */; };
-		73BF3BC71CBFF89D00E0258D /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BC61CBFF89D00E0258D /* NavigationView.xib */; };
-		73BF3BC91CBFFF0A00E0258D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BC81CBFFF0A00E0258D /* NavigationViewController.swift */; };
 		73BFEBC41CBBFA3900B9DDAE /* SupportDeveloperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */; };
-		73C5A6371CC12ABC006EF5C1 /* SideNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5A6361CC12ABC006EF5C1 /* SideNavigationView.swift */; };
 		73C8E4AF1C5A1D30005E0248 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */; };
-		73D2BCE61C3C633200CE6C00 /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2BCE51C3C633200CE6C00 /* SideViewController.swift */; };
 		73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */; };
 		73FE1F5B1C4BF82A0047C97A /* RepositoryExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */; };
 		E0C7E30D1B5BC12B00EB6389 /* AnimatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E3041B5BC12B00EB6389 /* AnimatableImageView.swift */; };
@@ -312,7 +306,6 @@
 		734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryRoutine.swift; sourceTree = "<group>"; };
 		734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCategory.swift; sourceTree = "<group>"; };
 		734B700A1C4BF7E900CFB6BD /* RepositorySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySection.swift; sourceTree = "<group>"; };
-		735BEA061CBD1E56003616C5 /* SideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideView.xib; sourceTree = "<group>"; };
 		735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideViewHeaderCell.xib; sourceTree = "<group>"; };
 		735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideViewMenuCell.xib; sourceTree = "<group>"; };
 		7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -392,7 +385,6 @@
 		738B96C41D761BB1009A8625 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		738B96C51D761BB1009A8625 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		738B96C61D761BB1009A8625 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		738B96CA1D762931009A8625 /* SideViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideViewHeaderCell.swift; sourceTree = "<group>"; };
 		738B96CC1D763319009A8625 /* HomeBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeBarView.xib; sourceTree = "<group>"; };
 		738B96CE1D76337C009A8625 /* HomeBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBarView.swift; sourceTree = "<group>"; };
 		73AA28E91CABE69200DEED79 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -424,14 +416,10 @@
 		73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		73BF3BBE1CBF02D200E0258D /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		73BF3BC01CBF05ED00E0258D /* SnackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
-		73BF3BC61CBFF89D00E0258D /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
-		73BF3BC81CBFFF0A00E0258D /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportDeveloperView.xib; sourceTree = "<group>"; };
 		73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		73C5A6361CC12ABC006EF5C1 /* SideNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideNavigationView.swift; sourceTree = "<group>"; };
 		73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
-		73D2BCE51C3C633200CE6C00 /* SideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
 		73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = molding_mobility_3_plane_neck_movement.mp4; sourceTree = "<group>"; };
 		73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryExercise.swift; sourceTree = "<group>"; };
@@ -651,13 +639,11 @@
 				732BA03C1C5BC9D400C1CDB5 /* LaunchScreen.xib */,
 				732BA02D1C5B7A8D00C1CDB5 /* ProgressGeneralViewController.xib */,
 				732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */,
-				73BF3BC61CBFF89D00E0258D /* NavigationView.xib */,
 				7329B68D1D0D84E4005F5F74 /* HomeView.xib */,
 				738B96CC1D763319009A8625 /* HomeBarView.xib */,
 				73BADE161CC3E2F9001ACEDC /* TimedView.xib */,
 				73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */,
 				73BF3BA81CBE643200E0258D /* SettingsView.xib */,
-				735BEA061CBD1E56003616C5 /* SideView.xib */,
 				73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */,
 				73BF3BBE1CBF02D200E0258D /* Window.xib */,
 				73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */,
@@ -675,12 +661,10 @@
 				73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */,
 				7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */,
 				7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */,
-				73BF3BC81CBFFF0A00E0258D /* NavigationViewController.swift */,
 				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
 				73BADE181CC3E347001ACEDC /* TimedViewController.swift */,
 				73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */,
 				E0F587381B52730000540104 /* SettingsViewController.swift */,
-				73D2BCE51C3C633200CE6C00 /* SideViewController.swift */,
 				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
 				73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */,
 				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
@@ -709,7 +693,6 @@
 		73BF3BB71CBEF0CC00E0258D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				738B96CA1D762931009A8625 /* SideViewHeaderCell.swift */,
 				73AA28F21CB7ACC100DEED79 /* DashboardCategoryCell.swift */,
 				73AA28FC1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift */,
 				73AA28F01CB7ABC300DEED79 /* DashboardSectionCell.swift */,
@@ -770,7 +753,6 @@
 		E078934C1B472CAF001195AC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				73C5A6361CC12ABC006EF5C1 /* SideNavigationView.swift */,
 				E0F587331B5272F400540104 /* ActionView.swift */,
 				46B020C26FAF7645B926FA26 /* CardView.swift */,
 				733876D41C4AB163006AABA7 /* LogWorkoutButton.swift */,
@@ -956,7 +938,6 @@
 				738B96B01D760F66009A8625 /* molding_mobility_torso_twists.mp4 in Resources */,
 				738B969E1D760F66009A8625 /* bodyweight_fitness_wide_row.mp4 in Resources */,
 				732CDDF31D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 in Resources */,
-				73BF3BC71CBFF89D00E0258D /* NavigationView.xib in Resources */,
 				732CDDF01D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 in Resources */,
 				73BF3BAF1CBE6A7000E0258D /* SettingsActionCell.xib in Resources */,
 				737F3C781CBD52AB00251EFE /* WorkoutLogView.xib in Resources */,
@@ -976,7 +957,6 @@
 				738B96B11D760F66009A8625 /* molding_mobility_wrist_circles.mp4 in Resources */,
 				738B96801D760F66009A8625 /* bodyweight_fitness_incline_pushup.mp4 in Resources */,
 				738B96B91D760F66009A8625 /* bodyweight_fitness_side_plank.mp4 in Resources */,
-				735BEA071CBD1E56003616C5 /* SideView.xib in Resources */,
 				738B96B41D760F66009A8625 /* bodyweight_fitness_hollow_hold.mp4 in Resources */,
 				738B96CD1D763319009A8625 /* HomeBarView.xib in Resources */,
 				73BFEBC41CBBFA3900B9DDAE /* SupportDeveloperView.xib in Resources */,
@@ -1098,18 +1078,14 @@
 				732BA0431C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift in Sources */,
 				73BADE1B1CC3F956001ACEDC /* WeightedViewController.swift in Sources */,
 				73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */,
-				73D2BCE61C3C633200CE6C00 /* SideViewController.swift in Sources */,
 				732BA02A1C5B76DD00C1CDB5 /* ProgressCardCell.swift in Sources */,
 				E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */,
 				73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */,
 				73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */,
 				734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */,
-				738B96CB1D762931009A8625 /* SideViewHeaderCell.swift in Sources */,
-				73BF3BC91CBFFF0A00E0258D /* NavigationViewController.swift in Sources */,
 				73AA28F11CB7ABC300DEED79 /* DashboardSectionCell.swift in Sources */,
 				7329B68C1D0D8476005F5F74 /* HomeViewController.swift in Sources */,
 				73FE1F5B1C4BF82A0047C97A /* RepositoryExercise.swift in Sources */,
-				73C5A6371CC12ABC006EF5C1 /* SideNavigationView.swift in Sources */,
 				73BF3BC11CBF05ED00E0258D /* SnackBar.swift in Sources */,
 				73C8E4AF1C5A1D30005E0248 /* ProgressGeneralViewController.swift in Sources */,
 				73BADE191CC3E347001ACEDC /* TimedViewController.swift in Sources */,

@@ -393,12 +393,14 @@ class LogWorkoutController: UIViewController {
                     realm.add(exercise, update: true)
                 }
             }
+            
+//            self.parentController?.
 
-            if let sideNavigationController = self.parentController as? SideNavigationController {
-                if let navigationController = sideNavigationController.rootViewController as? UINavigationController {
-                    if let rootViewController = navigationController.viewControllers.first as? WorkoutViewController {
-                        rootViewController.weightedViewController.updateLabels()
-                    }
+            if let tabBarController = self.parentController as? UITabBarController {
+                if let navigationController = tabBarController.selectedViewController as? WorkoutViewController {
+//                    if let rootViewController = navigationController.viewControllers.first as? WorkoutViewController {
+                        navigationController.weightedViewController.updateLabels()
+//                    }
                 }
             }
 

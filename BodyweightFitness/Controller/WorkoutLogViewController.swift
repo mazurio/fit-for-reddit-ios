@@ -323,10 +323,6 @@ class WorkoutLogViewController: UIViewController,
             self.calendarView.selectDates([NSDate()])
         }
     }
-
-    func dismiss(sender: UIBarButtonItem) {
-        self.sideNavigationController?.toggleLeftView()
-    }
     
     func toggleCurrentDayView(sender: UIBarButtonItem) {
         self.calendarView.scrollToDate(NSDate(), animateScroll: false)
