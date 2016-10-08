@@ -43,14 +43,10 @@ class WorkoutViewController: UIViewController {
         self.topView.addSubview(self.weightedViewController.view)
         self.weightedViewController.didMoveToParentViewController(self)
         
-        
-        
         self.setNavigationBar()
-        
         self.timedViewController.updateLabel()
         
         let rate = RateMyApp.sharedInstance
-        
         rate.appID = "1018863605"
         rate.trackAppUsage()
         
@@ -58,35 +54,52 @@ class WorkoutViewController: UIViewController {
             self.current = $0.getFirstExercise()
             self.changeExercise(self.current)
         })
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
 
-        self.tabBarController?.navigationItem.titleView = navigationViewController.view
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
                 image: UIImage(named: "dashboard"),
                 landscapeImagePhone: nil,
                 style: .Plain,
                 target: self,
                 action: #selector(dashboard))
-
-        setTitle()
     }
-    
+
     override func viewDidLayoutSubviews() {
         self.changeExercise(current)
     }
     
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        setTitle()
-    }
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
-        setTitle()
+    func setTitle(title: String, subtitle: String) -> UIView {
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, 0, 0))
+
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.textColor = UIColor.blackColor()
+        titleLabel.font = UIFont.systemFontOfSize(16)
+        titleLabel.text = title
+        titleLabel.sizeToFit()
+
+        let subtitleLabel = UILabel(frame: CGRectMake(0, 20, 0, 0))
+
+        subtitleLabel.backgroundColor = UIColor.clearColor()
+        subtitleLabel.textColor = UIColor.primaryDark()
+        subtitleLabel.font = UIFont.systemFontOfSize(13)
+        subtitleLabel.text = subtitle
+        subtitleLabel.sizeToFit()
+
+        let titleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
+
+        if titleLabel.frame.width >= subtitleLabel.frame.width {
+            var adjustment = subtitleLabel.frame
+            adjustment.origin.x = titleView.frame.origin.x + (titleView.frame.width/2) - (subtitleLabel.frame.width/2)
+            subtitleLabel.frame = adjustment
+        } else {
+            var adjustment = titleLabel.frame
+            adjustment.origin.x = titleView.frame.origin.x + (titleView.frame.width/2) - (titleLabel.frame.width/2)
+            titleLabel.frame = adjustment
+        }
+
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(subtitleLabel)
+
+        return titleView
     }
     
     func dismiss(sender: UIBarButtonItem) {
@@ -117,18 +130,7 @@ class WorkoutViewController: UIViewController {
         self.sideNavigationController?.dim(.In, alpha: 0.5, speed: 0.5)
         self.sideNavigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
     }
-    
-    func setTitle() {
-        let navigationBarSize = self.navigationController?.navigationBar.frame.size
-        let titleView = self.tabBarController?.navigationItem.titleView
-        var titleViewFrame = titleView?.frame
-        titleViewFrame?.size = navigationBarSize!
-        self.tabBarController?.navigationItem.titleView?.frame = titleViewFrame!
-        
-        titleView?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin]
-        titleView?.autoresizesSubviews = true
-    }
-    
+
     internal func changeExercise(currentExercise: Exercise) {
         self.current = currentExercise
         
@@ -158,11 +160,14 @@ class WorkoutViewController: UIViewController {
             self.timedViewController.view.hidden = true
             self.weightedViewController.view.hidden = false
         }
+
+        let title = self.current.title
+        let subtitle = self.current.section!.title + ", " + self.current.desc
+
+        self.navigationItem.titleView = setTitle(title, subtitle: subtitle)
     }
     
     func setVideo(videoId: String) {
-        // if contains videoId then
-        
         if !videoId.isEmpty {
             if let player = self.player {
                 player.pause()

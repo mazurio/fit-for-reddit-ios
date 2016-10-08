@@ -5,52 +5,46 @@ import Crashlytics
 
 class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
     let homeViewController = HomeViewController()
-    let workoutViewController = WorkoutViewController()
     let workoutLogViewController = WorkoutLogViewController()
     let supportDeveloperViewController = SupportDeveloperViewController()
     let settingsViewController = SettingsViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
+        
+        self.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.tabBar.tintColor = UIColor.primary()
+        self.tabBar.barTintColor = UIColor.whiteColor()
+
         homeViewController.tabBarItem = UITabBarItem(
                 title: "Home",
-                image: UIImage(named: "someImage.png"),
-                selectedImage: UIImage(named: "otherImage.png"))
-
-        workoutViewController.tabBarItem = UITabBarItem(
-                title: "Workout",
-                image: UIImage(named: "someImage.png"),
-                selectedImage: UIImage(named: "otherImage.png"))
+                image: UIImage(named: "tab_home.png"),
+                selectedImage: UIImage(named: "tab_home.png"))
 
         workoutLogViewController.tabBarItem = UITabBarItem(
                 title: "Workout Log",
-                image: UIImage(named: "someImage.png"),
-                selectedImage: UIImage(named: "otherImage.png"))
+                image: UIImage(named: "tab_workout_log.png"),
+                selectedImage: UIImage(named: "tab_workout_log.png"))
 
         settingsViewController.tabBarItem = UITabBarItem(
                 title: "Settings",
-                image: UIImage(named: "someImage.png"),
-                selectedImage: UIImage(named: "otherImage.png"))
+                image: UIImage(named: "tab_settings.png"),
+                selectedImage: UIImage(named: "tab_settings.png"))
 
         let controllers = [
                 homeViewController,
-                workoutViewController,
                 workoutLogViewController,
-                settingsViewController
-        ]
+                settingsViewController]
 
         self.viewControllers = controllers
     }
 
-    //Delegate methods
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title) ?")
         return true;
     }
 }
@@ -59,36 +53,16 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    var main: UINavigationController? = nil
-//
-//    var sideNavigationViewController: SideNavigationController?
-//    let sideViewController = SideViewController()
-//
-//    let homeViewController = HomeViewController()
-//    let workoutViewController = WorkoutViewController()
-//    let workoutLogViewController = WorkoutLogViewController()
-//    let supportDeveloperViewController = SupportDeveloperViewController()
-//    let settingsViewController = SettingsViewController()
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self])
-
-        main = UINavigationController(rootViewController: DashboardTabBarController())
 
         self.migrateSchemaIfNeeded()
         self.setDefaultSettings()
         
-//        self.sideNavigationViewController = SideNavigationController(
-//            rootViewController: self.main!,
-//            leftViewController: self.sideViewController
-//        )
-//
-//        self.sideNavigationViewController?.setLeftViewWidth(260, hidden: true, animated: false)
-
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.tintColor = UIColor.primaryDark()
         self.window?.backgroundColor = UIColor.primary()
-        self.window?.rootViewController = main!
+        self.window?.rootViewController = UINavigationController(rootViewController: DashboardTabBarController())
         self.window?.makeKeyAndVisible()
         
         return true
