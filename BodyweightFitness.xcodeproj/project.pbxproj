@@ -30,7 +30,6 @@
 		730EB7AF1DA9A75E00541250 /* PageMenuFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732BA01E1C5ADC1200C1CDB5 /* PageMenuFramework.framework */; };
 		730EB7B01DA9A75E00541250 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734B6FE71C4BE84600CFB6BD /* Realm.framework */; };
 		730EB7B11DA9A75E00541250 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */; };
-		730EB7B21DA9A75E00541250 /* Runes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7349F6A11C492729009DBE7B /* Runes.framework */; };
 		730EB7B31DA9A75E00541250 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */; };
 		7329B68C1D0D8476005F5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329B68B1D0D8476005F5F74 /* HomeViewController.swift */; };
 		7329B68E1D0D84E4005F5F74 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7329B68D1D0D84E4005F5F74 /* HomeView.xib */; };
@@ -51,7 +50,6 @@
 		732CDDF11D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */; };
 		732CDDF21D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDED1D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 */; };
 		732CDDF31D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */; };
-		733876DE1C4AC829006AABA7 /* Runes.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 733876DC1C4AC829006AABA7 /* Runes.framework.dSYM */; };
 		733876DF1C4AC829006AABA7 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 733876DD1C4AC829006AABA7 /* SwiftyJSON.framework.dSYM */; };
 		734B6F3F1C4AE7E900CFB6BD /* LogWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */; };
 		734B6FF91C4BE8CB00CFB6BD /* Realm.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 734B6FF71C4BE8CB00CFB6BD /* Realm.framework.dSYM */; };
@@ -169,11 +167,6 @@
 		73C8E4AF1C5A1D30005E0248 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */; };
 		73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */; };
 		73FE1F5B1C4BF82A0047C97A /* RepositoryExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */; };
-		E0C7E30D1B5BC12B00EB6389 /* AnimatableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E3041B5BC12B00EB6389 /* AnimatableImageView.swift */; };
-		E0C7E30F1B5BC12B00EB6389 /* AnimatedFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E3051B5BC12B00EB6389 /* AnimatedFrame.swift */; };
-		E0C7E3111B5BC12B00EB6389 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E3061B5BC12B00EB6389 /* Animator.swift */; };
-		E0C7E3171B5BC12B00EB6389 /* ImageSourceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E3091B5BC12B00EB6389 /* ImageSourceHelpers.swift */; };
-		E0C7E31D1B5BC12B00EB6389 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7E30C1B5BC12B00EB6389 /* UIImageExtension.swift */; };
 		E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5872C1B5272C400540104 /* AppDelegate.swift */; };
 		E0F587311B5272E200540104 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587301B5272E200540104 /* Routine.swift */; };
 		E0F587351B5272F400540104 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587331B5272F400540104 /* ActionView.swift */; };
@@ -208,7 +201,6 @@
 				732BA0221C5ADC3100C1CDB5 /* PageMenuFramework.framework.dSYM in CopyFiles */,
 				734B6FF91C4BE8CB00CFB6BD /* Realm.framework.dSYM in CopyFiles */,
 				734B6FFA1C4BE8CB00CFB6BD /* RealmSwift.framework.dSYM in CopyFiles */,
-				733876DE1C4AC829006AABA7 /* Runes.framework.dSYM in CopyFiles */,
 				733876DF1C4AC829006AABA7 /* SwiftyJSON.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +256,6 @@
 		732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_wrist_mobility.mp4; sourceTree = "<group>"; };
 		733876DC1C4AC829006AABA7 /* Runes.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Runes.framework.dSYM; path = Carthage/Build/iOS/Runes.framework.dSYM; sourceTree = "<group>"; };
 		733876DD1C4AC829006AABA7 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
-		7349F6A11C492729009DBE7B /* Runes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Runes.framework; path = Carthage/Build/iOS/Runes.framework; sourceTree = "<group>"; };
 		734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWorkoutController.swift; sourceTree = "<group>"; };
 		734B6FE71C4BE84600CFB6BD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -391,11 +382,6 @@
 		73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = molding_mobility_3_plane_neck_movement.mp4; sourceTree = "<group>"; };
 		73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryExercise.swift; sourceTree = "<group>"; };
-		E0C7E3041B5BC12B00EB6389 /* AnimatableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatableImageView.swift; path = BodyweightFitness/Frameworks/AnimatableImageView.swift; sourceTree = "<group>"; };
-		E0C7E3051B5BC12B00EB6389 /* AnimatedFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedFrame.swift; path = BodyweightFitness/Frameworks/AnimatedFrame.swift; sourceTree = "<group>"; };
-		E0C7E3061B5BC12B00EB6389 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animator.swift; path = BodyweightFitness/Frameworks/Animator.swift; sourceTree = "<group>"; };
-		E0C7E3091B5BC12B00EB6389 /* ImageSourceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSourceHelpers.swift; path = BodyweightFitness/Frameworks/ImageSourceHelpers.swift; sourceTree = "<group>"; };
-		E0C7E30C1B5BC12B00EB6389 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = BodyweightFitness/Frameworks/UIImageExtension.swift; sourceTree = "<group>"; };
 		E0F5872C1B5272C400540104 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0F587301B5272E200540104 /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		E0F587331B5272F400540104 /* ActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
@@ -422,7 +408,6 @@
 				730EB7AF1DA9A75E00541250 /* PageMenuFramework.framework in Frameworks */,
 				730EB7B01DA9A75E00541250 /* Realm.framework in Frameworks */,
 				730EB7B11DA9A75E00541250 /* RealmSwift.framework in Frameworks */,
-				730EB7B21DA9A75E00541250 /* Runes.framework in Frameworks */,
 				730EB7B31DA9A75E00541250 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,10 +685,8 @@
 				7366D8EC1C52943D00819790 /* StoreKit.framework */,
 				734B6FE71C4BE84600CFB6BD /* Realm.framework */,
 				734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */,
-				7349F6A11C492729009DBE7B /* Runes.framework */,
 				73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */,
 				73BFEBBC1CBA8B4900B9DDAE /* dSYM */,
-				E0C7E3201B5BC60600EB6389 /* Gifu */,
 				73BADE141CC3DC26001ACEDC /* RateMyApp.swift */,
 				46B023E34B0C1F6EE72EA4B5 /* UserInteractionFunctions.swift */,
 				46B0214B21F48BB91551C084 /* JTCalendarProtocols.swift */,
@@ -753,18 +736,6 @@
 				E0F587481B52731C00540104 /* finished.mp3 */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		E0C7E3201B5BC60600EB6389 /* Gifu */ = {
-			isa = PBXGroup;
-			children = (
-				E0C7E3041B5BC12B00EB6389 /* AnimatableImageView.swift */,
-				E0C7E3051B5BC12B00EB6389 /* AnimatedFrame.swift */,
-				E0C7E3061B5BC12B00EB6389 /* Animator.swift */,
-				E0C7E3091B5BC12B00EB6389 /* ImageSourceHelpers.swift */,
-				E0C7E30C1B5BC12B00EB6389 /* UIImageExtension.swift */,
-			);
-			name = Gifu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -998,7 +969,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Runes.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PageMenuFramework.framework",
@@ -1023,12 +993,8 @@
 				7366D8D11C4EE9CC00819790 /* ProgressViewController.swift in Sources */,
 				E0F587351B5272F400540104 /* ActionView.swift in Sources */,
 				734B70081C4BF7DD00CFB6BD /* RepositoryCategory.swift in Sources */,
-				E0C7E3171B5BC12B00EB6389 /* ImageSourceHelpers.swift in Sources */,
-				E0C7E31D1B5BC12B00EB6389 /* UIImageExtension.swift in Sources */,
-				E0C7E30D1B5BC12B00EB6389 /* AnimatableImageView.swift in Sources */,
 				7366D8E11C51810600819790 /* Extensions.swift in Sources */,
 				732BA02C1C5B76E500C1CDB5 /* ProgressSectionCell.swift in Sources */,
-				E0C7E30F1B5BC12B00EB6389 /* AnimatedFrame.swift in Sources */,
 				E0F5873D1B52730000540104 /* TimePickerController.swift in Sources */,
 				7366D8DD1C4EEFD500819790 /* ProgressPageViewController.swift in Sources */,
 				73AA28FD1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift in Sources */,
@@ -1038,7 +1004,6 @@
 				E0F587311B5272E200540104 /* Routine.swift in Sources */,
 				7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */,
 				E0F5873C1B52730000540104 /* SettingsViewController.swift in Sources */,
-				E0C7E3111B5BC12B00EB6389 /* Animator.swift in Sources */,
 				73BADE151CC3DC26001ACEDC /* RateMyApp.swift in Sources */,
 				732BA0431C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift in Sources */,
 				73BADE1B1CC3F956001ACEDC /* WeightedViewController.swift in Sources */,
