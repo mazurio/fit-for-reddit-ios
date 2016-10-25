@@ -15,6 +15,7 @@ class WorkoutViewController: UIViewController {
     
     let timedViewController: TimedViewController = TimedViewController()
     let weightedViewController: WeightedViewController = WeightedViewController()
+    let restTimerViewController: RestTimerViewController = RestTimerViewController()
     
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
     
@@ -31,16 +32,25 @@ class WorkoutViewController: UIViewController {
         
         self.timedViewController.rootViewController = self
         self.weightedViewController.rootViewController = self
+        self.restTimerViewController.rootViewController = self
+        
         self.timedViewController.view.frame = self.topView.frame
         self.timedViewController.willMoveToParentViewController(self)
         self.addChildViewController(self.timedViewController)
         self.topView.addSubview(self.timedViewController.view)
         self.timedViewController.didMoveToParentViewController(self)
+        
         self.weightedViewController.view.frame = self.topView.frame
         self.weightedViewController.willMoveToParentViewController(self)
         self.addChildViewController(self.weightedViewController)
         self.topView.addSubview(self.weightedViewController.view)
         self.weightedViewController.didMoveToParentViewController(self)
+        
+        self.restTimerViewController.view.frame = self.topView.frame
+        self.restTimerViewController.willMoveToParentViewController(self)
+        self.addChildViewController(self.restTimerViewController)
+        self.topView.addSubview(self.restTimerViewController.view)
+        self.restTimerViewController.didMoveToParentViewController(self)
         
         self.setNavigationBar()
         self.timedViewController.updateLabel()
@@ -286,10 +296,19 @@ class WorkoutViewController: UIViewController {
                                     
                                     alertController.addAction(
                                         UIAlertAction(title: title, style: .Default) { (action) in
+                                            let repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
+                                            let currentExerciseId = currentSection.currentExercise?.exerciseId
+                                            let exerciseId = exercise.exerciseId
+                                            
+                                            let realm = RepositoryStream.sharedInstance.getRealm()
+                                            
+                                            try! realm.write {
+                                                repositoryRoutine.exercises.filter { $0.exerciseId == currentExerciseId }.first?.visible = false
+                                                repositoryRoutine.exercises.filter { $0.exerciseId == exerciseId }.first?.visible = true
+                                            }
+                                            
                                             RoutineStream.sharedInstance.routine.setProgression(exercise)
-                                            
                                             self.changeExercise(exercise)
-                                            
                                             PersistenceManager.storeRoutine(RoutineStream.sharedInstance.routine)
                                         }
                                     )
