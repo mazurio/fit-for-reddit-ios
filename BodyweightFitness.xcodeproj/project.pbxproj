@@ -146,6 +146,8 @@
 		73AA28F91CB7ACE300DEED79 /* DashboardDoubleItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AA28F81CB7ACE300DEED79 /* DashboardDoubleItemCell.xib */; };
 		73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA28FA1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift */; };
 		73AA28FD1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA28FC1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift */; };
+		73B5A1AC1DBFF00000747B5C /* RestTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1AB1DBFF00000747B5C /* RestTimerViewController.swift */; };
+		73B5A1AE1DBFF0A200747B5C /* RestTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B5A1AD1DBFF0A200747B5C /* RestTimerView.xib */; };
 		73BADE151CC3DC26001ACEDC /* RateMyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE141CC3DC26001ACEDC /* RateMyApp.swift */; };
 		73BADE171CC3E2F9001ACEDC /* TimedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BADE161CC3E2F9001ACEDC /* TimedView.xib */; };
 		73BADE191CC3E347001ACEDC /* TimedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE181CC3E347001ACEDC /* TimedViewController.swift */; };
@@ -356,6 +358,8 @@
 		73AA28F81CB7ACE300DEED79 /* DashboardDoubleItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardDoubleItemCell.xib; sourceTree = "<group>"; };
 		73AA28FA1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardSingleItemCell.swift; sourceTree = "<group>"; };
 		73AA28FC1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardDoubleItemCell.swift; sourceTree = "<group>"; };
+		73B5A1AB1DBFF00000747B5C /* RestTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTimerViewController.swift; sourceTree = "<group>"; };
+		73B5A1AD1DBFF0A200747B5C /* RestTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestTimerView.xib; sourceTree = "<group>"; };
 		73BADE141CC3DC26001ACEDC /* RateMyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateMyApp.swift; path = BodyweightFitness/Vendor/RateMyApp.swift; sourceTree = "<group>"; };
 		73BADE161CC3E2F9001ACEDC /* TimedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimedView.xib; sourceTree = "<group>"; };
 		73BADE181CC3E347001ACEDC /* TimedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedViewController.swift; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 				7329B68D1D0D84E4005F5F74 /* HomeView.xib */,
 				738B96CC1D763319009A8625 /* HomeBarView.xib */,
 				73BADE161CC3E2F9001ACEDC /* TimedView.xib */,
+				73B5A1AD1DBFF0A200747B5C /* RestTimerView.xib */,
 				73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */,
 				73BF3BA81CBE643200E0258D /* SettingsView.xib */,
 				73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */,
@@ -621,6 +626,7 @@
 				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
 				73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */,
 				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
+				73B5A1AB1DBFF00000747B5C /* RestTimerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -919,6 +925,7 @@
 				735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */,
 				732CDDEF1D84485D004C6607 /* bodyweight_fitness_foot_supported_l_sit.mp4 in Resources */,
 				73BADE7D1CC79648001ACEDC /* TestRoutine.json in Resources */,
+				73B5A1AE1DBFF0A200747B5C /* RestTimerView.xib in Resources */,
 				732BA03D1C5BC9D400C1CDB5 /* LaunchScreen.xib in Resources */,
 				738B96881D760F66009A8625 /* bodyweight_fitness_pullup.mp4 in Resources */,
 				738B967D1D760F66009A8625 /* bodyweight_fitness_freestanding_handstand.mp4 in Resources */,
@@ -1012,6 +1019,7 @@
 				E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */,
 				73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */,
 				73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */,
+				73B5A1AC1DBFF00000747B5C /* RestTimerViewController.swift in Sources */,
 				734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */,
 				73AA28F11CB7ABC300DEED79 /* DashboardSectionCell.swift in Sources */,
 				7329B68C1D0D8476005F5F74 /* HomeViewController.swift in Sources */,
