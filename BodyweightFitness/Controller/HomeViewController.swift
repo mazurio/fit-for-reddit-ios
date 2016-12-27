@@ -44,8 +44,6 @@ class HomeViewController: UIViewController {
             self.tabBarController?.title = it.title
             self.routineTitle.text = it.title
             self.routineShortDescription.text = it.shortDescription
-            
-            self.sizeDescriptionToFit()
         })
     }
 
@@ -61,15 +59,6 @@ class HomeViewController: UIViewController {
                 action: #selector(routine))
 
         self.tabBarController?.title = "Bodyweight Fitness"
-    }
-    
-    func sizeDescriptionToFit() {
-//        routineShortDescription.sizeToFit()
-//        routineShortDescription.layoutIfNeeded()
-//        routineShortDescription.scrollEnabled = false
-//        
-//        routineCardView.sizeToFit()
-//        routineCardView.layoutIfNeeded()
     }
 
     func renderWorkoutProgressView() {

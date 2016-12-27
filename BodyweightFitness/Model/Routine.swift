@@ -128,6 +128,8 @@ class Routine {
         self.routineId = json["routineId"].stringValue
         self.title = json["title"].stringValue
         self.subtitle = json["subtitle"].stringValue
+        self.shortDescription = json["shortDescription"].stringValue
+        self.url = json["url"].stringValue
         
         self.build(json, dictionary: dictionary)
     }
