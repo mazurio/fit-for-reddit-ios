@@ -156,4 +156,10 @@ class HomeViewController: UIViewController {
         self.tabBarController?.navigationItem.backBarButtonItem = backItem
         self.showViewController(WorkoutViewController(), sender: nil)
     }
+    
+    @IBAction func readMore(sender: AnyObject) {
+        if let requestUrl = NSURL(string: RoutineStream.sharedInstance.routine.url) {
+            UIApplication.sharedApplication().openURL(requestUrl)
+        }
+    }
 }

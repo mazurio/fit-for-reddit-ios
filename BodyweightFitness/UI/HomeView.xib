@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cb-Qr-CFz">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1008.3333333333334"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="772.66666666666663"/>
                             <subviews>
                                 <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzM-WO-mJo" userLabel="Background View">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="145"/>
@@ -94,7 +94,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwL-8n-Wld" userLabel="Routine Card View" customClass="CardView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="216" width="398" height="445.33333333333337"/>
+                                    <rect key="frame" x="8" y="216.00000000000003" width="398" height="209.66666666666671"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Stretching" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-x2-ZKR" userLabel="Title">
                                             <rect key="frame" x="16" y="20" width="366" height="24"/>
@@ -103,23 +103,35 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMe-On-Ri0">
-                                            <rect key="frame" x="12" y="48" width="374" height="381.33333333333337"/>
+                                            <rect key="frame" x="12" y="52" width="374" height="97.333333333333314"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Many people want to improve overall flexibility, but do not know where to begin. This routine should serve as a general jumping-off point for beginners.\n\nThis program is intended to go hand-in-hand with Molding Mobility.\n\nThis program covers a series of 9 stretches - 3 upper body, 4 lower body, and 2 torso. Each is to be done for a total of 60 seconds. Doing this in one stretch is the best, but if you need to stretch for 30s, relax, and finish 30s, that is fine too. Try not to go lower than 20s intervals - if you can't do a stretch for at least 20s, lessen the intensity.\n\nThese stretches are to be performed in succession after every single workout. This should take only 20-30 minutes. It is recommended, however to do them every single day. If you have time, repeating the stretches 2-3 times is also recommended.</string>
+                                            <string key="text">Many people want to improve overall flexibility, but do not know where to begin. This routine should serve as a general jumping-off point for beginners.</string>
                                             <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loG-jc-9Uv">
+                                            <rect key="frame" x="16" y="157.66666666666669" width="97" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="Read More">
+                                                <color key="titleColor" red="0.0" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="readMore:" destination="-1" eventType="touchUpInside" id="hIK-Fi-WP5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="eMe-On-Ri0" secondAttribute="bottom" constant="16" id="74T-jp-rPh"/>
                                         <constraint firstItem="uxz-x2-ZKR" firstAttribute="top" secondItem="zwL-8n-Wld" secondAttribute="top" constant="20" id="CWS-QE-6pd"/>
                                         <constraint firstAttribute="trailing" secondItem="eMe-On-Ri0" secondAttribute="trailing" constant="12" id="Fk6-7Y-DwP"/>
-                                        <constraint firstItem="eMe-On-Ri0" firstAttribute="top" secondItem="uxz-x2-ZKR" secondAttribute="bottom" constant="4" id="HE0-xz-bND"/>
+                                        <constraint firstItem="eMe-On-Ri0" firstAttribute="top" secondItem="uxz-x2-ZKR" secondAttribute="bottom" constant="8" id="HE0-xz-bND"/>
                                         <constraint firstAttribute="trailing" secondItem="uxz-x2-ZKR" secondAttribute="trailing" constant="16" id="hpz-H0-fGA"/>
                                         <constraint firstItem="eMe-On-Ri0" firstAttribute="leading" secondItem="zwL-8n-Wld" secondAttribute="leading" constant="12" id="jMh-Y7-6Sb"/>
+                                        <constraint firstItem="loG-jc-9Uv" firstAttribute="top" secondItem="eMe-On-Ri0" secondAttribute="bottom" constant="8" id="jZJ-88-tcp"/>
+                                        <constraint firstAttribute="bottom" secondItem="loG-jc-9Uv" secondAttribute="bottom" constant="16" id="ka5-cB-j9N"/>
                                         <constraint firstItem="uxz-x2-ZKR" firstAttribute="leading" secondItem="zwL-8n-Wld" secondAttribute="leading" constant="16" id="kb5-e7-PQd"/>
+                                        <constraint firstItem="loG-jc-9Uv" firstAttribute="leading" secondItem="zwL-8n-Wld" secondAttribute="leading" constant="16" id="mXl-N7-pXT"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -140,16 +152,16 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-w3-mgw" userLabel="Statistics">
-                                    <rect key="frame" x="16" y="677.33333333333337" width="71" height="21"/>
+                                    <rect key="frame" x="16" y="441.66666666666669" width="71" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AZ-Ao-Uvh" userLabel="Statistics Card View" customClass="CardView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="714.33333333333337" width="398" height="166"/>
+                                    <rect key="frame" x="8" y="478.66666666666663" width="398" height="165.99999999999989"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNN-bI-bcr" userLabel="Total Workouts Value">
-                                            <rect key="frame" x="16" y="20" width="150" height="24"/>
+                                            <rect key="frame" x="16" y="20" width="150" height="23.999999999999943"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="80h-hb-Jg7"/>
                                             </constraints>
@@ -158,7 +170,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nW3-XJ-11e" userLabel="Total Workouts Label">
-                                            <rect key="frame" x="16" y="52" width="150" height="20"/>
+                                            <rect key="frame" x="16" y="51.999999999999943" width="150" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="kZp-3O-fle"/>
                                             </constraints>
@@ -167,7 +179,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RC-u1-Ipt" userLabel="Last 7 Days Value">
-                                            <rect key="frame" x="16" y="92" width="150" height="24"/>
+                                            <rect key="frame" x="16" y="91.999999999999943" width="150" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="vZ0-wg-R23"/>
                                             </constraints>
@@ -176,7 +188,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Last 7 Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-ZM-Cic" userLabel="Last 7 Days Label">
-                                            <rect key="frame" x="16" y="124" width="150" height="22"/>
+                                            <rect key="frame" x="16" y="123.99999999999994" width="150" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="i4E-JZ-9bO"/>
                                             </constraints>
@@ -185,7 +197,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWj-kA-sOP" userLabel="Last Workout Value">
-                                            <rect key="frame" x="240" y="20" width="150" height="24"/>
+                                            <rect key="frame" x="240" y="20" width="150" height="23.999999999999943"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="RTd-ec-Z7g"/>
                                             </constraints>
@@ -194,7 +206,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Last Workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpJ-X3-JmN" userLabel="Last Workout Label">
-                                            <rect key="frame" x="240" y="52" width="150" height="21"/>
+                                            <rect key="frame" x="240" y="51.999999999999943" width="150" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="5ND-x1-WpV"/>
                                             </constraints>
@@ -203,7 +215,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 Workouts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laB-5o-3OL" userLabel="Last 31 Days Value">
-                                            <rect key="frame" x="240" y="93" width="150" height="24"/>
+                                            <rect key="frame" x="240" y="92.999999999999943" width="150" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="8rm-7G-dH1"/>
                                             </constraints>
@@ -212,7 +224,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last 31 Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4F-NH-7J3" userLabel="Last 31 Days Label">
-                                            <rect key="frame" x="240" y="125" width="150" height="21"/>
+                                            <rect key="frame" x="240" y="124.99999999999994" width="150" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="bxr-Yx-qjF"/>
                                             </constraints>
@@ -299,7 +311,7 @@
                 <constraint firstAttribute="bottom" secondItem="QfC-K9-agd" secondAttribute="bottom" id="T4Z-C9-20w"/>
                 <constraint firstItem="1cb-Qr-CFz" firstAttribute="width" secondItem="d6c-cj-gOS" secondAttribute="width" id="T9r-pW-ppP"/>
             </constraints>
-            <point key="canvasLocation" x="-260.5" y="474.5"/>
+            <point key="canvasLocation" x="-261" y="474"/>
         </view>
     </objects>
 </document>
