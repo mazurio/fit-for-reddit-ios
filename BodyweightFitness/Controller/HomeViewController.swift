@@ -132,6 +132,10 @@ class HomeViewController: UIViewController {
             RoutineStream.sharedInstance.setRoutine("routine0")
         })
         
+        alertController.addAction(UIAlertAction(title: "Starting Stretching", style: .Default) { (action) in
+            RoutineStream.sharedInstance.setRoutine("d8a722a0-fae2-4e7e-a751-430348c659fe")
+        })
+        
         alertController.addAction(UIAlertAction(title: "Molding Mobility", style: .Default) { (action) in
             RoutineStream.sharedInstance.setRoutine("e73593f4-ee17-4b9b-912a-87fa3625f63d")
         })
