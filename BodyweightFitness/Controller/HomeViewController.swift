@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
                 target: self,
                 action: #selector(routine))
 
-        self.tabBarController?.title = "Bodyweight Fitness"
+        self.tabBarController?.title = RoutineStream.sharedInstance.routine.title
     }
 
     func renderWorkoutProgressView() {
