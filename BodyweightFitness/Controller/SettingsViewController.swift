@@ -74,6 +74,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setBool(false, forKey: "showRestTimer")
         }
+        
+        self.tableView.reloadData()
     }
     
     func showRestTimerAfterWarmup(sender: UISwitch) {
@@ -173,6 +175,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         return nil
     }
     
+    func restTimerEnabled() -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimer")
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
@@ -220,6 +226,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 cell.textLabel?.text = "Default Rest Time"
                 
+                if (!restTimerEnabled()) {
+                    cell.userInteractionEnabled = false
+                    cell.contentView.alpha = 0.5
+                } else {
+                    cell.userInteractionEnabled = true
+                    cell.contentView.alpha = 1.0
+                }
+                
                 return cell
             }
             
@@ -238,6 +252,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 toggle.addTarget(self, action: #selector(showRestTimerAfterWarmup), forControlEvents: UIControlEvents.ValueChanged)
                 
                 cell.accessoryView = toggle
+                
+                if (!restTimerEnabled()) {
+                    cell.userInteractionEnabled = false
+                    cell.contentView.alpha = 0.5
+                } else {
+                    cell.userInteractionEnabled = true
+                    cell.contentView.alpha = 1.0
+                }
                 
                 return cell
             }
@@ -258,6 +280,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 cell.accessoryView = toggle
                 
+                if (!restTimerEnabled()) {
+                    cell.userInteractionEnabled = false
+                    cell.contentView.alpha = 0.5
+                } else {
+                    cell.userInteractionEnabled = true
+                    cell.contentView.alpha = 1.0
+                }
+                
                 return cell
             }
             
@@ -276,6 +306,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 toggle.addTarget(self, action: #selector(showRestTimerAfterFlexibilityExercises), forControlEvents: UIControlEvents.ValueChanged)
                 
                 cell.accessoryView = toggle
+                
+                if (!restTimerEnabled()) {
+                    cell.userInteractionEnabled = false
+                    cell.contentView.alpha = 0.5
+                } else {
+                    cell.userInteractionEnabled = true
+                    cell.contentView.alpha = 1.0
+                }
                 
                 return cell
             }
