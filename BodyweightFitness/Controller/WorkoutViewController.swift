@@ -17,6 +17,8 @@ class WorkoutViewController: UIViewController {
     let timedViewController: TimedViewController = TimedViewController()
     let weightedViewController: WeightedViewController = WeightedViewController()
     
+    let userDefaults: UserDefaults = UserDefaults()
+    
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
     
     init() {
@@ -143,9 +145,37 @@ class WorkoutViewController: UIViewController {
     }
 
     func restTimerShouldStart() {
+        if userDefaults.showRestTimer() {
+            let routineId = RoutineStream.sharedInstance.routine.routineId
+            
+            if let section = current.section {
+                if (section.sectionId == "section0") {
+                    if userDefaults.showRestTimerAfterWarmup() {
+                        showRestTimer()
+                    }
+                } else if (section.sectionId == "section1") {
+                    if userDefaults.showRestTimerAfterBodylineDrills() {
+                        showRestTimer()
+                    }
+                } else {
+                    if (routineId != "routine0") {
+                        if userDefaults.showRestTimerAfterFlexibilityExercises() {
+                            showRestTimer()
+                        }
+                    } else {
+                        showRestTimer()
+                    }
+                }
+            } else {
+                showRestTimer()
+            }
+        }
+    }
+    
+    private func showRestTimer() {
         self.restTimerViewController.startTimer()
         self.restTimerViewController.view.hidden = false
-    
+        
         self.timedViewController.view.hidden = true
         self.weightedViewController.view.hidden = true
     }

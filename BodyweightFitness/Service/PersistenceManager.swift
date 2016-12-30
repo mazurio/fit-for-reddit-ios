@@ -4,6 +4,24 @@ public extension String {
     var NS: NSString { return (self as NSString) }
 }
 
+class UserDefaults {
+    func showRestTimer() -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimer")
+    }
+    
+    func showRestTimerAfterWarmup() -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterWarmup")
+    }
+    
+    func showRestTimerAfterBodylineDrills() -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterBodylineDrills")
+    }
+    
+    func showRestTimerAfterFlexibilityExercises() -> Bool {
+        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterFlexibilityExercises")
+    }
+}
+
 class PersistenceManager {
     class func getWeightUnit() -> String {
         let fileManager = NSFileManager.defaultManager()
