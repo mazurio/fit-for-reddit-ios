@@ -17,8 +17,8 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     var timer = NSTimer()
     var isPlaying = false
     
-    var seconds = 60
-    var defaultSeconds = 60
+    var seconds = PersistenceManager.getRestTime()
+    var defaultSeconds = PersistenceManager.getRestTime()
     
     init() {
         super.init(nibName: "RestTimerView", bundle: nil)
@@ -34,7 +34,7 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     
     func changeExercise(currentExercise: Exercise) {
         self.current = currentExercise
-        self.defaultSeconds = 60
+        self.defaultSeconds = PersistenceManager.getRestTime()
         
         if let _ = self.current.previous {
             self.previousButton.hidden = false
