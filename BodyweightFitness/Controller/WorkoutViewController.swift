@@ -301,13 +301,14 @@ class WorkoutViewController: UIViewController {
         }
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Watch Full Video", style: .Default) { (action) in
-  
+        
+        if self.current.youTubeId != "" {
+            alertController.addAction(UIAlertAction(title: "Watch Full Video", style: .Default) { (action) in
                 if let requestUrl = NSURL(string: "https://www.youtube.com/watch?v=" + self.current.youTubeId) {
                     UIApplication.sharedApplication().openURL(requestUrl)
                 }
-            
-        })
+            })
+        }
         
         alertController.addAction(UIAlertAction(title: "Today's Workout", style: .Default) { (action) in
             let backItem = UIBarButtonItem()
