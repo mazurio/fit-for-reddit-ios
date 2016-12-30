@@ -13,6 +13,7 @@ class WorkoutViewController: UIViewController {
     
     @IBOutlet weak var middleViewHeightConstraint: NSLayoutConstraint!
     
+    let restTimerViewController: RestTimerViewController = RestTimerViewController()
     let timedViewController: TimedViewController = TimedViewController()
     let weightedViewController: WeightedViewController = WeightedViewController()
     
@@ -29,13 +30,22 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.restTimerViewController.rootViewController = self
         self.timedViewController.rootViewController = self
         self.weightedViewController.rootViewController = self
+        
+        self.restTimerViewController.view.frame = self.topView.frame
+        self.restTimerViewController.willMoveToParentViewController(self)
+        self.addChildViewController(self.restTimerViewController)
+        self.topView.addSubview(self.restTimerViewController.view)
+        self.restTimerViewController.didMoveToParentViewController(self)
+        
         self.timedViewController.view.frame = self.topView.frame
         self.timedViewController.willMoveToParentViewController(self)
         self.addChildViewController(self.timedViewController)
         self.topView.addSubview(self.timedViewController.view)
         self.timedViewController.didMoveToParentViewController(self)
+        
         self.weightedViewController.view.frame = self.topView.frame
         self.weightedViewController.willMoveToParentViewController(self)
         self.addChildViewController(self.weightedViewController)
@@ -132,9 +142,31 @@ class WorkoutViewController: UIViewController {
         self.navigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
     }
 
+    func restTimerShouldStart() {
+        self.restTimerViewController.startTimer()
+        self.restTimerViewController.view.hidden = false
+    
+        self.timedViewController.view.hidden = true
+        self.weightedViewController.view.hidden = true
+    }
+    
+    func restTimerStopped() {
+        self.restTimerViewController.stopTimer()
+        self.restTimerViewController.view.hidden = true
+        
+        if current.isTimed() {
+            self.timedViewController.view.hidden = false
+            self.weightedViewController.view.hidden = true
+        } else {
+            self.timedViewController.view.hidden = true
+            self.weightedViewController.view.hidden = false
+        }
+    }
+    
     internal func changeExercise(currentExercise: Exercise, updateTitle: Bool = true) {
         self.current = currentExercise
         
+        self.restTimerViewController.changeExercise(currentExercise)
         self.timedViewController.changeExercise(currentExercise)
         self.weightedViewController.changeExercise(currentExercise)
         
@@ -150,12 +182,18 @@ class WorkoutViewController: UIViewController {
             }
         }
         
-        if current.isTimed() {
-            self.timedViewController.view.hidden = false
+        if self.restTimerViewController.isPlaying {
+            self.restTimerViewController.view.hidden = false
+            self.timedViewController.view.hidden = true
             self.weightedViewController.view.hidden = true
         } else {
-            self.timedViewController.view.hidden = true
-            self.weightedViewController.view.hidden = false
+            if current.isTimed() {
+                self.timedViewController.view.hidden = false
+                self.weightedViewController.view.hidden = true
+            } else {
+                self.timedViewController.view.hidden = true
+                self.weightedViewController.view.hidden = false
+            }
         }
 
         if (updateTitle) {
