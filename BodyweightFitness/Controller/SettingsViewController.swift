@@ -402,28 +402,36 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             
             alertController.addAction(UIAlertAction(title: "30 Seconds", style: .Default) { (action) in
-//                PersistenceManager.setWeightUnit("kg")
+                PersistenceManager.setRestTime(30)
                 
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
             alertController.addAction(UIAlertAction(title: "1 Minute", style: .Default) { (action) in
+                PersistenceManager.setRestTime(60)
+                
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
             alertController.addAction(UIAlertAction(title: "1 Minute 30 Seconds", style: .Default) { (action) in
+                PersistenceManager.setRestTime(90)
+                
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
             alertController.addAction(UIAlertAction(title: "2 Minutes", style: .Default) { (action) in
+                PersistenceManager.setRestTime(120)
+                
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
             alertController.addAction(UIAlertAction(title: "2 Minutes 30 Seconds", style: .Default) { (action) in
+                PersistenceManager.setRestTime(150)
+                
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 self.tableView.reloadData()
             })
