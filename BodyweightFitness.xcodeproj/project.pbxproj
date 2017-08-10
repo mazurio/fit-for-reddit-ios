@@ -170,6 +170,7 @@
 		73BF3BBF1CBF02D200E0258D /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BBE1CBF02D200E0258D /* Window.xib */; };
 		73BF3BC11CBF05ED00E0258D /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BC01CBF05ED00E0258D /* SnackBar.swift */; };
 		73BFEBC41CBBFA3900B9DDAE /* SupportDeveloperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */; };
+		73C328321F3C81D60076AF19 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */; };
 		73C8E4AF1C5A1D30005E0248 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */; };
 		73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */; };
 		73E8F4551E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73E8F4531E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 */; };
@@ -384,6 +385,7 @@
 		73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportDeveloperView.xib; sourceTree = "<group>"; };
 		73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
 		73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = molding_mobility_3_plane_neck_movement.mp4; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 				73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */,
 				73BADE141CC3DC26001ACEDC /* RateMyApp.swift */,
 				46B0245E7CE3B2A0776F290A /* GlobalFunctionsAndExtensions.swift */,
+				73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 				46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */,
 				46B02FDDA16C9D54DBC1A61D /* RepositoryStream.swift in Sources */,
 				46B0271B985965324463B90C /* RoutineStream.swift in Sources */,
+				73C328321F3C81D60076AF19 /* CAPSPageMenu.swift in Sources */,
 				46B02EA99E5A097D40018FFF /* GlobalFunctionsAndExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

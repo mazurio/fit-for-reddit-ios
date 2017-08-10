@@ -294,7 +294,6 @@ class WorkoutViewController: UIViewController {
             message: nil,
             preferredStyle: .actionSheet)
         
-//        alertController.popoverPresentationController
         alertController.modalPresentationStyle = .popover
         
         if let presenter = alertController.popoverPresentationController {
