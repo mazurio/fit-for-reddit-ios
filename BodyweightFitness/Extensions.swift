@@ -69,7 +69,7 @@ extension UIViewController {
             
         case .out:
             UIView.animate(withDuration: speed, animations: { () -> Void in
-                self.view.subviews.last?.alpha = alpha ?? 0
+                self.view.subviews.last?.alpha = alpha
                 }, completion: { (complete) -> Void in
                     self.view.subviews.last?.removeFromSuperview()
             })
@@ -106,7 +106,7 @@ extension UIViewController {
             
         case .out:
             UIView.animate(withDuration: speed, animations: { () -> Void in
-                self.view.subviews.last?.alpha = alpha ?? 0
+                self.view.subviews.last?.alpha = alpha
                 }, completion: { (complete) -> Void in
                     self.view.subviews.last?.removeFromSuperview()
             })

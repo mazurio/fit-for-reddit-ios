@@ -28,7 +28,7 @@ extension Date {
         let components = (calendar as NSCalendar).components(unitFlags, from: date, to: now, options: [])
 
         if components.year! >= 2 {
-            return "\(components.year) years ago"
+            return "\(components.year!) years ago"
         }
 
         if components.year! >= 1 {
@@ -36,7 +36,7 @@ extension Date {
         }
 
         if components.month! >= 2 {
-            return "\(components.month) months ago"
+            return "\(components.month!) months ago"
         }
 
         if components.month! >= 1 {
@@ -44,7 +44,7 @@ extension Date {
         }
 
         if components.weekOfYear! >= 2 {
-            return "\(components.weekOfYear) weeks ago"
+            return "\(components.weekOfYear!) weeks ago"
         }
 
         if components.weekOfYear! >= 1 {
@@ -52,7 +52,7 @@ extension Date {
         }
 
         if components.day! >= 2 {
-            return "\(components.day) days ago"
+            return "\(components.day!) days ago"
         }
 
         if components.day! >= 1 {
@@ -60,7 +60,7 @@ extension Date {
         }
 
         if components.hour! >= 2 {
-            return "\(components.hour) hours ago"
+            return "\(components.hour!) hours ago"
         }
 
         if components.hour! >= 1 {
@@ -68,7 +68,7 @@ extension Date {
         }
 
         if components.minute! >= 2 {
-            return "\(components.minute) minutes ago"
+            return "\(components.minute!) minutes ago"
         }
 
         if components.minute! >= 1 {
@@ -76,7 +76,7 @@ extension Date {
         }
 
         if components.second! >= 3 {
-            return "\(components.second) seconds ago"
+            return "\(components.second!) seconds ago"
         }
 
         return "Just now"
@@ -184,7 +184,7 @@ final class RepositoryStream {
             endOfDay! as CVarArg
         )
         
-        return getRealm().objects(RepositoryRoutine).filter(predicate)
+        return getRealm().objects(RepositoryRoutine.self).filter(predicate)
     }
     
     func buildRoutine(_ routine: Routine) -> RepositoryRoutine {

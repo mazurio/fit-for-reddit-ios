@@ -68,7 +68,6 @@
 		73595FB41E13297500E625D0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738B96C51D761BB1009A8625 /* RxCocoa.framework */; };
 		73595FB51E13297500E625D0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738B96C61D761BB1009A8625 /* RxSwift.framework */; };
 		73595FB61E13297500E625D0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */; };
-		73595FC31E132E1300E625D0 /* PageMenuFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732BA01E1C5ADC1200C1CDB5 /* PageMenuFramework.framework */; };
 		735BEA0A1CBD1F38003616C5 /* SideViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */; };
 		735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */; };
 		7366D8D11C4EE9CC00819790 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */; };
@@ -230,7 +229,6 @@
 		46B02F2362EA8A9111571B02 /* RepositoryStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryStream.swift; sourceTree = "<group>"; };
 		7329B68B1D0D8476005F5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7329B68D1D0D84E4005F5F74 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
-		732BA01E1C5ADC1200C1CDB5 /* PageMenuFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PageMenuFramework.framework; path = Carthage/Build/iOS/PageMenuFramework.framework; sourceTree = "<group>"; };
 		732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressPageViewController.xib; sourceTree = "<group>"; };
 		732BA0251C5AE8EF00C1CDB5 /* ProgressCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressCardCell.xib; sourceTree = "<group>"; };
 		732BA0271C5AE8F900C1CDB5 /* ProgressSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSectionCell.xib; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 				73595FB31E13297500E625D0 /* RxBlocking.framework in Frameworks */,
 				73595FB41E13297500E625D0 /* RxCocoa.framework in Frameworks */,
 				73595FB51E13297500E625D0 /* RxSwift.framework in Frameworks */,
-				73595FC31E132E1300E625D0 /* PageMenuFramework.framework in Frameworks */,
 				73595FB61E13297500E625D0 /* SwiftyJSON.framework in Frameworks */,
 				7366D8ED1C52943D00819790 /* StoreKit.framework in Frameworks */,
 				730EB7AD1DA9A75E00541250 /* Fabric.framework in Frameworks */,
@@ -707,7 +704,6 @@
 				738B96C61D761BB1009A8625 /* RxSwift.framework */,
 				73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */,
 				73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */,
-				732BA01E1C5ADC1200C1CDB5 /* PageMenuFramework.framework */,
 				7366D8EC1C52943D00819790 /* StoreKit.framework */,
 				734B6FE71C4BE84600CFB6BD /* Realm.framework */,
 				734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */,
@@ -806,7 +802,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Damian Mazurkiewicz";
 				TargetAttributes = {
 					2BD2CA821B458FFD00841AB7 = {
@@ -1013,7 +1009,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PageMenuFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
@@ -1118,8 +1113,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Damian Mazurkiewicz (2HYG5VX9N6)";
@@ -1130,6 +1127,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1166,8 +1164,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Damian Mazurkiewicz (32UU4L8Z8S)";
@@ -1178,6 +1178,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1189,6 +1190,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
