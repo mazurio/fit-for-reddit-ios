@@ -29,8 +29,8 @@ class SettingsTextCell: UITableViewCell {
 }
 
 extension UIViewController {
-    func registerNib(tableView: UITableView, nibName: String) {
-        tableView.registerNib(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: nibName)
+    func registerNib(_ tableView: UITableView, nibName: String) {
+        tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: nibName)
     }
 }
 
@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.dataSource = self
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
@@ -66,76 +66,76 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tabBarController?.title = "Settings"
     }
 
-    func showRestTimer(sender: UISwitch) {
-        if sender.on {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "showRestTimer")
+    func showRestTimer(_ sender: UISwitch) {
+        if sender.isOn {
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(true, forKey: "showRestTimer")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "showRestTimer")
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(false, forKey: "showRestTimer")
         }
         
         self.tableView.reloadData()
     }
     
-    func showRestTimerAfterWarmup(sender: UISwitch) {
-        if sender.on {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "showRestTimerAfterWarmup")
+    func showRestTimerAfterWarmup(_ sender: UISwitch) {
+        if sender.isOn {
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(true, forKey: "showRestTimerAfterWarmup")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "showRestTimerAfterWarmup")
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(false, forKey: "showRestTimerAfterWarmup")
         }
     }
     
-    func showRestTimerAfterBodylineDrills(sender: UISwitch) {
-        if sender.on {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "showRestTimerAfterBodylineDrills")
+    func showRestTimerAfterBodylineDrills(_ sender: UISwitch) {
+        if sender.isOn {
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(true, forKey: "showRestTimerAfterBodylineDrills")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "showRestTimerAfterBodylineDrills")
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(false, forKey: "showRestTimerAfterBodylineDrills")
         }
     }
     
-    func showRestTimerAfterFlexibilityExercises(sender: UISwitch) {
-        if sender.on {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "showRestTimerAfterFlexibilityExercises")
+    func showRestTimerAfterFlexibilityExercises(_ sender: UISwitch) {
+        if sender.isOn {
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(true, forKey: "showRestTimerAfterFlexibilityExercises")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "showRestTimerAfterFlexibilityExercises")
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(false, forKey: "showRestTimerAfterFlexibilityExercises")
         }
     }
     
-    func playAudioWhenTimerStops(sender: UISwitch) {
-        if sender.on {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(true, forKey: "playAudioWhenTimerStops")
+    func playAudioWhenTimerStops(_ sender: UISwitch) {
+        if sender.isOn {
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(true, forKey: "playAudioWhenTimerStops")
         } else {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(false, forKey: "playAudioWhenTimerStops")
+            let defaults = Foundation.UserDefaults.standard
+            defaults.set(false, forKey: "playAudioWhenTimerStops")
         }
     }
 
-    func openStoreProductWithiTunesItemIdentifier(identifier: String) {
+    func openStoreProductWithiTunesItemIdentifier(_ identifier: String) {
         let storeViewController = SKStoreProductViewController()
         storeViewController.delegate = self
 
         let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
-        storeViewController.loadProductWithParameters(parameters) { [weak self] (loaded, error) -> Void in
+        storeViewController.loadProduct(withParameters: parameters) { [weak self] (loaded, error) -> Void in
             if loaded {
                 // Parent class of self is UIViewContorller
-                self?.presentViewController(storeViewController, animated: true, completion: nil)
+                self?.present(storeViewController, animated: true, completion: nil)
             }
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 1) {
             return 5
         }
@@ -146,7 +146,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         return 1
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return "General"
@@ -167,7 +167,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0 {
             return "Any music playing in the background will automatically resume."
         }
@@ -176,24 +176,24 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func restTimerEnabled() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimer")
+        return Foundation.UserDefaults.standard.bool(forKey: "showRestTimer")
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleCell", for: indexPath) as! SettingsToggleCell
             let toggle = UISwitch()
             
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Play Audio"
                 cell.detailTextLabel?.text = "Play audio when timer stops"
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if (defaults.objectForKey("playAudioWhenTimerStops") != nil) {
-                    toggle.on = defaults.boolForKey("playAudioWhenTimerStops")
+                let defaults = Foundation.UserDefaults.standard
+                if (defaults.object(forKey: "playAudioWhenTimerStops") != nil) {
+                    toggle.isOn = defaults.bool(forKey: "playAudioWhenTimerStops")
                 }
                 
-                toggle.addTarget(self, action: #selector(playAudioWhenTimerStops), forControlEvents: UIControlEvents.ValueChanged)
+                toggle.addTarget(self, action: #selector(playAudioWhenTimerStops), for: UIControlEvents.valueChanged)
             }
             
             cell.accessoryView = toggle
@@ -203,18 +203,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleCell", for: indexPath) as! SettingsToggleCell
                 let toggle = UISwitch()
                 
                 cell.textLabel?.text = "Show rest timer"
                 cell.detailTextLabel?.text = "Shows rest timer after logging any exercise"
                     
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if (defaults.objectForKey("showRestTimer") != nil) {
-                    toggle.on = defaults.boolForKey("showRestTimer")
+                let defaults = Foundation.UserDefaults.standard
+                if (defaults.object(forKey: "showRestTimer") != nil) {
+                    toggle.isOn = defaults.bool(forKey: "showRestTimer")
                 }
                 
-                toggle.addTarget(self, action: #selector(showRestTimer), forControlEvents: UIControlEvents.ValueChanged)
+                toggle.addTarget(self, action: #selector(showRestTimer), for: UIControlEvents.valueChanged)
                 
                 cell.accessoryView = toggle
                 
@@ -222,42 +222,42 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
                 
-                cell.textLabel?.text = "Default Rest Time"
+                cell?.textLabel?.text = "Default Rest Time"
                 
                 if (!restTimerEnabled()) {
-                    cell.userInteractionEnabled = false
-                    cell.contentView.alpha = 0.5
+                    cell?.isUserInteractionEnabled = false
+                    cell?.contentView.alpha = 0.5
                 } else {
-                    cell.userInteractionEnabled = true
-                    cell.contentView.alpha = 1.0
+                    cell?.isUserInteractionEnabled = true
+                    cell?.contentView.alpha = 1.0
                 }
                 
-                return cell
+                return cell!
             }
             
             if indexPath.row == 2 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleCell", for: indexPath) as! SettingsToggleCell
                 let toggle = UISwitch()
                 
                 cell.textLabel?.text = "Show rest timer after Warmup"
                 cell.detailTextLabel?.text = "Bodyweight Fitness - Warmup"
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if (defaults.objectForKey("showRestTimerAfterWarmup") != nil) {
-                    toggle.on = defaults.boolForKey("showRestTimerAfterWarmup")
+                let defaults = Foundation.UserDefaults.standard
+                if (defaults.object(forKey: "showRestTimerAfterWarmup") != nil) {
+                    toggle.isOn = defaults.bool(forKey: "showRestTimerAfterWarmup")
                 }
                 
-                toggle.addTarget(self, action: #selector(showRestTimerAfterWarmup), forControlEvents: UIControlEvents.ValueChanged)
+                toggle.addTarget(self, action: #selector(showRestTimerAfterWarmup), for: UIControlEvents.valueChanged)
                 
                 cell.accessoryView = toggle
                 
                 if (!restTimerEnabled()) {
-                    cell.userInteractionEnabled = false
+                    cell.isUserInteractionEnabled = false
                     cell.contentView.alpha = 0.5
                 } else {
-                    cell.userInteractionEnabled = true
+                    cell.isUserInteractionEnabled = true
                     cell.contentView.alpha = 1.0
                 }
                 
@@ -265,26 +265,26 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             if indexPath.row == 3 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleCell", for: indexPath) as! SettingsToggleCell
                 let toggle = UISwitch()
                 
                 cell.textLabel?.text = "Show rest timer after Bodyline Drills"
                 cell.detailTextLabel?.text = "Bodyweight Fitness - Bodyline Drills"
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if (defaults.objectForKey("showRestTimerAfterBodylineDrills") != nil) {
-                    toggle.on = defaults.boolForKey("showRestTimerAfterBodylineDrills")
+                let defaults = Foundation.UserDefaults.standard
+                if (defaults.object(forKey: "showRestTimerAfterBodylineDrills") != nil) {
+                    toggle.isOn = defaults.bool(forKey: "showRestTimerAfterBodylineDrills")
                 }
                 
-                toggle.addTarget(self, action: #selector(showRestTimerAfterBodylineDrills), forControlEvents: UIControlEvents.ValueChanged)
+                toggle.addTarget(self, action: #selector(showRestTimerAfterBodylineDrills), for: UIControlEvents.valueChanged)
                 
                 cell.accessoryView = toggle
                 
                 if (!restTimerEnabled()) {
-                    cell.userInteractionEnabled = false
+                    cell.isUserInteractionEnabled = false
                     cell.contentView.alpha = 0.5
                 } else {
-                    cell.userInteractionEnabled = true
+                    cell.isUserInteractionEnabled = true
                     cell.contentView.alpha = 1.0
                 }
                 
@@ -292,26 +292,26 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             if indexPath.row == 4 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsToggleCell", forIndexPath: indexPath) as! SettingsToggleCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsToggleCell", for: indexPath) as! SettingsToggleCell
                 let toggle = UISwitch()
                 
                 cell.textLabel?.text = "Show rest timer after Flexibility Exercises"
                 cell.detailTextLabel?.text = "Starting Stretching and Molding Mobility"
                 
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if (defaults.objectForKey("showRestTimerAfterFlexibilityExercises") != nil) {
-                    toggle.on = defaults.boolForKey("showRestTimerAfterFlexibilityExercises")
+                let defaults = Foundation.UserDefaults.standard
+                if (defaults.object(forKey: "showRestTimerAfterFlexibilityExercises") != nil) {
+                    toggle.isOn = defaults.bool(forKey: "showRestTimerAfterFlexibilityExercises")
                 }
                 
-                toggle.addTarget(self, action: #selector(showRestTimerAfterFlexibilityExercises), forControlEvents: UIControlEvents.ValueChanged)
+                toggle.addTarget(self, action: #selector(showRestTimerAfterFlexibilityExercises), for: UIControlEvents.valueChanged)
                 
                 cell.accessoryView = toggle
                 
                 if (!restTimerEnabled()) {
-                    cell.userInteractionEnabled = false
+                    cell.isUserInteractionEnabled = false
                     cell.contentView.alpha = 0.5
                 } else {
-                    cell.userInteractionEnabled = true
+                    cell.isUserInteractionEnabled = true
                     cell.contentView.alpha = 1.0
                 }
                 
@@ -320,182 +320,182 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
             
             if PersistenceManager.getWeightUnit() == "lbs" {
-                cell.textLabel?.text = "Pounds (lbs)"
+                cell?.textLabel?.text = "Pounds (lbs)"
             } else {
-                cell.textLabel?.text = "Kilograms (kg)"
+                cell?.textLabel?.text = "Kilograms (kg)"
             }
             
-            return cell
+            return cell!
         }
         
         if indexPath.section == 3 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionSubtitleCell", forIndexPath: indexPath) as UITableViewCell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionSubtitleCell", for: indexPath) as UITableViewCell!
             
-            cell.textLabel?.text = "Damian Mazurkiewicz"
-            cell.detailTextLabel?.text = "github.com/mazurio"
+            cell?.textLabel?.text = "Damian Mazurkiewicz"
+            cell?.detailTextLabel?.text = "github.com/mazurio"
             
-            return cell
+            return cell!
         }
 
         if indexPath.section == 4 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionSubtitleCell", forIndexPath: indexPath) as UITableViewCell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionSubtitleCell", for: indexPath) as UITableViewCell!
 
-                cell.textLabel?.text = "Ruben Dantuma"
-                cell.detailTextLabel?.text = "Logo Design"
+                cell?.textLabel?.text = "Ruben Dantuma"
+                cell?.detailTextLabel?.text = "Logo Design"
 
-                return cell
+                return cell!
             }
         }
         
         if indexPath.section == 5 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
                 
-                cell.textLabel?.text = "Rate the app in iTunes Store"
+                cell?.textLabel?.text = "Rate the app in iTunes Store"
                 
-                return cell
+                return cell!
             }
 
             if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
 
-                cell.textLabel?.text = "Frequently Asked Questions"
+                cell?.textLabel?.text = "Frequently Asked Questions"
 
-                return cell
+                return cell!
             }
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("SettingsTextCell", forIndexPath: indexPath) as UITableViewCell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTextCell", for: indexPath) as UITableViewCell!
         
-        if let anyObject = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] {
+        if let anyObject = Bundle.main.infoDictionary?["CFBundleShortVersionString"] {
             if let version: String = anyObject as? String {
-                cell.textLabel?.text = "Bodyweight Fitness"
-                cell.detailTextLabel?.text = version
+                cell?.textLabel?.text = "Bodyweight Fitness"
+                cell?.detailTextLabel?.text = version
             }
         } else {
-            cell.textLabel?.text = "Bodyweight Fitness"
+            cell?.textLabel?.text = "Bodyweight Fitness"
         }
         
-        return cell
+        return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
             
             let alertController = UIAlertController(
                 title: nil,
                 message: nil,
-                preferredStyle: .ActionSheet)
+                preferredStyle: .actionSheet)
             
-            alertController.modalPresentationStyle = .Popover
+            alertController.modalPresentationStyle = .popover
             
             if let presenter = alertController.popoverPresentationController {
                 presenter.sourceView = cell;
-                presenter.sourceRect = cell.bounds;
+                presenter.sourceRect = (cell?.bounds)!;
             }
             
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
-            alertController.addAction(UIAlertAction(title: "30 Seconds", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "30 Seconds", style: .default) { (action) in
                 PersistenceManager.setRestTime(30)
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            alertController.addAction(UIAlertAction(title: "1 Minute", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "1 Minute", style: .default) { (action) in
                 PersistenceManager.setRestTime(60)
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            alertController.addAction(UIAlertAction(title: "1 Minute 30 Seconds", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "1 Minute 30 Seconds", style: .default) { (action) in
                 PersistenceManager.setRestTime(90)
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            alertController.addAction(UIAlertAction(title: "2 Minutes", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "2 Minutes", style: .default) { (action) in
                 PersistenceManager.setRestTime(120)
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            alertController.addAction(UIAlertAction(title: "2 Minutes 30 Seconds", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "2 Minutes 30 Seconds", style: .default) { (action) in
                 PersistenceManager.setRestTime(150)
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
         
         if indexPath.section == 2 && indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingsActionCell", forIndexPath: indexPath) as UITableViewCell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsActionCell", for: indexPath) as UITableViewCell!
             
             if PersistenceManager.getWeightUnit() == "lbs" {
-                cell.textLabel?.text = "Pounds (lbs)"
+                cell?.textLabel?.text = "Pounds (lbs)"
             } else {
-                cell.textLabel?.text = "Kilograms (kg)"
+                cell?.textLabel?.text = "Kilograms (kg)"
             }
             
             let alertController = UIAlertController(
                 title: nil,
                 message: nil,
-                preferredStyle: .ActionSheet)
+                preferredStyle: .actionSheet)
             
-            alertController.modalPresentationStyle = .Popover
+            alertController.modalPresentationStyle = .popover
             
             if let presenter = alertController.popoverPresentationController {
                 presenter.sourceView = cell;
-                presenter.sourceRect = cell.bounds;
+                presenter.sourceRect = (cell?.bounds)!;
             }
             
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
-            alertController.addAction(UIAlertAction(title: "Kilograms (kg)", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "Kilograms (kg)", style: .default) { (action) in
                 PersistenceManager.setWeightUnit("kg")
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            alertController.addAction(UIAlertAction(title: "Pounds (lbs)", style: .Default) { (action) in
+            alertController.addAction(UIAlertAction(title: "Pounds (lbs)", style: .default) { (action) in
                 PersistenceManager.setWeightUnit("lbs")
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
                 self.tableView.reloadData()
             })
             
-            self.presentViewController(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
         }
 
         if indexPath.section == 3 {
             if indexPath.row == 0 {
-                if let requestUrl = NSURL(string: "https://www.github.com/mazurio") {
-                    UIApplication.sharedApplication().openURL(requestUrl)
+                if let requestUrl = URL(string: "https://www.github.com/mazurio") {
+                    UIApplication.shared.openURL(requestUrl)
                 }
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
             }
         }
 
         if indexPath.section == 4 {
             if indexPath.row == 0 {
-                if let requestUrl = NSURL(string: "http://dantuma.co.za") {
-                    UIApplication.sharedApplication().openURL(requestUrl)
+                if let requestUrl = URL(string: "http://dantuma.co.za") {
+                    UIApplication.shared.openURL(requestUrl)
                 }
 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
             }
         }
 
@@ -503,22 +503,22 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             if indexPath.row == 0 {
                 self.openStoreProductWithiTunesItemIdentifier("1018863605")
                 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
             }
 
             if indexPath.row == 1 {
-                if let requestUrl = NSURL(string: "http://www.reddit.com/r/bodyweightfitness/wiki/faq") {
-                    UIApplication.sharedApplication().openURL(requestUrl)
+                if let requestUrl = URL(string: "http://www.reddit.com/r/bodyweightfitness/wiki/faq") {
+                    UIApplication.shared.openURL(requestUrl)
                 }
 
-                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                self.tableView.deselectRow(at: indexPath, animated: true)
             }
         }
         
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-        viewController.dismissViewControllerAnimated(true, completion: nil)
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

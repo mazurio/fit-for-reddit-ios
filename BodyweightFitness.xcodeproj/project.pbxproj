@@ -7,20 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46B020A6940D5C36E142CDC6 /* JTAppleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02EF894232CD71B4F1352 /* JTAppleCollectionReusableView.swift */; };
 		46B021B6A56C2000CA08000B /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */; };
-		46B025EA7291A0DA0B274075 /* JTAppleDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02DB9A207D649D56E092E /* JTAppleDayCell.swift */; };
-		46B0266269F9AF2987F8DD20 /* JTAppleCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02F1180EE611DCE533929 /* JTAppleCalendarView.swift */; };
 		46B0271B985965324463B90C /* RoutineStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */; };
 		46B02780EEC08B16FB384A4F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B020C26FAF7645B926FA26 /* CardView.swift */; };
 		46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */; };
-		46B0290B4EED9DF65564DD88 /* JTAppleCalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02BC870713DC61E50B197 /* JTAppleCalendarLayout.swift */; };
-		46B02A11EF8A9D966F52363C /* JTCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B0214B21F48BB91551C084 /* JTCalendarProtocols.swift */; };
-		46B02B4715E0F3EF8FF40542 /* UserInteractionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B023E34B0C1F6EE72EA4B5 /* UserInteractionFunctions.swift */; };
 		46B02BB2537A1F6A3B5768B8 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B023EDCEC03B772C0541C3 /* CellView.xib */; };
 		46B02EA99E5A097D40018FFF /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B0245E7CE3B2A0776F290A /* GlobalFunctionsAndExtensions.swift */; };
-		46B02EEF7C74B371B7BE5BE3 /* JTAppleCalendarDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02E5E9D8DD1144AF71EC1 /* JTAppleCalendarDelegates.swift */; };
-		46B02F273A691452E7174C82 /* JTAppleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B023C58BF2F7C63BA5051F /* JTAppleViews.swift */; };
 		46B02FDDA16C9D54DBC1A61D /* RepositoryStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02F2362EA8A9111571B02 /* RepositoryStream.swift */; };
 		730EB7AD1DA9A75E00541250 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */; };
 		730EB7AE1DA9A75E00541250 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */; };
@@ -42,6 +34,7 @@
 		732CDDF11D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */; };
 		732CDDF21D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDED1D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 */; };
 		732CDDF31D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */; };
+		733281DD1F1626FF00792002 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733281DC1F1626FF00792002 /* JTAppleCalendar.framework */; };
 		73374A8E1E167A6300EBC47B /* RestTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */; };
 		73374A901E167AEF00EBC47B /* RestTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73374A8F1E167AEF00EBC47B /* RestTimerView.xib */; };
 		734132E51E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json in Resources */ = {isa = PBXBuildFile; fileRef = 734132E41E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json */; };
@@ -229,19 +222,11 @@
 /* Begin PBXFileReference section */
 		2BD2CA831B458FFD00841AB7 /* Bodyweight Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bodyweight Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B020C26FAF7645B926FA26 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		46B0214B21F48BB91551C084 /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = BodyweightFitness/Vendor/JTCalendarProtocols.swift; sourceTree = "<group>"; };
 		46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		46B023C58BF2F7C63BA5051F /* JTAppleViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleViews.swift; path = BodyweightFitness/Vendor/JTAppleViews.swift; sourceTree = "<group>"; };
-		46B023E34B0C1F6EE72EA4B5 /* UserInteractionFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInteractionFunctions.swift; path = BodyweightFitness/Vendor/UserInteractionFunctions.swift; sourceTree = "<group>"; };
 		46B023EDCEC03B772C0541C3 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		46B0245E7CE3B2A0776F290A /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = BodyweightFitness/Vendor/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
 		46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
 		46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineStream.swift; sourceTree = "<group>"; };
-		46B02BC870713DC61E50B197 /* JTAppleCalendarLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayout.swift; path = BodyweightFitness/Vendor/JTAppleCalendarLayout.swift; sourceTree = "<group>"; };
-		46B02DB9A207D649D56E092E /* JTAppleDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleDayCell.swift; path = BodyweightFitness/Vendor/JTAppleDayCell.swift; sourceTree = "<group>"; };
-		46B02E5E9D8DD1144AF71EC1 /* JTAppleCalendarDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegates.swift; path = BodyweightFitness/Vendor/JTAppleCalendarDelegates.swift; sourceTree = "<group>"; };
-		46B02EF894232CD71B4F1352 /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = BodyweightFitness/Vendor/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
-		46B02F1180EE611DCE533929 /* JTAppleCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarView.swift; path = BodyweightFitness/Vendor/JTAppleCalendarView.swift; sourceTree = "<group>"; };
 		46B02F2362EA8A9111571B02 /* RepositoryStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryStream.swift; sourceTree = "<group>"; };
 		7329B68B1D0D8476005F5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7329B68D1D0D84E4005F5F74 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
@@ -262,6 +247,7 @@
 		732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_one_leg_foot_supported_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDED1D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_tuck_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_wrist_mobility.mp4; sourceTree = "<group>"; };
+		733281DC1F1626FF00792002 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTimerViewController.swift; sourceTree = "<group>"; };
 		73374A8F1E167AEF00EBC47B /* RestTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestTimerView.xib; sourceTree = "<group>"; };
 		734132E41E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starting_stretching_flexibility_routine.json; sourceTree = "<group>"; };
@@ -423,6 +409,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733281DD1F1626FF00792002 /* JTAppleCalendar.framework in Frameworks */,
 				73595FB11E13297500E625D0 /* Realm.framework in Frameworks */,
 				73595FB21E13297500E625D0 /* RealmSwift.framework in Frameworks */,
 				73595FB31E13297500E625D0 /* RxBlocking.framework in Frameworks */,
@@ -714,6 +701,7 @@
 		E00242FB1B4F1CFD0003A230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				733281DC1F1626FF00792002 /* JTAppleCalendar.framework */,
 				738B96C41D761BB1009A8625 /* RxBlocking.framework */,
 				738B96C51D761BB1009A8625 /* RxCocoa.framework */,
 				738B96C61D761BB1009A8625 /* RxSwift.framework */,
@@ -725,14 +713,6 @@
 				734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */,
 				73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */,
 				73BADE141CC3DC26001ACEDC /* RateMyApp.swift */,
-				46B023E34B0C1F6EE72EA4B5 /* UserInteractionFunctions.swift */,
-				46B0214B21F48BB91551C084 /* JTCalendarProtocols.swift */,
-				46B023C58BF2F7C63BA5051F /* JTAppleViews.swift */,
-				46B02DB9A207D649D56E092E /* JTAppleDayCell.swift */,
-				46B02EF894232CD71B4F1352 /* JTAppleCollectionReusableView.swift */,
-				46B02F1180EE611DCE533929 /* JTAppleCalendarView.swift */,
-				46B02BC870713DC61E50B197 /* JTAppleCalendarLayout.swift */,
-				46B02E5E9D8DD1144AF71EC1 /* JTAppleCalendarDelegates.swift */,
 				46B0245E7CE3B2A0776F290A /* GlobalFunctionsAndExtensions.swift */,
 			);
 			name = Frameworks;
@@ -832,7 +812,7 @@
 					2BD2CA821B458FFD00841AB7 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 32UU4L8Z8S;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
@@ -842,7 +822,7 @@
 					};
 					73BADE6A1CC78356001ACEDC = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 2BD2CA821B458FFD00841AB7;
 					};
 				};
@@ -1037,6 +1017,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
 			);
 			outputPaths = (
 			);
@@ -1089,14 +1070,6 @@
 				46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */,
 				46B02FDDA16C9D54DBC1A61D /* RepositoryStream.swift in Sources */,
 				46B0271B985965324463B90C /* RoutineStream.swift in Sources */,
-				46B02B4715E0F3EF8FF40542 /* UserInteractionFunctions.swift in Sources */,
-				46B02A11EF8A9D966F52363C /* JTCalendarProtocols.swift in Sources */,
-				46B02F273A691452E7174C82 /* JTAppleViews.swift in Sources */,
-				46B025EA7291A0DA0B274075 /* JTAppleDayCell.swift in Sources */,
-				46B020A6940D5C36E142CDC6 /* JTAppleCollectionReusableView.swift in Sources */,
-				46B0266269F9AF2987F8DD20 /* JTAppleCalendarView.swift in Sources */,
-				46B0290B4EED9DF65564DD88 /* JTAppleCalendarLayout.swift in Sources */,
-				46B02EEF7C74B371B7BE5BE3 /* JTAppleCalendarDelegates.swift in Sources */,
 				46B02EA99E5A097D40018FFF /* GlobalFunctionsAndExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1246,7 +1219,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1275,7 +1248,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1295,7 +1268,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.mazur.BodyweightFitnessTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(inherited)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bodyweight Fitness.app/Bodyweight Fitness";
 			};
 			name = Debug;
@@ -1314,7 +1287,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mazur.BodyweightFitnessTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bodyweight Fitness.app/Bodyweight Fitness";
 			};
 			name = Release;

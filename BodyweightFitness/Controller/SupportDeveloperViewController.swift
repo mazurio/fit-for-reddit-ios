@@ -4,18 +4,18 @@ import Crashlytics
 
 extension SKProduct {
     func localizedPrice() -> String {
-        let formatter = NSNumberFormatter()
+        let formatter = NumberFormatter()
         
-        formatter.numberStyle = .CurrencyStyle
+        formatter.numberStyle = .currency
         formatter.locale = self.priceLocale
         
-        return formatter.stringFromNumber(self.price)!
+        return formatter.string(from: self.price)!
     }
     
     func currency() -> String {
-        let formatter = NSNumberFormatter()
+        let formatter = NumberFormatter()
         
-        formatter.numberStyle = .CurrencyStyle
+        formatter.numberStyle = .currency
         formatter.locale = self.priceLocale
         
         return formatter.internationalCurrencySymbol
@@ -45,7 +45,7 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
         self.tabBarController?.title = "Support Developer"
         
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.default().add(self)
         
         self.getProductInfo()
     }
@@ -60,38 +60,38 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
         } else {
             self.showAlert()
             
-            self.buyButton.enabled = false
-            self.restorePurchasesButton.hidden = true
+            self.buyButton.isEnabled = false
+            self.restorePurchasesButton.isHidden = true
         }
     }
     
-    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         var products = response.products
         
         if (products.count != 0) {
             product = products[0]
 
             if let product = product {
-                buyButton.setTitle("Buy \(product.localizedPrice())", forState: .Normal)
+                buyButton.setTitle("Buy \(product.localizedPrice())", for: UIControlState())
             }
             
-            self.buyButton.enabled = true
-            self.restorePurchasesButton.hidden = false
+            self.buyButton.isEnabled = true
+            self.restorePurchasesButton.isHidden = false
         } else {
-            self.buyButton.enabled = false
-            self.restorePurchasesButton.hidden = true
+            self.buyButton.isEnabled = false
+            self.restorePurchasesButton.isHidden = true
         }
     }
 
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
-            case .Purchased:
+            case .purchased:
                 self.purchased()
                 
                 if let product = product {
-                    Answers.logPurchaseWithPrice(
-                        product.price,
+                    Answers.logPurchase(
+                        withPrice: product.price,
                         currency: product.currency(),
                         success: true,
                         itemName: "Bodyweight Fitness Gold",
@@ -100,13 +100,13 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
                         customAttributes: nil)
                 }
                 
-                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
-            case .Restored:
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .restored:
                 self.purchased()
                 
-                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
-            case .Failed:
-                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .failed:
+                SKPaymentQueue.default().finishTransaction(transaction)
             default:
                 break
             }
@@ -114,34 +114,34 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
     }
     
     func purchased() {
-        self.buyButton.setTitle("Purchased, thank you!", forState: .Normal)
-        self.buyButton.enabled = false
+        self.buyButton.setTitle("Purchased, thank you!", for: UIControlState())
+        self.buyButton.isEnabled = false
         
-        self.restorePurchasesButton.hidden = true
+        self.restorePurchasesButton.isHidden = true
     }
     
     func showAlert() {
         let alertController = UIAlertController(
             title: "IAP Disabled",
             message: "Please enable In App Purchases in Settings",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func buyProduct(sender: AnyObject) {
+    @IBAction func buyProduct(_ sender: AnyObject) {
         if let product = product {
             let payment = SKPayment(product: product)
             
-            SKPaymentQueue.defaultQueue().addPayment(payment)
+            SKPaymentQueue.default().add(payment)
         }
     }
     
-    @IBAction func restorePurchases(sender: AnyObject) {
+    @IBAction func restorePurchases(_ sender: AnyObject) {
         if SKPaymentQueue.canMakePayments() {
-            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            SKPaymentQueue.default().restoreCompletedTransactions()
         } else {
             self.showAlert()
         }

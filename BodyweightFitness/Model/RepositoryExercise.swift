@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 
 class RepositoryExercise: Object {
-    dynamic var id = "Exercise-" + NSUUID().UUIDString
+    dynamic var id = "Exercise-" + UUID().uuidString
     dynamic var exerciseId = ""
     dynamic var title = ""
     dynamic var desc = ""

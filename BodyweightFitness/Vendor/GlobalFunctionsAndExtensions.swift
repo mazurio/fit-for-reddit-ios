@@ -8,43 +8,53 @@
 
 import UIKit
 
-func delayRunOnMainThread(delay:Double, closure:()->()) {
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ),
-        dispatch_get_main_queue(), closure)
-}
-
-func delayRunOnGlobalThread(delay:Double, qos: qos_class_t,closure:()->()) {
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ), dispatch_get_global_queue(qos, 0), closure)
-}
-
-/// NSDates can be compared with the == and != operators
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs === rhs || lhs.compare(rhs) == .OrderedSame
-}
-/// NSDates can be compared with the > and < operators
-public func <(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
-}
-
-extension NSDate: Comparable { }
-extension NSDate {
-    class func startOfMonthForDate(date: NSDate, usingCalendar calendar:NSCalendar) -> NSDate? {
-        let dayOneComponents = calendar.components([.Era, .Year, .Month], fromDate: date)
-        return calendar.dateFromComponents(dayOneComponents)
+extension Calendar {
+    static let formatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.isLenient = true
+        return dateFormatter
+    }()
+    
+    
+    func startOfMonth(for date: Date) -> Date? {
+        guard let comp = dateFormatterComponents(from: date) else { return nil }
+        return Calendar.formatter.date(from: "\(comp.year) \(comp.month) 01")
     }
     
-    class func endOfMonthForDate(date: NSDate, usingCalendar calendar:NSCalendar) -> NSDate? {
-        let lastDayComponents = calendar.components([NSCalendarUnit.Era, NSCalendarUnit.Year, NSCalendarUnit.Month], fromDate: date)
-        lastDayComponents.month = lastDayComponents.month + 1
-        lastDayComponents.day = 0
-        return calendar.dateFromComponents(lastDayComponents)
+    func endOfMonth(for date: Date) -> Date? {
+        guard
+            let comp = dateFormatterComponents(from: date),
+            let day = self.range(of: .day, in: .month, for: date)?.count,
+            let retVal = Calendar.formatter.date(from: "\(comp.year) \(comp.month) \(day)") else {
+                return nil
+        }
+        return retVal
+    }
+    
+    private func dateFormatterComponents(from date: Date) -> (month: Int, year: Int)? {
+        
+        // Setup the dateformatter to this instance's settings
+        Calendar.formatter.timeZone = self.timeZone
+        Calendar.formatter.locale = self.locale
+        Calendar.formatter.calendar = self
+        
+        let comp = self.dateComponents([.year, .month], from: date)
+        
+        guard
+            let month = comp.month,
+            let year = comp.year else {
+                return nil
+        }
+        return (month, year)
+    }
+}
+
+extension Dictionary where Value: Equatable {
+    func key(for value: Value) -> Key? {
+        guard let index = index(where: { $0.1 == value }) else {
+            return nil
+        }
+        return self[index].0
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 
 class RepositorySection: Object {
-    dynamic var id = "Section-" + NSUUID().UUIDString
+    dynamic var id = "Section-" + UUID().uuidString
     dynamic var sectionId = ""
     dynamic var title = ""
     dynamic var mode = ""

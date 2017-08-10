@@ -9,35 +9,35 @@ class RepositoryRoutineHelper {
     }
     
     func getDate() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, d MMMM YYYY"
         
-        return formatter.stringFromDate(repositoryRoutine.startTime)
+        return formatter.string(from: repositoryRoutine.startTime)
     }
     
-    func getStartTime(longFormat: Bool = false) -> String {
+    func getStartTime(_ longFormat: Bool = false) -> String {
         if longFormat {
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "EEEE, d MMMM YYYY - HH:mm"
             
-            return formatter.stringFromDate(repositoryRoutine.startTime)
+            return formatter.string(from: repositoryRoutine.startTime)
         }
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         
-        return formatter.stringFromDate(repositoryRoutine.startTime)
+        return formatter.string(from: repositoryRoutine.startTime)
     }
     
     func getLastUpdatedTime() -> String {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         
-        return formatter.stringFromDate(repositoryRoutine.lastUpdatedTime)
+        return formatter.string(from: repositoryRoutine.lastUpdatedTime)
     }
     
     func getWorkoutLength() -> String {
-        let interval = repositoryRoutine.lastUpdatedTime.timeIntervalSinceDate(repositoryRoutine.startTime)
+        let interval = repositoryRoutine.lastUpdatedTime.timeIntervalSince(repositoryRoutine.startTime)
         
         let (hours, minutes) = stringFromTimeInterval(interval)
         
@@ -52,7 +52,7 @@ class RepositoryRoutineHelper {
         }
     }
 
-    class func getCompletionRate(repositoryRoutine: RepositoryRoutine) -> CompletionRate {
+    class func getCompletionRate(_ repositoryRoutine: RepositoryRoutine) -> CompletionRate {
         if (numberOfExercises(repositoryRoutine) == 0) {
             return CompletionRate(percentage: 0, label: "0%")
         }
@@ -62,7 +62,7 @@ class RepositoryRoutineHelper {
         return CompletionRate(percentage: percentage, label: String(percentage) + "%")
     }
 
-    class func isCompleted(repositoryExercise: RepositoryExercise) -> Bool {
+    class func isCompleted(_ repositoryExercise: RepositoryExercise) -> Bool {
         let size = repositoryExercise.sets.count
 
         if (size == 0) {
@@ -78,13 +78,13 @@ class RepositoryRoutineHelper {
         return true
     }
 
-    class func numberOfCompletedExercises(repositoryRoutine: RepositoryRoutine) -> Int {
+    class func numberOfCompletedExercises(_ repositoryRoutine: RepositoryRoutine) -> Int {
         return repositoryRoutine.exercises.filter({
             $0.visible && isCompleted($0)
         }).count
     }
 
-    class func numberOfExercises(repositoryRoutine: RepositoryRoutine) -> Int {
+    class func numberOfExercises(_ repositoryRoutine: RepositoryRoutine) -> Int {
         return repositoryRoutine.exercises.filter({
             $0.visible
         }).count
@@ -125,7 +125,7 @@ class RepositoryRoutineHelper {
         return exercisesLeft() == 0
     }
     
-    private func stringFromTimeInterval(interval: NSTimeInterval) -> (Int, Int) {
+    fileprivate func stringFromTimeInterval(_ interval: TimeInterval) -> (Int, Int) {
         let interval = Int(interval)
         
         let minutes = (interval / 60) % 60
@@ -136,12 +136,12 @@ class RepositoryRoutineHelper {
 }
 
 class RepositoryRoutine: Object {
-    dynamic var id = "Routine-" + NSUUID().UUIDString
+    dynamic var id = "Routine-" + UUID().uuidString
     dynamic var routineId = ""
     dynamic var title = ""
     dynamic var subtitle = ""
-    dynamic var startTime = NSDate()
-    dynamic var lastUpdatedTime = NSDate()
+    dynamic var startTime = Date()
+    dynamic var lastUpdatedTime = Date()
     
     let categories = List<RepositoryCategory>()
     let sections = List<RepositorySection>()

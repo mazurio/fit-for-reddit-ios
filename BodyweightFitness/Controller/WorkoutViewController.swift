@@ -39,22 +39,22 @@ class WorkoutViewController: UIViewController {
         self.weightedViewController.rootViewController = self
         
         self.restTimerViewController.view.frame = self.topView.frame
-        self.restTimerViewController.willMoveToParentViewController(self)
+        self.restTimerViewController.willMove(toParentViewController: self)
         self.addChildViewController(self.restTimerViewController)
         self.topView.addSubview(self.restTimerViewController.view)
-        self.restTimerViewController.didMoveToParentViewController(self)
+        self.restTimerViewController.didMove(toParentViewController: self)
         
         self.timedViewController.view.frame = self.topView.frame
-        self.timedViewController.willMoveToParentViewController(self)
+        self.timedViewController.willMove(toParentViewController: self)
         self.addChildViewController(self.timedViewController)
         self.topView.addSubview(self.timedViewController.view)
-        self.timedViewController.didMoveToParentViewController(self)
+        self.timedViewController.didMove(toParentViewController: self)
         
         self.weightedViewController.view.frame = self.topView.frame
-        self.weightedViewController.willMoveToParentViewController(self)
+        self.weightedViewController.willMove(toParentViewController: self)
         self.addChildViewController(self.weightedViewController)
         self.topView.addSubview(self.weightedViewController.view)
-        self.weightedViewController.didMoveToParentViewController(self)
+        self.weightedViewController.didMove(toParentViewController: self)
         
         self.setNavigationBar()
         self.timedViewController.updateLabel()
@@ -71,7 +71,7 @@ class WorkoutViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
                 image: UIImage(named: "dashboard"),
                 landscapeImagePhone: nil,
-                style: .Plain,
+                style: .plain,
                 target: self,
                 action: #selector(dashboard))
         
@@ -85,23 +85,23 @@ class WorkoutViewController: UIViewController {
     }
     
     func setTitle() {
-        let titleLabel = UILabel(frame: CGRectMake(0, 0, 0, 0))
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
-        titleLabel.backgroundColor = UIColor.clearColor()
-        titleLabel.textColor = UIColor.blackColor()
-        titleLabel.font = UIFont.systemFontOfSize(16)
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.systemFont(ofSize: 16)
         titleLabel.text = self.current.title
         titleLabel.sizeToFit()
 
-        let subtitleLabel = UILabel(frame: CGRectMake(0, 20, 0, 0))
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: 0, height: 0))
 
-        subtitleLabel.backgroundColor = UIColor.clearColor()
+        subtitleLabel.backgroundColor = UIColor.clear
         subtitleLabel.textColor = UIColor.primaryDark()
-        subtitleLabel.font = UIFont.systemFontOfSize(13)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 13)
         subtitleLabel.text = self.current.section!.title + ", " + self.current.desc
         subtitleLabel.sizeToFit()
 
-        let titleView = UIView(frame: CGRectMake(0, 0, max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), 30))
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
 
         if titleLabel.frame.width >= subtitleLabel.frame.width {
             var adjustment = subtitleLabel.frame
@@ -119,17 +119,17 @@ class WorkoutViewController: UIViewController {
         self.navigationItem.titleView = titleView
     }
     
-    func dashboard(sender: UIBarButtonItem) {
+    func dashboard(_ sender: UIBarButtonItem) {
         let dashboard = DashboardViewController()
         dashboard.currentExercise = current
         dashboard.rootViewController = self
         
         let controller = UINavigationController(rootViewController: dashboard)
         
-        self.navigationController?.presentViewController(controller, animated: true, completion: nil)
+        self.navigationController?.present(controller, animated: true, completion: nil)
     }
     
-    @IBAction func onClickLogWorkoutAction(sender: AnyObject) {
+    @IBAction func onClickLogWorkoutAction(_ sender: AnyObject) {
         self.timedViewController.stopTimer()
         
         let logWorkoutController = LogWorkoutController()
@@ -139,11 +139,11 @@ class WorkoutViewController: UIViewController {
             current,
             repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
         
-        logWorkoutController.modalTransitionStyle = .CoverVertical
-        logWorkoutController.modalPresentationStyle = .Custom
+        logWorkoutController.modalTransitionStyle = .coverVertical
+        logWorkoutController.modalPresentationStyle = .custom
     
-        self.navigationController?.dim(.In, alpha: 0.5, speed: 0.5)
-        self.navigationController?.presentViewController(logWorkoutController, animated: true, completion: nil)
+        self.navigationController?.dim(.in, alpha: 0.5, speed: 0.5)
+        self.navigationController?.present(logWorkoutController, animated: true, completion: nil)
     }
 
     func restTimerShouldStart() {
@@ -174,28 +174,28 @@ class WorkoutViewController: UIViewController {
         }
     }
     
-    private func showRestTimer() {
+    fileprivate func showRestTimer() {
         self.restTimerViewController.startTimer()
-        self.restTimerViewController.view.hidden = false
+        self.restTimerViewController.view.isHidden = false
         
-        self.timedViewController.view.hidden = true
-        self.weightedViewController.view.hidden = true
+        self.timedViewController.view.isHidden = true
+        self.weightedViewController.view.isHidden = true
     }
     
     func restTimerStopped() {
         self.restTimerViewController.stopTimer()
-        self.restTimerViewController.view.hidden = true
+        self.restTimerViewController.view.isHidden = true
         
         if current.isTimed() {
-            self.timedViewController.view.hidden = false
-            self.weightedViewController.view.hidden = true
+            self.timedViewController.view.isHidden = false
+            self.weightedViewController.view.isHidden = true
         } else {
-            self.timedViewController.view.hidden = true
-            self.weightedViewController.view.hidden = false
+            self.timedViewController.view.isHidden = true
+            self.weightedViewController.view.isHidden = false
         }
     }
     
-    internal func changeExercise(currentExercise: Exercise, updateTitle: Bool = true) {
+    internal func changeExercise(_ currentExercise: Exercise, updateTitle: Bool = true) {
         self.current = currentExercise
         
         self.restTimerViewController.changeExercise(currentExercise)
@@ -204,27 +204,27 @@ class WorkoutViewController: UIViewController {
         
         self.setVideo(currentExercise.videoId)
         
-        if (currentExercise.section?.mode == SectionMode.All) {
+        if (currentExercise.section?.mode == SectionMode.all) {
             if let image = UIImage(named: "plus") {
-                actionButton.setImage(image, forState: .Normal)
+                actionButton.setImage(image, for: UIControlState())
             }
         } else {
             if let image = UIImage(named: "progression") {
-                actionButton.setImage(image, forState: .Normal)
+                actionButton.setImage(image, for: UIControlState())
             }
         }
         
         if self.restTimerViewController.isPlaying {
-            self.restTimerViewController.view.hidden = false
-            self.timedViewController.view.hidden = true
-            self.weightedViewController.view.hidden = true
+            self.restTimerViewController.view.isHidden = false
+            self.timedViewController.view.isHidden = true
+            self.weightedViewController.view.isHidden = true
         } else {
             if current.isTimed() {
-                self.timedViewController.view.hidden = false
-                self.weightedViewController.view.hidden = true
+                self.timedViewController.view.isHidden = false
+                self.weightedViewController.view.isHidden = true
             } else {
-                self.timedViewController.view.hidden = true
-                self.weightedViewController.view.hidden = false
+                self.timedViewController.view.isHidden = true
+                self.weightedViewController.view.isHidden = false
             }
         }
 
@@ -233,7 +233,7 @@ class WorkoutViewController: UIViewController {
         }
     }
     
-    func setVideo(videoId: String) {
+    func setVideo(_ videoId: String) {
         if !videoId.isEmpty {
             if let player = self.player {
                 player.pause()
@@ -247,23 +247,23 @@ class WorkoutViewController: UIViewController {
             
             self.videoView.layer.sublayers?.removeAll()
             
-            let path = NSBundle.mainBundle().pathForResource(videoId, ofType: "mp4")
+            let path = Bundle.main.path(forResource: videoId, ofType: "mp4")
             
-            player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
-            player!.actionAtItemEnd = AVPlayerActionAtItemEnd.None;
+            player = AVPlayer(url: URL(fileURLWithPath: path!))
+            player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;
             
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = videoView.bounds
             
-            self.videoView.layer.insertSublayer(playerLayer, atIndex: 0)
+            self.videoView.layer.insertSublayer(playerLayer, at: 0)
             
-            NSNotificationCenter.defaultCenter().addObserver(
+            NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(WorkoutViewController.playerItemDidReachEnd),
-                name: AVPlayerItemDidPlayToEndTimeNotification,
+                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                 object: player!.currentItem)
             
-            player!.seekToTime(kCMTimeZero)
+            player!.seek(to: kCMTimeZero)
             player!.play()
         } else {
             if let player = self.player {
@@ -281,10 +281,10 @@ class WorkoutViewController: UIViewController {
     }
     
     func playerItemDidReachEnd() {
-        player!.seekToTime(kCMTimeZero)
+        player!.seek(to: kCMTimeZero)
     }
     
-    @IBAction func actionButtonClicked(sender: AnyObject) {
+    @IBAction func actionButtonClicked(_ sender: AnyObject) {
         guard let button = sender as? UIView else {
             return
         }
@@ -292,27 +292,27 @@ class WorkoutViewController: UIViewController {
         let alertController = UIAlertController(
             title: nil,
             message: nil,
-            preferredStyle: .ActionSheet)
+            preferredStyle: .actionSheet)
         
         alertController.popoverPresentationController
-        alertController.modalPresentationStyle = .Popover
+        alertController.modalPresentationStyle = .popover
         
         if let presenter = alertController.popoverPresentationController {
             presenter.sourceView = button;
             presenter.sourceRect = button.bounds;
         }
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         if self.current.youTubeId != "" {
-            alertController.addAction(UIAlertAction(title: "Watch Full Video", style: .Default) { (action) in
-                if let requestUrl = NSURL(string: "https://www.youtube.com/watch?v=" + self.current.youTubeId) {
-                    UIApplication.sharedApplication().openURL(requestUrl)
+            alertController.addAction(UIAlertAction(title: "Watch Full Video", style: .default) { (action) in
+                if let requestUrl = URL(string: "https://www.youtube.com/watch?v=" + self.current.youTubeId) {
+                    UIApplication.shared.openURL(requestUrl)
                 }
             })
         }
         
-        alertController.addAction(UIAlertAction(title: "Today's Workout", style: .Default) { (action) in
+        alertController.addAction(UIAlertAction(title: "Today's Workout", style: .default) { (action) in
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
 
@@ -320,43 +320,43 @@ class WorkoutViewController: UIViewController {
             
             let progressViewController = ProgressViewController()
             
-            progressViewController.setRoutine(NSDate(), repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
+            progressViewController.setRoutine(Date(), repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
             
-            self.showViewController(progressViewController, sender: nil)
+            self.show(progressViewController, sender: nil)
         })
         
         if let currentSection = current.section {
-            if (currentSection.mode == .Levels || currentSection.mode == .Pick) {
+            if (currentSection.mode == .levels || currentSection.mode == .pick) {
                 // ... Choose Progression
                 alertController.addAction(
-                    UIAlertAction(title: "Choose Progression", style: .Default) { (action) in
+                    UIAlertAction(title: "Choose Progression", style: .default) { (action) in
                         if let exercises = self.current.section?.exercises {
                             let alertController = UIAlertController(
                                 title: "Choose Progression",
                                 message: nil,
-                                preferredStyle: .ActionSheet)
+                                preferredStyle: .actionSheet)
                             
-                            alertController.modalPresentationStyle = .Popover
+                            alertController.modalPresentationStyle = .popover
                             
                             if let presenter = alertController.popoverPresentationController {
                                 presenter.sourceView = button;
                                 presenter.sourceRect = button.bounds;
                             }
                             
-                            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                             
                             for anyExercise in exercises {
                                 if let exercise = anyExercise as? Exercise {
                                     var title = ""
                                     
-                                    if(exercise.section?.mode == SectionMode.Levels) {
+                                    if(exercise.section?.mode == SectionMode.levels) {
                                         title = "\(exercise.level): \(exercise.title)"
                                     } else {
                                         title = "\(exercise.title)"
                                     }
                                     
                                     alertController.addAction(
-                                        UIAlertAction(title: title, style: .Default) { (action) in
+                                        UIAlertAction(title: title, style: .default) { (action) in
                                             let repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
                                             let currentExerciseId = currentSection.currentExercise?.exerciseId
                                             let exerciseId = exercise.exerciseId
@@ -376,23 +376,23 @@ class WorkoutViewController: UIViewController {
                                 }
                             }
                             
-                            self.presentViewController(alertController, animated: true, completion: nil)
+                            self.present(alertController, animated: true, completion: nil)
                         }
                     }
                 )
             }
         }
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
-    @IBAction func previousButtonClicked(sender: AnyObject) {
+    @IBAction func previousButtonClicked(_ sender: AnyObject) {
         if let previous = self.current.previous {
             changeExercise(previous)
         }
     }
  
-    @IBAction func nextButtonClicked(sender: AnyObject) {
+    @IBAction func nextButtonClicked(_ sender: AnyObject) {
         if let next = self.current.next {
             changeExercise(next)
         }

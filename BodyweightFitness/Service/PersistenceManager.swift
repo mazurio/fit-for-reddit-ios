@@ -6,31 +6,31 @@ public extension String {
 
 class UserDefaults {
     func showRestTimer() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimer")
+        return Foundation.UserDefaults.standard.bool(forKey: "showRestTimer")
     }
     
     func showRestTimerAfterWarmup() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterWarmup")
+        return Foundation.UserDefaults.standard.bool(forKey: "showRestTimerAfterWarmup")
     }
     
     func showRestTimerAfterBodylineDrills() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterBodylineDrills")
+        return Foundation.UserDefaults.standard.bool(forKey: "showRestTimerAfterBodylineDrills")
     }
     
     func showRestTimerAfterFlexibilityExercises() -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey("showRestTimerAfterFlexibilityExercises")
+        return Foundation.UserDefaults.standard.bool(forKey: "showRestTimerAfterFlexibilityExercises")
     }
 }
 
 class PersistenceManager {
     class func getWeightUnit() -> String {
-        let fileManager = NSFileManager.defaultManager()
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let fileManager = FileManager.default
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("weightUnit.archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("weightUnit.archive")
         
-        if(fileManager.fileExistsAtPath(dataFilePath)) {
-            if let weightUnit = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as? String {
+        if(fileManager.fileExists(atPath: dataFilePath)) {
+            if let weightUnit = NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? String {
                 return weightUnit
             }
         }
@@ -38,22 +38,22 @@ class PersistenceManager {
         return "kg"
     }
     
-    class func setWeightUnit(weightUnit: String) {
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func setWeightUnit(_ weightUnit: String) {
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("weightUnit.archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("weightUnit.archive")
         
         NSKeyedArchiver.archiveRootObject(weightUnit, toFile: dataFilePath)
     }
     
     class func getRestTime() -> Int {
-        let fileManager = NSFileManager.defaultManager()
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let fileManager = FileManager.default
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("restTime.archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("restTime.archive")
         
-        if(fileManager.fileExistsAtPath(dataFilePath)) {
-            if let restTime = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as? Int {
+        if(fileManager.fileExists(atPath: dataFilePath)) {
+            if let restTime = NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? Int {
                 return restTime
             }
         }
@@ -61,22 +61,22 @@ class PersistenceManager {
         return 60
     }
     
-    class func setRestTime(restTime: Int) {
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func setRestTime(_ restTime: Int) {
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("restTime.archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("restTime.archive")
         
         NSKeyedArchiver.archiveRootObject(restTime, toFile: dataFilePath)
     }
     
-    class func getNumberOfReps(id: String) -> Int {
-        let fileManager = NSFileManager.defaultManager()
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func getNumberOfReps(_ id: String) -> Int {
+        let fileManager = FileManager.default
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("reps.\(id).archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("reps.\(id).archive")
         
-        if(fileManager.fileExistsAtPath(dataFilePath)) {
-            if let seconds = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as? Int {
+        if(fileManager.fileExists(atPath: dataFilePath)) {
+            if let seconds = NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? Int {
                 return seconds
             }
         }
@@ -84,22 +84,22 @@ class PersistenceManager {
         return 5
     }
     
-    class func storeNumberOfReps(id: String, numberOfReps: Int) {
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func storeNumberOfReps(_ id: String, numberOfReps: Int) {
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("reps.\(id).archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("reps.\(id).archive")
         
         NSKeyedArchiver.archiveRootObject(numberOfReps, toFile: dataFilePath)
     }
     
-    class func getTimer(id: String) -> Int {
-        let fileManager = NSFileManager.defaultManager()
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func getTimer(_ id: String) -> Int {
+        let fileManager = FileManager.default
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("timer.\(id).archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("timer.\(id).archive")
         
-        if(fileManager.fileExistsAtPath(dataFilePath)) {
-            if let seconds = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as? Int {
+        if(fileManager.fileExists(atPath: dataFilePath)) {
+            if let seconds = NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? Int {
                 return seconds
             }
         }
@@ -107,19 +107,19 @@ class PersistenceManager {
         return 60
     }
     
-    class func storeTimer(id: String, seconds: Int) {
-        let directoryPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+    class func storeTimer(_ id: String, seconds: Int) {
+        let directoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = directoryPath[0] 
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent("timer.\(id).archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent("timer.\(id).archive")
         
         NSKeyedArchiver.archiveRootObject(seconds, toFile: dataFilePath)
     }
     
-    class func getRoutine(routineId: String) -> Routine {
-        let fileManager = NSFileManager.defaultManager()
+    class func getRoutine(_ routineId: String) -> Routine {
+        let fileManager = FileManager.default
         let directoryPath = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask,
+            .documentDirectory,
+            .userDomainMask,
             true)
         
         var fileName = ""
@@ -137,10 +137,10 @@ class PersistenceManager {
         }
         
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent(id + ".archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent(id + ".archive")
         
-        if(fileManager.fileExistsAtPath(dataFilePath)) {
-            if let currentExercises = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as? Dictionary<String, String> {
+        if(fileManager.fileExists(atPath: dataFilePath)) {
+            if let currentExercises = NSKeyedUnarchiver.unarchiveObject(withFile: dataFilePath) as? Dictionary<String, String> {
                 return Routine(fileName: fileName, dictionary: currentExercises)
             }
         }
@@ -148,10 +148,10 @@ class PersistenceManager {
         return Routine(fileName: fileName)
     }
     
-    class func storeRoutine(routine: Routine) {
+    class func storeRoutine(_ routine: Routine) {
         let directoryPath = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask,
+            .documentDirectory,
+            .userDomainMask,
             true)
         
         var id = ""
@@ -163,12 +163,12 @@ class PersistenceManager {
         }
         
         let documentsDirectory = directoryPath[0]
-        let dataFilePath = documentsDirectory.NS.stringByAppendingPathComponent(id + ".archive")
+        let dataFilePath = documentsDirectory.NS.appendingPathComponent(id + ".archive")
         
         var currentExercises = Dictionary<String, String>()
         for anySection in routine.sections {
             if let section = anySection as? Section {
-                if(section.mode == SectionMode.Pick || section.mode == SectionMode.Levels) {
+                if(section.mode == SectionMode.pick || section.mode == SectionMode.levels) {
                     currentExercises[section.sectionId] = section.currentExercise?.exerciseId
                 }
             }

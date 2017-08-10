@@ -17,32 +17,32 @@ class CircleGraphView: UIView {
     var arcColor = UIColor(red:0.04, green:0.58, blue:0.58, alpha:1.00)
     var arcBackgroundColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.00)
     
-    override func drawRect(rect: CGRect) {
-        let fullCircle = 2.0 * CGFloat(M_PI)
+    override func draw(_ rect: CGRect) {
+        let fullCircle = 2.0 * CGFloat(Double.pi)
         let start: CGFloat = -0.25 * fullCircle
         let end: CGFloat = endArc * fullCircle + start
         
-        let centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
+        let centerPoint = CGPoint(x: rect.midX, y: rect.midY)
         
         var radius: CGFloat = 0.0
         
-        if CGRectGetWidth(rect) > CGRectGetHeight(rect) {
-            radius = (CGRectGetWidth(rect) - arcWidth) / 2.0
+        if rect.width > rect.height {
+            radius = (rect.width - arcWidth) / 2.0
         } else {
-            radius = (CGRectGetHeight(rect) - arcWidth) / 2.0
+            radius = (rect.height - arcWidth) / 2.0
         }
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context!, arcWidth)
-        CGContextSetLineCap(context!, CGLineCap.Round)
-        CGContextSetStrokeColorWithColor(context!, arcBackgroundColor.CGColor)
-        CGContextAddArc(context!, centerPoint.x, centerPoint.y, radius, 0, fullCircle, 0)
-        CGContextStrokePath(context!)
-        CGContextSetStrokeColorWithColor(context!, arcColor.CGColor)
-        CGContextSetLineWidth(context!, arcWidth * 0.8 )
-        CGContextAddArc(context!, centerPoint.x, centerPoint.y, radius, start, end, 0)
-        CGContextStrokePath(context!)
+        context!.setLineWidth(arcWidth)
+        context!.setLineCap(CGLineCap.round)
+        context!.setStrokeColor(arcBackgroundColor.cgColor)
+        context!.addArc(center: centerPoint, radius: radius, startAngle: 0, endAngle: fullCircle, clockwise: false)
+        context!.strokePath()
+        context!.setStrokeColor(arcColor.cgColor)
+        context!.setLineWidth(arcWidth * 0.8 )
+        context!.addArc(center: centerPoint, radius: radius, startAngle: start, endAngle: end, clockwise: false)
+        context!.strokePath()
     }
 }
 
@@ -60,7 +60,7 @@ class ProgressGeneralViewController: UIViewController {
     
     var parentController: UIViewController?
     
-    var date: NSDate?
+    var date: Date?
     var repositoryRoutine: RepositoryRoutine?
     
     override func viewDidLoad() {
@@ -100,11 +100,11 @@ class ProgressGeneralViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
+    func secondsToHoursMinutesSeconds(_ seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }

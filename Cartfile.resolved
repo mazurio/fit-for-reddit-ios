@@ -1,4 +1,4 @@
-github "kitasuke/PagingMenuController" "1.2.0"
-github "ReactiveX/RxSwift" "2.6.1"
-github "SwiftyJSON/SwiftyJSON" "54017d514a87b2b855b407131292c510cdeb65f8"
-github "realm/realm-cocoa" "v2.1.2"
+github "patchthecode/JTAppleCalendar" "7.0.4"
+github "ReactiveX/RxSwift" "3.5.0"
+github "SwiftyJSON/SwiftyJSON" "3.1.4"
+github "realm/realm-cocoa" "v2.8.3"

@@ -9,11 +9,11 @@ class TabBarController: UITabBarController {
     let supportDeveloperViewController = SupportDeveloperViewController()
     let settingsViewController = SettingsViewController()
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.tabBar.tintColor = UIColor.primary()
-        self.tabBar.barTintColor = UIColor.whiteColor()
+        self.tabBar.barTintColor = UIColor.white
 
         self.homeViewController.tabBarItem = UITabBarItem(
                 title: "Home",
@@ -47,13 +47,13 @@ class TabBarController: UITabBarController {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Fabric.with([Crashlytics.self])
 
         self.migrateSchemaIfNeeded()
         self.setDefaultSettings()
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.tintColor = UIColor.primaryDark()
         self.window?.backgroundColor = UIColor.primary()
         self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
@@ -62,35 +62,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        UIApplication.sharedApplication().idleTimerDisabled = false
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
-        UIApplication.sharedApplication().idleTimerDisabled = true
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     func setDefaultSettings() {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = Foundation.UserDefaults.standard
         
-        if(defaults.objectForKey("playAudioWhenTimerStops") == nil) {
-            defaults.setBool(true, forKey: "playAudioWhenTimerStops")
+        if(defaults.object(forKey: "playAudioWhenTimerStops") == nil) {
+            defaults.set(true, forKey: "playAudioWhenTimerStops")
         }
         
-        if(defaults.objectForKey("showRestTimer") == nil) {
-            defaults.setBool(true, forKey: "showRestTimer")
+        if(defaults.object(forKey: "showRestTimer") == nil) {
+            defaults.set(true, forKey: "showRestTimer")
         }
         
-        if(defaults.objectForKey("showRestTimerAfterWarmup") == nil) {
-            defaults.setBool(false, forKey: "showRestTimerAfterWarmup")
+        if(defaults.object(forKey: "showRestTimerAfterWarmup") == nil) {
+            defaults.set(false, forKey: "showRestTimerAfterWarmup")
         }
         
-        if(defaults.objectForKey("showRestTimerAfterBodylineDrills") == nil) {
-            defaults.setBool(true, forKey: "showRestTimerAfterBodylineDrills")
+        if(defaults.object(forKey: "showRestTimerAfterBodylineDrills") == nil) {
+            defaults.set(true, forKey: "showRestTimerAfterBodylineDrills")
         }
         
-        if(defaults.objectForKey("showRestTimerAfterFlexibilityExercises") == nil) {
-            defaults.setBool(false, forKey: "showRestTimerAfterFlexibilityExercises")
+        if(defaults.object(forKey: "showRestTimerAfterFlexibilityExercises") == nil) {
+            defaults.set(false, forKey: "showRestTimerAfterFlexibilityExercises")
         }
     }
     
@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func migrateSchemaIfNeeded(routine: Routine, currentSchema: RepositoryRoutine) -> (Bool, RepositoryRoutine) {
+    func migrateSchemaIfNeeded(_ routine: Routine, currentSchema: RepositoryRoutine) -> (Bool, RepositoryRoutine) {
         if (!isValidSchema(routine, currentSchema: currentSchema)) {
             let newSchema = RepositoryStream.sharedInstance.buildRoutine(routine)
             
@@ -137,10 +137,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return (false, currentSchema)
     }
     
-    func isValidSchema(routine: Routine, currentSchema: RepositoryRoutine) -> Bool {
+    func isValidSchema(_ routine: Routine, currentSchema: RepositoryRoutine) -> Bool {
         for exercise in routine.exercises {
             if let exercise = exercise as? Exercise {
-                let containsExercise = currentSchema.exercises.contains({
+                let containsExercise = currentSchema.exercises.contains(where: {
                     $0.exerciseId == exercise.exerciseId
                 })
                 

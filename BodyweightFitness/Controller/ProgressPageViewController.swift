@@ -9,11 +9,11 @@ class ProgressPageViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.registerNib(
+        self.tableView.register(
             UINib(nibName: "ProgressSectionCell", bundle: nil),
             forCellReuseIdentifier: "ProgressSectionCell")
         
-        self.tableView.registerNib(
+        self.tableView.register(
             UINib(nibName: "ProgressCardCell", bundle: nil),
             forCellReuseIdentifier: "ProgressCardCell")
         
@@ -21,7 +21,7 @@ class ProgressPageViewController: UITableViewController {
         self.tableView.dataSource = self
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         if let category = self.category {
             return category.sections.count
         }
@@ -29,10 +29,10 @@ class ProgressPageViewController: UITableViewController {
         return 0
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let category = self.category {
             let exercises = category.sections[section].exercises.filter { (exercise) in
-                isVisible(exercise)
+                self.isVisible(exercise)
             }
             
             return exercises.count
@@ -41,16 +41,16 @@ class ProgressPageViewController: UITableViewController {
         return 0
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 45
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 166
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ProgressSectionCell") as! ProgressSectionCell
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressSectionCell") as! ProgressSectionCell
         
         cell.parentController = parentController
         
@@ -66,18 +66,24 @@ class ProgressPageViewController: UITableViewController {
         return cell
         
     }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ProgressCardCell", forIndexPath: indexPath) as! ProgressCardCell
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProgressCardCell", for: indexPath) as! ProgressCardCell
         
         cell.parentController = parentController
         
         if let category = self.category {
-            let exercises = category.sections[indexPath.section].exercises.filter { (exercise) in
-                isVisible(exercise)
+            
+            
+            let exercises = category.sections[indexPath.section].exercises
+            
+        
+            
+            let filteredExercises = Array(exercises).filter { (exercise) in
+                self.isVisible(exercise)
             }
             
-            let exercise = exercises[indexPath.row]
+            let exercise = filteredExercises[indexPath.row]
             
             cell.current = exercise
             
@@ -88,7 +94,7 @@ class ProgressPageViewController: UITableViewController {
         return cell
     }
 
-    func isVisible(exercise: RepositoryExercise) -> Bool {
+    func isVisible(_ exercise: RepositoryExercise) -> Bool {
         let firstSet = exercise.sets[0]
 
         if (exercise.sets.count > 1) {

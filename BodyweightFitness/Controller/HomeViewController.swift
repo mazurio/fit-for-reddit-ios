@@ -27,17 +27,17 @@ class HomeViewController: UIViewController {
         
         self.setNavigationBar()
 
-        self.stackView.axis = UILayoutConstraintAxis.Vertical;
-        self.stackView.distribution = UIStackViewDistribution.EqualSpacing;
-        self.stackView.alignment = UIStackViewAlignment.Top;
+        self.stackView.axis = UILayoutConstraintAxis.vertical;
+        self.stackView.distribution = UIStackViewDistribution.equalSpacing;
+        self.stackView.alignment = UIStackViewAlignment.top;
         self.stackView.spacing = 0;
 
-        _ = RoutineStream.sharedInstance.repositoryObservable().subscribeNext({ (it) in
+        _ = RoutineStream.sharedInstance.repositoryObservable().subscribe(onNext: { (it) in
             self.renderWorkoutProgressView()
             self.renderStatisticsView()
         })
 
-        _ = RoutineStream.sharedInstance.routineObservable().subscribeNext({ (it) in
+        _ = RoutineStream.sharedInstance.routineObservable().subscribe(onNext: { (it) in
             self.renderWorkoutProgressView()
             self.renderStatisticsView()
             
@@ -47,14 +47,14 @@ class HomeViewController: UIViewController {
         })
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
                 image: UIImage(named: "plus"),
                 landscapeImagePhone: nil,
-                style: .Plain,
+                style: .plain,
                 target: self,
                 action: #selector(routine))
 
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController {
         self.totalWorkouts.text = String(numberOfWorkouts) + getNumberOfWorkoutsPostfix(numberOfWorkouts)
 
         if let w = lastWorkout {
-            self.lastWorkout.text = String(NSDate.timeAgoSince(w.startTime))
+            self.lastWorkout.text = String(Date.timeAgoSince(w.startTime))
         } else {
             self.lastWorkout.text = String("Never")
         }
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController {
         self.last31Days.text = String(numberOfWorkoutsLast31Days) + getNumberOfWorkoutsPostfix(numberOfWorkoutsLast31Days)
     }
 
-    func getNumberOfWorkoutsPostfix(count: Int) -> String {
+    func getNumberOfWorkoutsPostfix(_ count: Int) -> String {
         if (count == 1) {
             return " Workout"
         } else {
@@ -123,43 +123,43 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func routine(sender: UIBarButtonItem) {
+    func routine(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(
             title: "Choose Workout Routine",
             message: nil,
-            preferredStyle: .ActionSheet)
+            preferredStyle: .actionSheet)
 
-        alertController.modalPresentationStyle = .Popover
+        alertController.modalPresentationStyle = .popover
         alertController.popoverPresentationController?.barButtonItem = sender;
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        alertController.addAction(UIAlertAction(title: "Bodyweight Fitness", style: .Default) { (action) in
+        alertController.addAction(UIAlertAction(title: "Bodyweight Fitness", style: .default) { (action) in
             RoutineStream.sharedInstance.setRoutine("routine0")
         })
         
-        alertController.addAction(UIAlertAction(title: "Starting Stretching", style: .Default) { (action) in
+        alertController.addAction(UIAlertAction(title: "Starting Stretching", style: .default) { (action) in
             RoutineStream.sharedInstance.setRoutine("d8a722a0-fae2-4e7e-a751-430348c659fe")
         })
         
-        alertController.addAction(UIAlertAction(title: "Molding Mobility", style: .Default) { (action) in
+        alertController.addAction(UIAlertAction(title: "Molding Mobility", style: .default) { (action) in
             RoutineStream.sharedInstance.setRoutine("e73593f4-ee17-4b9b-912a-87fa3625f63d")
         })
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func startWorkout(sender: AnyObject) {
+    @IBAction func startWorkout(_ sender: AnyObject) {
         let backItem = UIBarButtonItem()
         backItem.title = "Home"
 
         self.tabBarController?.navigationItem.backBarButtonItem = backItem
-        self.showViewController(WorkoutViewController(), sender: nil)
+        self.show(WorkoutViewController(), sender: nil)
     }
     
-    @IBAction func readMore(sender: AnyObject) {
-        if let requestUrl = NSURL(string: RoutineStream.sharedInstance.routine.url) {
-            UIApplication.sharedApplication().openURL(requestUrl)
+    @IBAction func readMore(_ sender: AnyObject) {
+        if let requestUrl = URL(string: RoutineStream.sharedInstance.routine.url) {
+            UIApplication.shared.openURL(requestUrl)
         }
     }
 }

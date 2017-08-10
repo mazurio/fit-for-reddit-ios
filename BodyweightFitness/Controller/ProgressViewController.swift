@@ -1,10 +1,9 @@
 import UIKit
-import PageMenuFramework
 
 class ProgressViewController: UIViewController {
-    var date: NSDate?
+    var date: Date?
     var repositoryRoutine: RepositoryRoutine?
-    var pageMenu: CAPSPageMenu?
+//    var pageMenu: CAPSPageMenu?
     var controllerArray: [UIViewController] = []
     
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class ProgressViewController: UIViewController {
         
         generalViewController.parentController = self.navigationController
         generalViewController.title = "General"
-        generalViewController.date = date
+//        generalViewController.date = date as! NSDate
         generalViewController.repositoryRoutine = self.repositoryRoutine
         
         controllerArray.append(generalViewController)
@@ -42,43 +41,43 @@ class ProgressViewController: UIViewController {
             }
         }
         
-        let parameters: [CAPSPageMenuOption] = [
-            .ScrollMenuBackgroundColor(
-                UIColor(red:0, green:0.59, blue:0.53, alpha:1)
-            ),
-            .ViewBackgroundColor(
-                UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.00)
-            ),
-            .SelectionIndicatorColor(
-                UIColor(red:0.02, green:0.21, blue:0.18, alpha:1)
-            ),
-            .BottomMenuHairlineColor(
-                UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)
-            ),
-            .SelectedMenuItemLabelColor(
-                UIColor(red:0, green:0.33, blue:0.29, alpha:1)
-            ),
-            .UnselectedMenuItemLabelColor(
-                UIColor(red:0, green:0.33, blue:0.29, alpha:1)
-            ),
-            .MenuItemFont(
-                UIFont(name: "HelveticaNeue", size: 13.0)!
-            ),
-            .SelectionIndicatorHeight(2.0),
-            .MenuHeight(40.0),
-            .MenuItemWidth(90.0),
-            .CenterMenuItems(true)
-        ]
-        
-        pageMenu = CAPSPageMenu(
-            viewControllers: controllerArray,
-            frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height),
-            pageMenuOptions: parameters)
-        
-        self.view.addSubview(pageMenu!.view)
+//        let parameters: [CAPSPageMenuOption] = [
+//            .scrollMenuBackgroundColor(
+//                UIColor(red:0, green:0.59, blue:0.53, alpha:1)
+//            ),
+//            .viewBackgroundColor(
+//                UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.00)
+//            ),
+//            .selectionIndicatorColor(
+//                UIColor(red:0.02, green:0.21, blue:0.18, alpha:1)
+//            ),
+//            .bottomMenuHairlineColor(
+//                UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)
+//            ),
+//            .selectedMenuItemLabelColor(
+//                UIColor(red:0, green:0.33, blue:0.29, alpha:1)
+//            ),
+//            .unselectedMenuItemLabelColor(
+//                UIColor(red:0, green:0.33, blue:0.29, alpha:1)
+//            ),
+//            .menuItemFont(
+//                UIFont(name: "HelveticaNeue", size: 13.0)!
+//            ),
+//            .selectionIndicatorHeight(2.0),
+//            .menuHeight(40.0),
+//            .menuItemWidth(90.0),
+//            .centerMenuItems(true)
+//        ]
+//        
+//        pageMenu = CAPSPageMenu(
+//            viewControllers: controllerArray,
+//            frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height),
+//            pageMenuOptions: parameters)
+//        
+//        self.view.addSubview(pageMenu!.view)
     }
     
-    func setRoutine(date: NSDate, repositoryRoutine: RepositoryRoutine) {
+    func setRoutine(_ date: Date, repositoryRoutine: RepositoryRoutine) {
         self.date = date
         self.repositoryRoutine = repositoryRoutine
     }

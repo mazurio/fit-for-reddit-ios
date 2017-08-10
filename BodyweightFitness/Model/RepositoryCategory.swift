@@ -12,7 +12,7 @@ class CompletionRate {
 }
 
 class RepositoryCategoryHelper {
-    class func getCompletionRate(repositoryCategory: RepositoryCategory) -> CompletionRate {
+    class func getCompletionRate(_ repositoryCategory: RepositoryCategory) -> CompletionRate {
         if (numberOfExercises(repositoryCategory) == 0) {
             return CompletionRate(percentage: 0, label: "0%")
         }
@@ -22,7 +22,7 @@ class RepositoryCategoryHelper {
         return CompletionRate(percentage: percentage, label: String(percentage) + "%")
     }
 
-    class func isCompleted(repositoryExercise: RepositoryExercise) -> Bool {
+    class func isCompleted(_ repositoryExercise: RepositoryExercise) -> Bool {
         let size = repositoryExercise.sets.count
 
         if (size == 0) {
@@ -38,13 +38,13 @@ class RepositoryCategoryHelper {
         return true
     }
 
-    class func numberOfCompletedExercises(repositoryCategory: RepositoryCategory) -> Int {
+    class func numberOfCompletedExercises(_ repositoryCategory: RepositoryCategory) -> Int {
         return repositoryCategory.exercises.filter({
             $0.visible && isCompleted($0)
         }).count
     }
 
-    class func numberOfExercises(repositoryCategory: RepositoryCategory) -> Int {
+    class func numberOfExercises(_ repositoryCategory: RepositoryCategory) -> Int {
         return repositoryCategory.exercises.filter({
             $0.visible
         }).count
@@ -52,7 +52,7 @@ class RepositoryCategoryHelper {
 }
 
 class RepositoryCategory: Object {
-    dynamic var id = "Category-" + NSUUID().UUIDString
+    dynamic var id = "Category-" + UUID().uuidString
     dynamic var categoryId = ""
     dynamic var title = ""
     dynamic var routine: RepositoryRoutine?

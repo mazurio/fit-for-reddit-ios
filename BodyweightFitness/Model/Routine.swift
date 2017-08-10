@@ -2,15 +2,15 @@ import Foundation
 import SwiftyJSON
 
 enum RoutineType: Int {
-    case Category
-    case Section
-    case Exercise
+    case category
+    case section
+    case exercise
 }
 
 enum SectionMode: Int {
-    case All
-    case Pick
-    case Levels
+    case all
+    case pick
+    case levels
 }
 
 protocol LinkedRoutine: class {
@@ -19,7 +19,7 @@ protocol LinkedRoutine: class {
 
 class Category: LinkedRoutine {
     let categoryId: String
-    let type: RoutineType = RoutineType.Category
+    let type: RoutineType = RoutineType.category
     let title: String
     var sections: NSMutableArray = []
     
@@ -32,14 +32,14 @@ class Category: LinkedRoutine {
         return type
     }
     
-    func insertSection(section: Section) {
-        sections.addObject(section)
+    func insertSection(_ section: Section) {
+        sections.add(section)
     }
 }
 
 class Section: LinkedRoutine {
     let sectionId: String
-    let type: RoutineType = RoutineType.Section
+    let type: RoutineType = RoutineType.section
     let mode: SectionMode
     let title: String
     let desc: String
@@ -58,13 +58,13 @@ class Section: LinkedRoutine {
         return type
     }
     
-    func insertExercise(exercise: Exercise) {
-        exercises.addObject(exercise)
+    func insertExercise(_ exercise: Exercise) {
+        exercises.add(exercise)
     }
 }
 
 class Exercise: LinkedRoutine {
-    let type: RoutineType = RoutineType.Exercise
+    let type: RoutineType = RoutineType.exercise
     let exerciseId: String
     let level: String
     let title: String
@@ -134,7 +134,7 @@ class Routine {
         self.build(json, dictionary: dictionary)
     }
     
-    func build(json: JSON, dictionary: Dictionary<String, String> = Dictionary<String, String>()) {
+    func build(_ json: JSON, dictionary: Dictionary<String, String> = Dictionary<String, String>()) {
         var currentCategory: Category?
         var currentSection: Section?
         var currentExercise: Exercise?
@@ -146,9 +146,9 @@ class Routine {
                     categoryId: item["categoryId"].stringValue,
                     title: item["title"].stringValue)
                 
-                categories.addObject(category)
-                categoriesAndSections.addObject(category)
-                linkedRoutine.addObject(category)
+                categories.add(category)
+                categoriesAndSections.add(category)
+                linkedRoutine.add(category)
                 
                 currentCategory = category
             case "section":
@@ -160,9 +160,9 @@ class Routine {
                 
                 section.category = currentCategory
                 
-                sections.addObject(section)
-                categoriesAndSections.addObject(section)
-                linkedRoutine.addObject(section)
+                sections.add(section)
+                categoriesAndSections.add(section)
+                linkedRoutine.add(section)
                 
                 currentSection = section
             case "exercise":
@@ -178,13 +178,13 @@ class Routine {
                 exercise.category = currentCategory
                 exercise.section = currentSection
                 
-                currentSection?.exercises.addObject(exercise)
-                exercises.addObject(exercise)
+                currentSection?.exercises.add(exercise)
+                exercises.add(exercise)
                 
-                if(currentSection?.mode == SectionMode.Levels || currentSection?.mode == SectionMode.Pick) {
+                if(currentSection?.mode == SectionMode.levels || currentSection?.mode == SectionMode.pick) {
                     if let currentExerciseSaved = dictionary[currentSection!.sectionId] as String? {
                         if(exercise.exerciseId == currentExerciseSaved) {
-                            linkedExercises.addObject(exercise)
+                            linkedExercises.add(exercise)
                             exercise.previous = currentExercise
                             currentExercise?.next = exercise
                             currentExercise = exercise
@@ -193,7 +193,7 @@ class Routine {
                         }
                     } else {
                         if(currentSection?.exercises.count == 1) {
-                            linkedExercises.addObject(exercise)
+                            linkedExercises.add(exercise)
                             exercise.previous = currentExercise
                             currentExercise?.next = exercise
                             currentExercise = exercise
@@ -202,26 +202,26 @@ class Routine {
                         }
                     }
                 } else {
-                    linkedExercises.addObject(exercise)
+                    linkedExercises.add(exercise)
                     exercise.previous = currentExercise
                     currentExercise?.next = exercise
                     currentExercise = exercise
                 }
                 
-                linkedRoutine.addObject(exercise)
+                linkedRoutine.add(exercise)
             default:
                 print("Unknown item in JSON File.")
             }
         }
     }
     
-    func getMode(mode: String) -> SectionMode {
+    func getMode(_ mode: String) -> SectionMode {
         if(mode == "pick") {
-            return SectionMode.Pick
+            return SectionMode.pick
         } else if(mode == "levels") {
-            return SectionMode.Levels
+            return SectionMode.levels
         } else {
-            return SectionMode.All
+            return SectionMode.all
         }
     }
     
@@ -229,7 +229,7 @@ class Routine {
         return linkedExercises[0] as! Exercise
     }
 
-    func setProgression(exercise: Exercise) {
+    func setProgression(_ exercise: Exercise) {
         let currentSectionExercise = exercise.section?.currentExercise
         
         currentSectionExercise?.previous?.next = exercise
@@ -241,13 +241,13 @@ class Routine {
         exercise.section?.currentExercise = exercise
     }
     
-    func loadRoutineFromFile(fileName: String) -> NSData {
-        let fileRoot = NSBundle.mainBundle().pathForResource(fileName, ofType: "json")!
+    func loadRoutineFromFile(_ fileName: String) -> Data {
+        let fileRoot = Bundle.main.path(forResource: fileName, ofType: "json")!
 
         do {
-            return try NSData(contentsOfFile: fileRoot, options: .DataReadingMappedIfSafe)
+            return try Data(contentsOf: URL(fileURLWithPath: fileRoot), options: .mappedIfSafe)
         } catch _ {
-            return NSData()
+            return Data()
         }
     }
 }

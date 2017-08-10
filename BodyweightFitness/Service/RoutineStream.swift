@@ -1,31 +1,20 @@
 import Foundation
 import RxSwift
 
-class RoutineStream {
-    class var sharedInstance: RoutineStream {
-        struct Static {
-            static var instance: RoutineStream?
-            static var token: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.token) {
-            Static.instance = RoutineStream()
-        }
-        
-        return Static.instance!
-    }
+final class RoutineStream {
+    static let sharedInstance = RoutineStream()
     
     var routine: Routine
 
     let routineSubject = PublishSubject<Routine>()
     let repositorySubject = PublishSubject<Bool>()
 
-    init() {
+    private init() {
         routine = PersistenceManager.getRoutine("routine0")
         routineSubject.onNext(routine)
     }
     
-    func setRoutine(id: String) {
+    func setRoutine(_ id: String) {
         routine = PersistenceManager.getRoutine(id)
         routineSubject.onNext(routine)
     }

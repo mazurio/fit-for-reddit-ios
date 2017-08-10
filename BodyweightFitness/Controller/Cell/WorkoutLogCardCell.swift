@@ -16,18 +16,18 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var progressRate: UILabel!
     
     var parentController: UIViewController?
-    var date: NSDate?
+    var date: Date?
     var repositoryRoutine: RepositoryRoutine?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBAction func onClickView(sender: AnyObject) {
+    @IBAction func onClickView(_ sender: AnyObject) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         
@@ -36,10 +36,10 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
         let progressViewController = ProgressViewController()
         progressViewController.setRoutine(self.date!, repositoryRoutine: self.repositoryRoutine!)
         
-        self.parentController?.showViewController(progressViewController, sender: nil)
+        self.parentController?.show(progressViewController, sender: nil)
     }
     
-    @IBAction func onClickExport(sender: AnyObject) {
+    @IBAction func onClickExport(_ sender: AnyObject) {
         let mailString = NSMutableString()
         
         if let routine = repositoryRoutine {
@@ -53,7 +53,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 exercise.visible == true
             }
             
-            mailString.appendString("Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds\n")
+            mailString.append("Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds\n")
             
             for exercise in exercises! {
                 let title = exercise.title
@@ -63,7 +63,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 for set in exercise.sets {
                     let (_, minutes, seconds) = secondsToHoursMinutesSeconds(set.seconds)
                     
-                    mailString.appendString(String(
+                    mailString.append(String(
                         format: "%@,%@,%@,%@,%@,%@,%d,%f,%@,%d,%d,%d\n",
                         date,
                         startTime,
@@ -85,37 +85,37 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
             let content = NSMutableString()
             let emailTitle = "\(routine.title) workout for \(helper.getStartTime(true))"
             
-            content.appendString("Hello,\nThe following is your workout in Text/HTML format (CSV attached).")
+            content.append("Hello,\nThe following is your workout in Text/HTML format (CSV attached).")
             
-            content.appendString("\n\nWorkout on \(helper.getStartTime(true)).")
-            content.appendString("\nLast Updated at \(helper.getLastUpdatedTime())")
-            content.appendString("\nWorkout length: \(helper.getWorkoutLength())")
+            content.append("\n\nWorkout on \(helper.getStartTime(true)).")
+            content.append("\nLast Updated at \(helper.getLastUpdatedTime())")
+            content.append("\nWorkout length: \(helper.getWorkoutLength())")
             
-            content.appendString("\n\n\(routine.title)\n\(routine.subtitle)")
+            content.append("\n\n\(routine.title)\n\(routine.subtitle)")
             
             let weightUnit = getWeightUnit()
             
             if let exercises = exercises {
                 for exercise in exercises {
-                    content.appendString("\n\n\(exercise.title)")
+                    content.append("\n\n\(exercise.title)")
                     
                     var index = 1
                     for set in exercise.sets {
                         let (_, minutes, seconds) = secondsToHoursMinutesSeconds(set.seconds)
                         
-                        content.appendString("\nSet \(index)")
+                        content.append("\nSet \(index)")
                         
                         if (set.isTimed) {
                             if minutes > 0 {
-                                content.appendString(", Minutes: \(minutes)")
+                                content.append(", Minutes: \(minutes)")
                             }
                             
-                            content.appendString(", Seconds: \(seconds)")
+                            content.append(", Seconds: \(seconds)")
                         } else {
-                            content.appendString(", Reps: \(set.reps)")
+                            content.append(", Reps: \(set.reps)")
                             
                             if set.weight > 0 {
-                                content.appendString(", Weight: \(set.weight) \(weightUnit)")
+                                content.append(", Weight: \(set.weight) \(weightUnit)")
                             }
                         }
                         
@@ -125,7 +125,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 
             }
             
-            let data = mailString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            let data = mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
             if let data = data {
                 if !MFMailComposeViewController.canSendMail() {
                     print("Mail services are not available")
@@ -135,26 +135,26 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 let emailViewController = configuredMailComposeViewController(data, subject: emailTitle, messageBody: content as String)
                 
                 if MFMailComposeViewController.canSendMail() {
-                    self.parentController?.presentViewController(emailViewController, animated: true, completion: nil)
+                    self.parentController?.present(emailViewController, animated: true, completion: nil)
                 }
             }
         }
     }
     
-    @IBAction func onClickRemove(sender: AnyObject) {
+    @IBAction func onClickRemove(_ sender: AnyObject) {
         let alertController = UIAlertController(
             title: "Remove Workout",
             message: "Are you sure you want to remove this workout?",
-            preferredStyle: UIAlertControllerStyle.Alert)
+            preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addAction(UIAlertAction(
             title: "Cancel",
-            style: UIAlertActionStyle.Cancel,
+            style: UIAlertActionStyle.cancel,
             handler: nil))
         
         alertController.addAction(UIAlertAction(
             title: "Remove",
-            style: UIAlertActionStyle.Destructive,
+            style: UIAlertActionStyle.destructive,
             handler: { (action: UIAlertAction!) in
                 let realm = RepositoryStream.sharedInstance.getRealm()
                 
@@ -171,10 +171,10 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 RoutineStream.sharedInstance.setRepository()
         }))
         
-        self.parentController?.presentViewController(alertController, animated: true, completion: nil)
+        self.parentController?.present(alertController, animated: true, completion: nil)
     }
     
-    func configuredMailComposeViewController(data: NSData, subject: String, messageBody: String) -> MFMailComposeViewController {
+    func configuredMailComposeViewController(_ data: Data, subject: String, messageBody: String) -> MFMailComposeViewController {
         let emailController = MFMailComposeViewController()
         
         emailController.mailComposeDelegate = self
@@ -185,11 +185,11 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
         return emailController
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+    func secondsToHoursMinutesSeconds (_ seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
 }
