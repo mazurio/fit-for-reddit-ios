@@ -3,6 +3,257 @@ import RealmSwift
 import JTAppleCalendar
 import UIKit
 
+class AnimationView: UIView {
+    func animateWithFlipEffect(withCompletionHandler completionHandler:(() -> Void)?) {
+        AnimationClass.flipAnimation(self, completion: completionHandler)
+    }
+    func animateWithBounceEffect(withCompletionHandler completionHandler:(() -> Void)?) {
+        let viewAnimation = AnimationClass.BounceEffect()
+        viewAnimation(self) { _ in
+            completionHandler?()
+        }
+    }
+    func animateWithFadeEffect(withCompletionHandler completionHandler:(() -> Void)?) {
+        let viewAnimation = AnimationClass.fadeOutEffect()
+        viewAnimation(self) { _ in
+            completionHandler?()
+        }
+    }
+}
+
+extension UIView {
+    enum FoldDirection {
+        case open, closed
+    }
+    
+    func fold(withTransparency: Bool, completionHandler:(()->Void)?, inDirection: FoldDirection ) {
+        let topAndBottomView = self.prepareSplitImage()
+        let topHalfView = topAndBottomView[0]
+        let bottomHalfView = topAndBottomView[1]
+        
+        let animationContainer = UIView(frame: self.bounds)
+        let originalBackgroundColor = self.backgroundColor
+        if (withTransparency) {
+            animationContainer.backgroundColor = UIColor.clear
+            self.backgroundColor = UIColor.clear
+            for subview in self.subviews {
+                subview.isHidden = true
+            }
+        } else {
+            animationContainer.backgroundColor = UIColor.black
+        }
+        
+        self.addSubview(animationContainer)
+        animationContainer.addSubview(topHalfView)
+        animationContainer.addSubview(bottomHalfView)
+        
+        var startingTransform = CATransform3DIdentity
+        startingTransform.m34 = -1 / 500
+        
+        let startingFrame = CGRect(x: 0,
+                                   y: -topHalfView.frame.size.height / 2,
+                                   width: topHalfView.frame.size.width,
+                                   height: topHalfView.frame.size.height)
+        
+        topHalfView.frame = startingFrame
+        bottomHalfView.frame = startingFrame
+        
+        
+        topHalfView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        bottomHalfView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
+        
+        topHalfView.layer.transform = startingTransform;
+        bottomHalfView.layer.transform = startingTransform;
+        
+        let topShadowLayer = CAGradientLayer()
+        topShadowLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        topShadowLayer.frame = topHalfView.bounds
+        topHalfView.layer.addSublayer(topShadowLayer)
+        
+        let bottomShadowLayer = CAGradientLayer()
+        bottomShadowLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        bottomShadowLayer.frame = bottomHalfView.bounds
+        bottomHalfView.layer.addSublayer(bottomShadowLayer)
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.3)
+        
+        CATransaction.setCompletionBlock {
+            self.backgroundColor = originalBackgroundColor
+            
+            if (withTransparency) {
+                for subview in self.subviews {
+                    subview.isHidden = false
+                }
+            }
+            
+            animationContainer.removeFromSuperview()
+            completionHandler?()
+        }
+        
+        
+        
+        let topRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        topRotationAnimation.fillMode = kCAFillModeForwards
+        topRotationAnimation.isRemovedOnCompletion = false
+        switch (inDirection) {
+        case .open:
+            topRotationAnimation.fromValue = -(.pi / 2.0)
+            topRotationAnimation.toValue = 0
+            break;
+        case .closed:
+            topRotationAnimation.fromValue = 0
+            topRotationAnimation.toValue = -(.pi / 2.0)
+        }
+        
+        topHalfView.layer.add(topRotationAnimation, forKey:nil)
+        
+        
+        let bottomRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        bottomRotationAnimation.fillMode = kCAFillModeForwards;
+        bottomRotationAnimation.isRemovedOnCompletion = false
+        switch (inDirection) {
+        case .open:
+            bottomRotationAnimation.fromValue = (.pi / 2.0)
+            bottomRotationAnimation.toValue = 0
+            break;
+        case .closed:
+            bottomRotationAnimation.fromValue = 0
+            bottomRotationAnimation.toValue = (.pi / 2.0)
+        }
+        bottomHalfView.layer.add(bottomRotationAnimation, forKey:nil)
+        
+        let bottomTranslationAnimation = CABasicAnimation(keyPath: "transform.translation.y")
+        bottomTranslationAnimation.fillMode = kCAFillModeForwards
+        bottomTranslationAnimation.isRemovedOnCompletion = false
+        switch (inDirection) {
+        case .open:
+            bottomTranslationAnimation.fromValue = topHalfView.frame.minY
+            bottomTranslationAnimation.toValue = 2 * bottomHalfView.frame.size.height
+            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            break;
+        case .closed:
+            bottomTranslationAnimation.fromValue = 2 * bottomHalfView.frame.size.height
+            bottomTranslationAnimation.toValue = topHalfView.frame.minY
+            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        }
+        
+        //TODO: figure out a more precise timing function
+        bottomHalfView.layer.add(bottomTranslationAnimation, forKey:nil)
+        
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fillMode = kCAFillModeForwards
+        opacityAnimation.isRemovedOnCompletion = false
+        switch (inDirection) {
+        case .open:
+            opacityAnimation.fromValue = 1.0
+            opacityAnimation.toValue = 0.0
+            break;
+        case .closed:
+            opacityAnimation.fromValue = 0.0
+            opacityAnimation.toValue = 1.0
+        }
+        
+        topShadowLayer.add(opacityAnimation, forKey: nil)
+        bottomShadowLayer.add(opacityAnimation, forKey: nil)
+        
+        CATransaction.commit()
+    }
+    
+    func prepareSplitImage() -> [UIImageView] {
+        
+        
+        let topImageFrame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: floor(self.frame.size.height / 2.0))
+        let bottomImageFrame = CGRect(x: 0, y: topImageFrame.maxY, width: self.frame.size.width, height: ceil(self.frame.size.height / 2))
+        
+        UIGraphicsBeginImageContext(self.frame.size)
+        let context = UIGraphicsGetCurrentContext()!
+        self.layer.render(in: context)
+        
+        let fullViewImage = UIGraphicsGetImageFromCurrentImageContext()!
+        var imageRef = fullViewImage.cgImage!.cropping(to: topImageFrame)!
+        let topHalf = UIImage(cgImage: imageRef)
+        
+        imageRef = fullViewImage.cgImage!.cropping(to: bottomImageFrame)!
+        let bottomHalf = UIImage(cgImage: imageRef)
+        
+        
+        UIGraphicsEndImageContext();
+        
+        let topHalfView = UIImageView(image: topHalf)
+        topHalfView.frame = topImageFrame
+        
+        let bottomHalfView = UIImageView(image: bottomHalf)
+        bottomHalfView.frame = bottomImageFrame
+        
+        return [topHalfView, bottomHalfView]
+    }
+}
+
+class AnimationClass {
+    
+    
+    class func BounceEffect() -> (UIView, @escaping (Bool) -> Void) -> () {
+        
+        return {
+            view, completion in
+            view.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0, usingSpringWithDamping: 0.3,
+                initialSpringVelocity: 0.1,
+                options: UIViewAnimationOptions.beginFromCurrentState,
+                animations: {
+                    view.transform = CGAffineTransform(scaleX: 1, y: 1)
+            },
+                completion: completion
+            )
+        }
+        
+    }
+    
+    class func fadeOutEffect() -> (UIView, @escaping (Bool) -> Void) -> () {
+        
+        return {
+            view, completion in
+            UIView.animate(withDuration: 0.6,
+                           delay: 0, usingSpringWithDamping: 0.6,
+                           initialSpringVelocity: 0,
+                           options: [],
+                           animations: {
+                            view.alpha = 0
+            },
+                           completion: completion)
+        }
+        
+    }
+    
+    fileprivate class func get3DTransformation(_ angle: Double) ->
+        CATransform3D {
+            var transform = CATransform3DIdentity
+            transform.m34 = -1.0 / 500.0
+            transform = CATransform3DRotate(transform,
+                                            CGFloat(angle * .pi / 180.0), 0, 1, 0.0)
+            return transform
+    }
+    
+    class func flipAnimation(_ view: UIView, completion: (() -> Void)?) {
+        let angle = 180.0
+        view.layer.transform = get3DTransformation(angle)
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: { () -> Void in
+                        view.layer.transform = CATransform3DIdentity
+        }) { (finished) -> Void in
+            completion?()
+        }
+    }
+    
+}
+
 extension Date {
     public var globalDescription: String {
         get {
@@ -69,189 +320,129 @@ extension Date {
     }
 }
 
-//class CellView: JTAppleCell {
-//    @IBInspectable var todayColor: UIColor!// = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.3)
-//    @IBInspectable var normalDayColor: UIColor! //UIColor(white: 0.0, alpha: 0.1)
-//
-//    @IBOutlet var selectedView: AnimationView!
-//    @IBOutlet var dot: UIView!
-//    @IBOutlet var dayLabel: UILabel!
-//
-//    lazy var todayDate : String = {
-//        [weak self] in
-//        let aString = self!.c.string(from: Date())
-//        return aString
-//    }()
-//
-//    lazy var c : DateFormatter = {
-//        let f = DateFormatter()
-//        f.dateFormat = "yyyy-MM-dd"
-//
-//        return f
-//    }()
-//
-//    func setupCellBeforeDisplay(_ cellState: CellState, date: Date) {
-////        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
-////
-////        if (routines.count > 0) {
-////            self.dot.isHidden = false
-////        } else {
-////            self.dot.isHidden = true
-////        }
-////
-////        self.dot.layer.cornerRadius = self.dot.frame.width / 2
-////        self.selectedView.layer.cornerRadius = self.selectedView.frame.width / 2
-////
-////        // Setup Cell text
-////        self.dayLabel.text = cellState.text
-////
-////        // Mark todays date
-////        if (c.string(from: date) == todayDate) {
-////            selectedView.backgroundColor = UIColor.primaryDark()
-////        } else {
-////            selectedView.backgroundColor = UIColor.white
-////        }
-////
-////        configureTextColor(cellState)
-////
-////        delayRunOnMainThread(0.0) {
-////            self.configureViewIntoBubbleView(cellState)
-////        }
-////
-////        configureVisibility(cellState)
-//    }
-//
-//    func configureVisibility(_ cellState: CellState) {
-//        self.isHidden = false
-//    }
-//
-//    func configureTextColor(_ cellState: CellState) {
-//        if cellState.isSelected {
-//            if (c.string(from: cellState.date as Date) == todayDate) {
-//                dayLabel.textColor = UIColor.white
-//            } else {
-//                dayLabel.textColor = UIColor.black
-//            }
-//        } else if cellState.dateBelongsTo == .thisMonth {
-//            dayLabel.textColor = UIColor.black
-//        } else {
-//            dayLabel.textColor = UIColor.primaryDark()
-//        }
-//    }
-//
-//    func cellSelectionChanged(_ cellState: CellState) {
-//        if cellState.isSelected == true {
-//            if selectedView.isHidden == true {
-//                configureViewIntoBubbleView(cellState)
-//                selectedView.animateWithBounceEffect(withCompletionHandler: nil)
-//            }
-//        } else {
-//            configureViewIntoBubbleView(cellState, animateDeselection: true)
-//        }
-//    }
-//
-//    fileprivate func configureViewIntoBubbleView(_ cellState: CellState, animateDeselection: Bool = false) {
-//        if cellState.isSelected {
-//            self.selectedView.layer.cornerRadius =  self.selectedView.frame.width  / 2
-//            self.selectedView.isHidden = false
-//            self.dot.isHidden = true
-//
-//            self.configureTextColor(cellState)
-//        } else {
-//            if animateDeselection {
-//                self.configureTextColor(cellState)
-//
-//                if self.selectedView.isHidden == false {
-//                    self.selectedView.animateWithFadeEffect(withCompletionHandler: { () -> Void in
-//                        self.selectedView.isHidden = true
-//                        self.selectedView.alpha = 1
-//                    })
-//                }
-//            } else {
-//                self.selectedView.isHidden = true
-//            }
-//
-////            let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
-////
-////            if (routines.count > 0) {
-////                self.dot.isHidden = false
-////            } else {
-////                self.dot.isHidden = true
-////            }
-//        }
-//    }
-//}
+class CellView: JTAppleCell {
+    @IBInspectable var todayColor: UIColor!// = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.3)
+    @IBInspectable var normalDayColor: UIColor! //UIColor(white: 0.0, alpha: 0.1)
 
-//class AnimationClass {
-//
-//    class func BounceEffect() -> (UIView, (Bool) -> Void) -> () {
-//        return {
-//            view, completion in
-//            view.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-//
-//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
-//                view.transform = CGAffineTransform(scaleX: 1, y: 1)
-//            }, completion: completion)
-//        }
-//    }
-//
-//    class func FadeOutEffect() -> (UIView, (Bool) -> Void) -> () {
-//        return {
-//            view, completion in
-//
-//            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
-//                view.alpha = 0
-//            },
-//                    completion: completion)
-//        }
-//    }
-//
-//    fileprivate class func get3DTransformation(_ angle: Double) -> CATransform3D {
-//
-//        var transform = CATransform3DIdentity
-//        transform.m34 = -1.0 / 500.0
-//        transform = CATransform3DRotate(transform, CGFloat(angle * Double.pi / 180.0), 0, 1, 0.0)
-//
-//        return transform
-//    }
-//
-//    class func flipAnimation(_ view: UIView, completion: (() -> Void)?) {
-//
-//        let angle = 180.0
-//        view.layer.transform = get3DTransformation(angle)
-//
-//        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
-//            view.layer.transform = CATransform3DIdentity
-//        }) { (finished) -> Void in
-//            completion?()
-//        }
-//    }
-//}
+    @IBOutlet var selectedView: AnimationView!
+    @IBOutlet var dot: UIView!
+    @IBOutlet var dayLabel: UILabel!
 
-//class AnimationView: UIView {
-//
-//    func animateWithFlipEffect(withCompletionHandler completionHandler:(()->Void)?) {
-//        AnimationClass.flipAnimation(self, completion: completionHandler)
-//    }
-//    func animateWithBounceEffect(withCompletionHandler completionHandler:(()->Void)?) {
-//        let viewAnimation = AnimationClass.BounceEffect()
-//        viewAnimation(self){ _ in
-//            completionHandler?()
-//        }
-//    }
-//    func animateWithFadeEffect(withCompletionHandler completionHandler:(()->Void)?) {
-//        let viewAnimation = AnimationClass.FadeOutEffect()
-//        viewAnimation(self) { _ in
-//            completionHandler?()
-//        }
-//    }
-//}
+    lazy var todayDate : String = {
+        [weak self] in
+        let aString = self!.c.string(from: Date())
+        return aString
+    }()
+
+    lazy var c : DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy-MM-dd"
+
+        return f
+    }()
+
+    func setupCellBeforeDisplay(_ cellState: CellState, date: Date) {
+        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
+        
+        if (routines.count > 0) {
+            self.dot.isHidden = false
+        } else {
+            self.dot.isHidden = true
+        }
+
+        self.dot.layer.cornerRadius = self.dot.frame.width / 2
+        self.selectedView.layer.cornerRadius = self.selectedView.frame.width / 2
+
+        // Setup Cell text
+        self.dayLabel.text = cellState.text
+
+        // Mark todays date
+        if (c.string(from: date) == todayDate) {
+            selectedView.backgroundColor = UIColor.primaryDark()
+        } else {
+            selectedView.backgroundColor = UIColor.white
+        }
+
+        configureTextColor(cellState)
+
+        delayRunOnMainThread(0.0) {
+            self.configureViewIntoBubbleView(cellState)
+        }
+
+        configureVisibility(cellState)
+    }
+    
+    func delayRunOnMainThread(_ delay: Double, closure: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() +
+                Double(Int64(delay * Double(NSEC_PER_SEC))) /
+                Double(NSEC_PER_SEC), execute: closure)
+    }
+
+    func configureVisibility(_ cellState: CellState) {
+        self.isHidden = false
+    }
+
+    func configureTextColor(_ cellState: CellState) {
+        if cellState.isSelected {
+            if (c.string(from: cellState.date as Date) == todayDate) {
+                dayLabel.textColor = UIColor.white
+            } else {
+                dayLabel.textColor = UIColor.black
+            }
+        } else if cellState.dateBelongsTo == .thisMonth {
+            dayLabel.textColor = UIColor.black
+        } else {
+            dayLabel.textColor = UIColor.primaryDark()
+        }
+    }
+
+    func cellSelectionChanged(_ cellState: CellState) {
+        if cellState.isSelected == true {
+            if selectedView.isHidden == true {
+                configureViewIntoBubbleView(cellState)
+                selectedView.animateWithBounceEffect(withCompletionHandler: nil)
+            }
+        } else {
+            configureViewIntoBubbleView(cellState, animateDeselection: true)
+        }
+    }
+
+    fileprivate func configureViewIntoBubbleView(_ cellState: CellState, animateDeselection: Bool = false) {
+        if cellState.isSelected {
+            self.selectedView.layer.cornerRadius =  self.selectedView.frame.width  / 2
+            self.selectedView.isHidden = false
+            self.dot.isHidden = true
+
+            self.configureTextColor(cellState)
+        } else {
+            if animateDeselection {
+                self.configureTextColor(cellState)
+
+                if self.selectedView.isHidden == false {
+                    self.selectedView.animateWithFadeEffect(withCompletionHandler: { () -> Void in
+                        self.selectedView.isHidden = true
+                        self.selectedView.alpha = 1
+                    })
+                }
+            } else {
+                self.selectedView.isHidden = true
+            }
+
+            let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
+
+            if (routines.count > 0) {
+                self.dot.isHidden = false
+            } else {
+                self.dot.isHidden = true
+            }
+        }
+    }
+}
 
 class WorkoutLogViewController: UIViewController,
         UITableViewDataSource,
-UITableViewDelegate {
-//        JTAppleCalendarViewDataSource,
-//        JTAppleCalendarViewDelegate {
+        UITableViewDelegate {
 
     var numberOfRows = 1
 
@@ -263,7 +454,7 @@ UITableViewDelegate {
     var routines: Results<RepositoryRoutine>?
 
     let formatter = DateFormatter()
-    var testCalendar: Calendar! = Calendar(identifier: Calendar.Identifier.gregorian)
+    var testCalendar: Calendar! = Calendar.current
 
     init() {
         super.init(nibName: "WorkoutLogView", bundle: nil)
@@ -279,7 +470,13 @@ UITableViewDelegate {
         let border = CALayer()
         let width = CGFloat(0.5)
 
-        border.borderColor = UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
+        border.borderColor = UIColor(
+            red: 70.0/255.0,
+            green: 70.0/255.0,
+            blue: 80.0/255.0,
+            alpha: 1.0
+        ).cgColor
+        
         border.frame = CGRect(
                 x: 0,
                 y: self.backgroundView.frame.size.height - width,
@@ -305,23 +502,17 @@ UITableViewDelegate {
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
-//        calendarView.delegate = self
-//        calendarView.dataSource = self
-//        calendarView.registerCellViewXib(fileName: "CellView")
-//        calendarView.direction = .horizontal
-//        calendarView.cellInset = CGPoint(x: 0, y: 0)
-//        calendarView.allowsMultipleSelection = false
-//        calendarView.firstDayOfWeek = .monday
-//        calendarView.scrollEnabled = true
-//        calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
-//        calendarView.itemSize = nil
-//        calendarView.rangeSelectionWillBeUsed = false
+        calendarView.calendarDelegate = self
+        calendarView.calendarDataSource = self
+        calendarView.allowsMultipleSelection = false
+        calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
+        calendarView.isRangeSelectionUsed = false
 
         calendarView.reloadData()
 
-        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
-            self.calendarView.selectDates([Date()])
-        }
+//        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
+//            self.calendarView.selectDates([Date()])
+//        }
     }
     
     func toggleCurrentDayView(_ sender: UIBarButtonItem) {
@@ -347,8 +538,8 @@ UITableViewDelegate {
     }
 
     func showOrHideCardViewForDate(_ date: Date) {
-        self.date = date
-
+//        self.date = date
+//
 //        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(date)
 //        if (routines.count > 0) {
 //            self.routines = routines
@@ -364,8 +555,8 @@ UITableViewDelegate {
 //            self.routines = nil
 //            self.tableView?.backgroundView = label
 //        }
-
-        self.tableView.reloadData()
+//
+//        self.tableView.reloadData()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -424,56 +615,40 @@ UITableViewDelegate {
 
         return cell
     }
+}
 
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> (
-            startDate: Date,
-            endDate: Date,
-            numberOfRows: Int,
-            calendar: Calendar) {
-
-        let firstDate = formatter.date(from: "2015 01 01")
-        let secondDate = Date()
-        let aCalendar = Calendar.current
-
-        return (startDate: firstDate!,
-                endDate: secondDate,
-                numberOfRows: numberOfRows,
-                calendar: aCalendar)
+extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
+    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+        
+        formatter.dateFormat = "yyyy MM dd"
+        formatter.timeZone = testCalendar.timeZone
+        formatter.locale = testCalendar.locale
+        
+        let startDate = formatter.date(from: "2015 01 01")
+        let endDate = Date()
+        
+        let parameters = ConfigurationParameters(startDate: startDate!,
+                                                 endDate: endDate,
+                                                 numberOfRows: numberOfRows,
+                                                 calendar: testCalendar,
+                                                 generateInDates: InDateCellGeneration.forAllMonths,
+                                                 generateOutDates: OutDateCellGeneration.tillEndOfGrid,
+                                                 firstDayOfWeek: DaysOfWeek.monday,
+                                                 hasStrictBoundaries: true)
+        
+        return parameters
     }
+}
 
-//    func calendar(_ calendar: JTAppleCalendarView, isAboutToDisplayCell cell: JTAppleCell, date: Date, cellState: CellState) {
-//        (cell as? CellView)?.setupCellBeforeDisplay(cellState, date: date)
-//    }
-//
-//    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-//        (cell as? CellView)?.cellSelectionChanged(cellState)
-//    }
-//
-//    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-//        (cell as? CellView)?.cellSelectionChanged(cellState)
-//
-//        self.date = cellState.date as Date
-//        self.tabBarController?.navigationItem.title = self.date.commonDescription
-//
-//        showOrHideCardViewForDate(self.date)
-//    }
-//
-//    func calendar(_ calendar: JTAppleCalendarView, isAboutToResetCell cell: JTAppleCell) {
-//        (cell as? CellView)?.selectedView.isHidden = true
-//    }
-//
-//    func calendar(_ calendar: JTAppleCalendarView,
-//                  didScrollToDateSegmentStartingWithdate startDate: Date,
-//                  endingWithDate endDate: Date) {
-//
-//        let todayDate = Date()
-//
-//        if (todayDate.isGreaterThanDate(startDate) && todayDate.isLessThanDate(endDate)) {
-//            calendar.selectDates([todayDate])
-//        } else if ((todayDate == startDate) || (todayDate == endDate)) {
-//            calendar.selectDates([todayDate])
-//        } else {
-//            calendar.selectDates([startDate])
-//        }
-//    }
+extension WorkoutLogViewController: JTAppleCalendarViewDelegate {
+    public func calendar(_ calendar: JTAppleCalendar.JTAppleCalendarView, cellForItemAt date: Date, cellState: JTAppleCalendar.CellState, indexPath: IndexPath) -> JTAppleCalendar.JTAppleCell {
+        let cell = calendar.dequeueReusableJTAppleCell(
+            withReuseIdentifier: "CellView",
+            for: indexPath) as! CellView
+        
+        cell.dayLabel.text = cellState.text
+        
+        return cell
+    }
+    
 }

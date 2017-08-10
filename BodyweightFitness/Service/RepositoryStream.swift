@@ -161,8 +161,8 @@ final class RepositoryStream {
         }
     }
     
-    func getRoutinesForDate(_ date: NSDate) -> Results<RepositoryRoutine> {
-        let startOfDay = NSCalendar.current.startOfDay(for: date as Date)
+    func getRoutinesForDate(_ date: Date) -> Results<RepositoryRoutine> {
+        let startOfDay = NSCalendar.current.startOfDay(for: date)
         
         var components = DateComponents()
         components.hour = 23
@@ -170,14 +170,7 @@ final class RepositoryStream {
         components.second = 59
         
         let endOfDay = NSCalendar.current.date(byAdding: components, to: startOfDay)
-        
-//        let endOfDay = NSCalendar.current.dateByAddingComponents(
-//            components,
-//            toDate: startOfDay,
-//            options: NSCalendar.Options(rawValue: 0))
-        
-        
-        
+
         let predicate = NSPredicate(
             format: "startTime > %@ AND startTime < %@",
             startOfDay as CVarArg,
