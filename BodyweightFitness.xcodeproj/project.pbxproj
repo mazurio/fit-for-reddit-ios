@@ -34,7 +34,6 @@
 		732CDDF11D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */; };
 		732CDDF21D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDED1D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 */; };
 		732CDDF31D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */; };
-		733281DD1F1626FF00792002 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 733281DC1F1626FF00792002 /* JTAppleCalendar.framework */; };
 		73374A8E1E167A6300EBC47B /* RestTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */; };
 		73374A901E167AEF00EBC47B /* RestTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73374A8F1E167AEF00EBC47B /* RestTimerView.xib */; };
 		734132E51E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json in Resources */ = {isa = PBXBuildFile; fileRef = 734132E41E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json */; };
@@ -62,12 +61,6 @@
 		734B70051C4BF7C700CFB6BD /* RepositoryRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */; };
 		734B70081C4BF7DD00CFB6BD /* RepositoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */; };
 		734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B700A1C4BF7E900CFB6BD /* RepositorySection.swift */; };
-		73595FB11E13297500E625D0 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734B6FE71C4BE84600CFB6BD /* Realm.framework */; };
-		73595FB21E13297500E625D0 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */; };
-		73595FB31E13297500E625D0 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738B96C41D761BB1009A8625 /* RxBlocking.framework */; };
-		73595FB41E13297500E625D0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738B96C51D761BB1009A8625 /* RxCocoa.framework */; };
-		73595FB51E13297500E625D0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738B96C61D761BB1009A8625 /* RxSwift.framework */; };
-		73595FB61E13297500E625D0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */; };
 		735BEA0A1CBD1F38003616C5 /* SideViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */; };
 		735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */; };
 		7366D8D11C4EE9CC00819790 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */; };
@@ -177,6 +170,7 @@
 		73E8F4551E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73E8F4531E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 */; };
 		73E8F4561E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73E8F4541E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 */; };
 		73FE1F5B1C4BF82A0047C97A /* RepositoryExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */; };
+		78163125961ED33EEAA36EA0 /* Pods_Bodyweight_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD935083C2986D423F02E75 /* Pods_Bodyweight_Fitness.framework */; };
 		E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5872C1B5272C400540104 /* AppDelegate.swift */; };
 		E0F587311B5272E200540104 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587301B5272E200540104 /* Routine.swift */; };
 		E0F587351B5272F400540104 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587331B5272F400540104 /* ActionView.swift */; };
@@ -247,7 +241,6 @@
 		732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_one_leg_foot_supported_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDED1D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_tuck_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDEE1D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_wrist_mobility.mp4; sourceTree = "<group>"; };
-		733281DC1F1626FF00792002 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
 		73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestTimerViewController.swift; sourceTree = "<group>"; };
 		73374A8F1E167AEF00EBC47B /* RestTimerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestTimerView.xib; sourceTree = "<group>"; };
 		734132E41E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starting_stretching_flexibility_routine.json; sourceTree = "<group>"; };
@@ -271,8 +264,6 @@
 		734132F81E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_intermediate.mp4; sourceTree = "<group>"; };
 		734132F91E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_beginner.mp4; sourceTree = "<group>"; };
 		734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWorkoutController.swift; sourceTree = "<group>"; };
-		734B6FE71C4BE84600CFB6BD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySet.swift; sourceTree = "<group>"; };
 		734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryRoutine.swift; sourceTree = "<group>"; };
 		734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCategory.swift; sourceTree = "<group>"; };
@@ -349,9 +340,6 @@
 		738B96741D760F66009A8625 /* bodyweight_fitness_scapular_shrugs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_scapular_shrugs.mp4; sourceTree = "<group>"; };
 		738B96751D760F66009A8625 /* bodyweight_fitness_shoulder_rolls.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_shoulder_rolls.mp4; sourceTree = "<group>"; };
 		738B96BC1D761192009A8625 /* molding_mobility_flexibility_routine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = molding_mobility_flexibility_routine.json; sourceTree = "<group>"; };
-		738B96C41D761BB1009A8625 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		738B96C51D761BB1009A8625 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		738B96C61D761BB1009A8625 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		738B96CC1D763319009A8625 /* HomeBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeBarView.xib; sourceTree = "<group>"; };
 		738B96CE1D76337C009A8625 /* HomeBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBarView.swift; sourceTree = "<group>"; };
 		73AA28E91CABE69200DEED79 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -389,11 +377,13 @@
 		73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
-		73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = molding_mobility_3_plane_neck_movement.mp4; sourceTree = "<group>"; };
 		73E8F4531E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_left_side_plank.mp4; sourceTree = "<group>"; };
 		73E8F4541E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_right_side_plank.mp4; sourceTree = "<group>"; };
 		73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryExercise.swift; sourceTree = "<group>"; };
+		8AD935083C2986D423F02E75 /* Pods_Bodyweight_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bodyweight_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6439A24ABCBB97852E0D5D1 /* Pods-Bodyweight Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bodyweight Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bodyweight Fitness/Pods-Bodyweight Fitness.debug.xcconfig"; sourceTree = "<group>"; };
+		BA7457843B13F20696FA3BA8 /* Pods-Bodyweight Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bodyweight Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bodyweight Fitness/Pods-Bodyweight Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		E0F5872C1B5272C400540104 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0F587301B5272E200540104 /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		E0F587331B5272F400540104 /* ActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
@@ -411,16 +401,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				733281DD1F1626FF00792002 /* JTAppleCalendar.framework in Frameworks */,
-				73595FB11E13297500E625D0 /* Realm.framework in Frameworks */,
-				73595FB21E13297500E625D0 /* RealmSwift.framework in Frameworks */,
-				73595FB31E13297500E625D0 /* RxBlocking.framework in Frameworks */,
-				73595FB41E13297500E625D0 /* RxCocoa.framework in Frameworks */,
-				73595FB51E13297500E625D0 /* RxSwift.framework in Frameworks */,
-				73595FB61E13297500E625D0 /* SwiftyJSON.framework in Frameworks */,
 				7366D8ED1C52943D00819790 /* StoreKit.framework in Frameworks */,
 				730EB7AD1DA9A75E00541250 /* Fabric.framework in Frameworks */,
 				730EB7AE1DA9A75E00541250 /* Crashlytics.framework in Frameworks */,
+				78163125961ED33EEAA36EA0 /* Pods_Bodyweight_Fitness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +425,7 @@
 				73BADE6C1CC78356001ACEDC /* BodyweightFitnessTests */,
 				E00242FB1B4F1CFD0003A230 /* Frameworks */,
 				2BD2CA841B458FFD00841AB7 /* Products */,
+				F15ECA1986EEE14D78F646EB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -703,19 +688,13 @@
 		E00242FB1B4F1CFD0003A230 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				733281DC1F1626FF00792002 /* JTAppleCalendar.framework */,
-				738B96C41D761BB1009A8625 /* RxBlocking.framework */,
-				738B96C51D761BB1009A8625 /* RxCocoa.framework */,
-				738B96C61D761BB1009A8625 /* RxSwift.framework */,
 				73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */,
 				73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */,
 				7366D8EC1C52943D00819790 /* StoreKit.framework */,
-				734B6FE71C4BE84600CFB6BD /* Realm.framework */,
-				734B6FE81C4BE84600CFB6BD /* RealmSwift.framework */,
-				73D2BCEC1C3C6D6600CE6C00 /* SwiftyJSON.framework */,
 				73BADE141CC3DC26001ACEDC /* RateMyApp.swift */,
 				46B0245E7CE3B2A0776F290A /* GlobalFunctionsAndExtensions.swift */,
 				73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */,
+				8AD935083C2986D423F02E75 /* Pods_Bodyweight_Fitness.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -759,6 +738,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F15ECA1986EEE14D78F646EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6439A24ABCBB97852E0D5D1 /* Pods-Bodyweight Fitness.debug.xcconfig */,
+				BA7457843B13F20696FA3BA8 /* Pods-Bodyweight Fitness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -766,13 +754,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BD2CAA51B458FFE00841AB7 /* Build configuration list for PBXNativeTarget "Bodyweight Fitness" */;
 			buildPhases = (
+				3C4F1FC485B7DDDCB3D34864 /* [CP] Check Pods Manifest.lock */,
 				2BD2CA7F1B458FFD00841AB7 /* Sources */,
 				2BD2CA801B458FFD00841AB7 /* Frameworks */,
 				2BD2CA811B458FFD00841AB7 /* Resources */,
 				E0C7E3481B5BD8B500EB6389 /* Embed App Extensions */,
-				73D2BCDA1C3C625A00CE6C00 /* ShellScript */,
 				73D2BCDB1C3C627200CE6C00 /* CopyFiles */,
 				73BFEBFF1CBC2B8C00B9DDAE /* ShellScript */,
+				C42C8A6A44E9625883688EDF /* [CP] Embed Pods Frameworks */,
+				2E14369486F78F9BAF8C8A2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -993,6 +983,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E14369486F78F9BAF8C8A2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bodyweight Fitness/Pods-Bodyweight Fitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C4F1FC485B7DDDCB3D34864 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bodyweight Fitness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73BFEBFF1CBC2B8C00B9DDAE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1006,25 +1029,33 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 5dcec45142f2b7beb83af419bcb06344e8598390 f37f74ee55215607611bede5f6fd7baf1a2584de9167cdf7b72947665f50bff0";
 		};
-		73D2BCDA1C3C625A00CE6C00 /* ShellScript */ = {
+		C42C8A6A44E9625883688EDF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bodyweight Fitness/Pods-Bodyweight Fitness-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bodyweight Fitness/Pods-Bodyweight Fitness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1206,6 +1237,7 @@
 		};
 		2BD2CAA61B458FFE00841AB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6439A24ABCBB97852E0D5D1 /* Pods-Bodyweight Fitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1236,6 +1268,7 @@
 		};
 		2BD2CAA71B458FFE00841AB7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA7457843B13F20696FA3BA8 /* Pods-Bodyweight Fitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
