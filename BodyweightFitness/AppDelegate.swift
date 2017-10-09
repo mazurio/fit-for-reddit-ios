@@ -39,7 +39,8 @@ class TabBarController: UITabBarController {
             self.homeViewController,
             self.workoutLogViewController,
             self.supportDeveloperViewController,
-            self.settingsViewController]
+            self.settingsViewController
+        ]
     }
 }
 
@@ -47,7 +48,9 @@ class TabBarController: UITabBarController {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         Fabric.with([Crashlytics.self])
 
         self.migrateSchemaIfNeeded()

@@ -382,7 +382,6 @@ class WorkoutLogViewController: UIViewController,
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
-//        self.calendarView.register(UINib(nibName: "CellView", bundle: nil), forCellReuseIdentifier: "CellView")
         calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
       
         calendarView.calendarDelegate = self
@@ -390,7 +389,6 @@ class WorkoutLogViewController: UIViewController,
         calendarView.allowsMultipleSelection = false
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         calendarView.isRangeSelectionUsed = false
-//
         calendarView.reloadData()
 
         calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
