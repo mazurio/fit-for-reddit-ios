@@ -144,7 +144,6 @@
 		73AA28F91CB7ACE300DEED79 /* DashboardDoubleItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AA28F81CB7ACE300DEED79 /* DashboardDoubleItemCell.xib */; };
 		73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA28FA1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift */; };
 		73AA28FD1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AA28FC1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift */; };
-		73BADE151CC3DC26001ACEDC /* RateMyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE141CC3DC26001ACEDC /* RateMyApp.swift */; };
 		73BADE171CC3E2F9001ACEDC /* TimedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BADE161CC3E2F9001ACEDC /* TimedView.xib */; };
 		73BADE191CC3E347001ACEDC /* TimedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE181CC3E347001ACEDC /* TimedViewController.swift */; };
 		73BADE1B1CC3F956001ACEDC /* WeightedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */; };
@@ -350,7 +349,6 @@
 		73AA28F81CB7ACE300DEED79 /* DashboardDoubleItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardDoubleItemCell.xib; sourceTree = "<group>"; };
 		73AA28FA1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardSingleItemCell.swift; sourceTree = "<group>"; };
 		73AA28FC1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardDoubleItemCell.swift; sourceTree = "<group>"; };
-		73BADE141CC3DC26001ACEDC /* RateMyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RateMyApp.swift; path = BodyweightFitness/Vendor/RateMyApp.swift; sourceTree = "<group>"; };
 		73BADE161CC3E2F9001ACEDC /* TimedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimedView.xib; sourceTree = "<group>"; };
 		73BADE181CC3E347001ACEDC /* TimedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedViewController.swift; sourceTree = "<group>"; };
 		73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedViewController.swift; sourceTree = "<group>"; };
@@ -689,7 +687,6 @@
 				73BFEC041CBC2C9A00B9DDAE /* Fabric.framework */,
 				73BFEC051CBC2C9A00B9DDAE /* Crashlytics.framework */,
 				7366D8EC1C52943D00819790 /* StoreKit.framework */,
-				73BADE141CC3DC26001ACEDC /* RateMyApp.swift */,
 				73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */,
 				8AD935083C2986D423F02E75 /* Pods_Bodyweight_Fitness.framework */,
 			);
@@ -1076,7 +1073,6 @@
 				E0F587311B5272E200540104 /* Routine.swift in Sources */,
 				7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */,
 				E0F5873C1B52730000540104 /* SettingsViewController.swift in Sources */,
-				73BADE151CC3DC26001ACEDC /* RateMyApp.swift in Sources */,
 				732BA0431C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift in Sources */,
 				73BADE1B1CC3F956001ACEDC /* WeightedViewController.swift in Sources */,
 				73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */,

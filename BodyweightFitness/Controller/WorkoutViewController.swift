@@ -59,10 +59,6 @@ class WorkoutViewController: UIViewController {
         self.setNavigationBar()
         self.timedViewController.updateLabel()
         
-        let rate = RateMyApp.sharedInstance
-        rate.appID = "1018863605"
-        rate.trackAppUsage()
-        
         _ = RoutineStream.sharedInstance.routineObservable().subscribe(onNext: {
             self.current = $0.getFirstExercise()
             self.changeExercise(self.current)
