@@ -3,25 +3,15 @@ import RxSwift
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var cardView: UIView!
 
     @IBOutlet weak var totalWorkouts: UILabel!
     @IBOutlet weak var lastWorkout: UILabel!
     @IBOutlet weak var last7Days: UILabel!
     @IBOutlet weak var last31Days: UILabel!
     
-    @IBOutlet weak var routineCardView: CardView!
     @IBOutlet weak var routineTitle: UILabel!
     @IBOutlet weak var routineShortDescription: UITextView!
-    
-    init() {
-        super.init(nibName: "HomeView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

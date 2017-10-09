@@ -38,14 +38,14 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>This app does not require access to the camera.</string>
-	<key>NSMainNibFile</key>
-	<string>Window</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app does not require access to the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app does not require access to the photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

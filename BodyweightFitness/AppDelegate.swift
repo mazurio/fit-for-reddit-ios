@@ -55,12 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.migrateSchemaIfNeeded()
         self.setDefaultSettings()
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.tintColor = UIColor.primaryDark()
-        self.window?.backgroundColor = UIColor.primary()
-        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
-        self.window?.makeKeyAndVisible()
+//
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.tintColor = UIColor.primaryDark()
+//        self.window?.backgroundColor = UIColor.primary()
+//        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
+//        self.window?.makeKeyAndVisible()
         
         return true
     }

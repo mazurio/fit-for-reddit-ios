@@ -14,7 +14,6 @@
 		46B02BB2537A1F6A3B5768B8 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B023EDCEC03B772C0541C3 /* CellView.xib */; };
 		46B02FDDA16C9D54DBC1A61D /* RepositoryStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02F2362EA8A9111571B02 /* RepositoryStream.swift */; };
 		7329B68C1D0D8476005F5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329B68B1D0D8476005F5F74 /* HomeViewController.swift */; };
-		7329B68E1D0D84E4005F5F74 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7329B68D1D0D84E4005F5F74 /* HomeView.xib */; };
 		732BA0241C5AE75900C1CDB5 /* ProgressPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */; };
 		732BA0261C5AE8EF00C1CDB5 /* ProgressCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0251C5AE8EF00C1CDB5 /* ProgressCardCell.xib */; };
 		732BA0281C5AE8F900C1CDB5 /* ProgressSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0271C5AE8F900C1CDB5 /* ProgressSectionCell.xib */; };
@@ -65,6 +64,7 @@
 		7366D8E11C51810600819790 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8E01C51810600819790 /* Extensions.swift */; };
 		7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */; };
 		7366D8ED1C52943D00819790 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7366D8EC1C52943D00819790 /* StoreKit.framework */; };
+		73737FF51F8C347200C616B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73737FF41F8C347200C616B8 /* Main.storyboard */; };
 		737F3C781CBD52AB00251EFE /* WorkoutLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */; };
 		738B96771D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 738B96341D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 */; };
 		738B96781D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 738B96351D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 */; };
@@ -156,7 +156,6 @@
 		73BF3BB51CBEB08B00E0258D /* LogWorkoutModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB41CBEB08B00E0258D /* LogWorkoutModalView.xib */; };
 		73BF3BB91CBEFB0E00E0258D /* WorkoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */; };
 		73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */; };
-		73BF3BBF1CBF02D200E0258D /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BBE1CBF02D200E0258D /* Window.xib */; };
 		73BF3BC11CBF05ED00E0258D /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BC01CBF05ED00E0258D /* SnackBar.swift */; };
 		73BF63801F3CAAE2007F37C8 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF637F1F3CAAE2007F37C8 /* CellView.swift */; };
 		73BFEBC41CBBFA3900B9DDAE /* SupportDeveloperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */; };
@@ -197,7 +196,6 @@
 		46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineStream.swift; sourceTree = "<group>"; };
 		46B02F2362EA8A9111571B02 /* RepositoryStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryStream.swift; sourceTree = "<group>"; };
 		7329B68B1D0D8476005F5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7329B68D1D0D84E4005F5F74 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressPageViewController.xib; sourceTree = "<group>"; };
 		732BA0251C5AE8EF00C1CDB5 /* ProgressCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressCardCell.xib; sourceTree = "<group>"; };
 		732BA0271C5AE8F900C1CDB5 /* ProgressSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSectionCell.xib; sourceTree = "<group>"; };
@@ -248,6 +246,7 @@
 		7366D8E01C51810600819790 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportDeveloperViewController.swift; sourceTree = "<group>"; };
 		7366D8EC1C52943D00819790 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		73737FF41F8C347200C616B8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutLogView.xib; sourceTree = "<group>"; };
 		738B96341D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_advanced_tuck_front_lever_row.mp4; sourceTree = "<group>"; };
 		738B96351D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_assisted_squat.mp4; sourceTree = "<group>"; };
@@ -341,7 +340,6 @@
 		73BF3BB41CBEB08B00E0258D /* LogWorkoutModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogWorkoutModalView.xib; sourceTree = "<group>"; };
 		73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutView.xib; sourceTree = "<group>"; };
 		73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
-		73BF3BBE1CBF02D200E0258D /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		73BF3BC01CBF05ED00E0258D /* SnackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		73BF637F1F3CAAE2007F37C8 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportDeveloperView.xib; sourceTree = "<group>"; };
@@ -584,16 +582,15 @@
 				732BA03C1C5BC9D400C1CDB5 /* LaunchScreen.xib */,
 				732BA02D1C5B7A8D00C1CDB5 /* ProgressGeneralViewController.xib */,
 				732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */,
-				7329B68D1D0D84E4005F5F74 /* HomeView.xib */,
 				738B96CC1D763319009A8625 /* HomeBarView.xib */,
 				73374A8F1E167AEF00EBC47B /* RestTimerView.xib */,
 				73BADE161CC3E2F9001ACEDC /* TimedView.xib */,
 				73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */,
 				73BF3BA81CBE643200E0258D /* SettingsView.xib */,
 				73BFEBC31CBBFA3900B9DDAE /* SupportDeveloperView.xib */,
-				73BF3BBE1CBF02D200E0258D /* Window.xib */,
 				73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */,
 				737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */,
+				73737FF41F8C347200C616B8 /* Main.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -807,7 +804,6 @@
 				738B96901D760F66009A8625 /* bodyweight_fitness_rings_turned_out_support_hold.mp4 in Resources */,
 				738B96B81D760F66009A8625 /* bodyweight_fitness_shoulder_rolls.mp4 in Resources */,
 				738B96981D760F66009A8625 /* bodyweight_fitness_tuck_front_lever_row.mp4 in Resources */,
-				7329B68E1D0D84E4005F5F74 /* HomeView.xib in Resources */,
 				73AA28ED1CABE8F800DEED79 /* DashboardView.xib in Resources */,
 				73AA28EF1CB7ABB500DEED79 /* DashboardSectionCell.xib in Resources */,
 				738B96AE1D760F66009A8625 /* molding_mobility_side_bends.mp4 in Resources */,
@@ -815,6 +811,7 @@
 				73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */,
 				73E8F4561E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 in Resources */,
 				734133021E130FE900BAEFD2 /* starting_stretching_rear_hand_clasp_beginner.mp4 in Resources */,
+				73737FF51F8C347200C616B8 /* Main.storyboard in Resources */,
 				738B96811D760F66009A8625 /* bodyweight_fitness_incline_row.mp4 in Resources */,
 				732BA02E1C5B7A8D00C1CDB5 /* ProgressGeneralViewController.xib in Resources */,
 				732BA0281C5AE8F900C1CDB5 /* ProgressSectionCell.xib in Resources */,
@@ -875,7 +872,6 @@
 				73BF3BB31CBE819B00E0258D /* SettingsActionSubtitleCell.xib in Resources */,
 				734133031E130FE900BAEFD2 /* starting_stretching_lying_twist_intermediate.mp4 in Resources */,
 				73E8F4551E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 in Resources */,
-				73BF3BBF1CBF02D200E0258D /* Window.xib in Resources */,
 				732BA0261C5AE8EF00C1CDB5 /* ProgressCardCell.xib in Resources */,
 				738B96B11D760F66009A8625 /* molding_mobility_wrist_circles.mp4 in Resources */,
 				734132FC1E130FE900BAEFD2 /* starting_stretching_underarm_shoulder_stretch_advanced.mp4 in Resources */,
