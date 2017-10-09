@@ -3,47 +3,6 @@ import CoreData
 import Fabric
 import Crashlytics
 
-class TabBarController: UITabBarController {
-    let homeViewController = HomeViewController()
-    let workoutLogViewController = WorkoutLogViewController()
-    let supportDeveloperViewController = SupportDeveloperViewController()
-    let settingsViewController = SettingsViewController()
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.tabBar.tintColor = UIColor.primary()
-        self.tabBar.barTintColor = UIColor.white
-
-        self.homeViewController.tabBarItem = UITabBarItem(
-                title: "Home",
-                image: UIImage(named: "tab_home"),
-                selectedImage: UIImage(named: "tab_home"))
-
-        self.workoutLogViewController.tabBarItem = UITabBarItem(
-            title: "Workout Log",
-            image: UIImage(named: "tab_workout_log"),
-            selectedImage: UIImage(named: "tab_workout_log"))
-        
-        self.supportDeveloperViewController.tabBarItem = UITabBarItem(
-            title: "Support Developer",
-            image: UIImage(named: "tab_support_developer"),
-            selectedImage: UIImage(named: "tab_support_developer"))
-
-        self.settingsViewController.tabBarItem = UITabBarItem(
-                title: "Settings",
-                image: UIImage(named: "tab_settings"),
-                selectedImage: UIImage(named: "tab_settings"))
-
-        self.viewControllers = [
-            self.homeViewController,
-            self.workoutLogViewController,
-            self.supportDeveloperViewController,
-            self.settingsViewController
-        ]
-    }
-}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -55,13 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.migrateSchemaIfNeeded()
         self.setDefaultSettings()
-//
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window?.tintColor = UIColor.primaryDark()
-//        self.window?.backgroundColor = UIColor.primary()
-//        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
-//        self.window?.makeKeyAndVisible()
-        
+
         return true
     }
 

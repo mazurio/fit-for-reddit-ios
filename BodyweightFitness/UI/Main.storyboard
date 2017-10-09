@@ -26,17 +26,115 @@
             </objects>
             <point key="canvasLocation" x="-2562" y="-224"/>
         </scene>
-        <!--View Controller-->
+        <!--Support Developer-->
         <scene sceneID="8Z7-Z6-0tP">
             <objects>
-                <viewController id="OAY-4N-mf5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BcD-dv-Bim">
+                <viewController id="OAY-4N-mf5" customClass="SupportDeveloperViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5us-Xf-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="f60-gb-FkA"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bodyweight Fitness is an advert free, open source mobile app." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feK-yv-KpI">
+                                <rect key="frame" x="8" y="8" width="359" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="DUH-8l-6gd"/>
+                                    <constraint firstAttribute="height" constant="48" id="dGe-Zg-WBy"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dGe-Zg-WBy"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHt-Yg-QnZ">
+                                <rect key="frame" x="87.666666666666686" y="176" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CXf-af-0p8"/>
+                                    <constraint firstAttribute="width" constant="200" id="tg8-EJ-Yo8"/>
+                                </constraints>
+                                <state key="normal" title="Buy"/>
+                                <connections>
+                                    <action selector="buyProduct:" destination="OAY-4N-mf5" eventType="touchUpInside" id="lRf-ea-Riw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Thank you!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFz-UQ-4BS">
+                                <rect key="frame" x="8" y="120" width="359" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="43e-AZ-nlJ"/>
+                                    <constraint firstAttribute="height" constant="48" id="AwA-Bg-O9W"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="43e-AZ-nlJ"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By purchasing the Bodyweight Fitness Gold you help to fund the development of the app." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9a-p1-ZxP">
+                                <rect key="frame" x="8" y="56" width="359" height="64"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Vua-lB-Dd7"/>
+                                    <constraint firstAttribute="height" constant="64" id="e9e-fJ-mDf"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vua-lB-Dd7"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEI-wi-wpm">
+                                <rect key="frame" x="87.666666666666686" y="214" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="W6R-01-MZb"/>
+                                    <constraint firstAttribute="width" constant="200" id="o1e-On-SQh"/>
+                                </constraints>
+                                <state key="normal" title="Restore Purchases"/>
+                                <connections>
+                                    <action selector="restorePurchases:" destination="OAY-4N-mf5" eventType="touchUpInside" id="L3d-1Z-yXm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="feK-yv-KpI" firstAttribute="leading" secondItem="5us-Xf-sak" secondAttribute="leading" constant="8" id="3BA-RG-yR6"/>
+                            <constraint firstItem="XHt-Yg-QnZ" firstAttribute="top" secondItem="RFz-UQ-4BS" secondAttribute="bottom" constant="8" id="66j-wx-8Lf"/>
+                            <constraint firstAttribute="trailing" secondItem="feK-yv-KpI" secondAttribute="trailing" constant="8" id="7BZ-7b-LzD"/>
+                            <constraint firstItem="feK-yv-KpI" firstAttribute="top" secondItem="5us-Xf-sak" secondAttribute="top" constant="8" id="CLc-9p-2uM"/>
+                            <constraint firstItem="RFz-UQ-4BS" firstAttribute="leading" secondItem="5us-Xf-sak" secondAttribute="leading" constant="8" id="Hk2-Mv-q82"/>
+                            <constraint firstItem="XHt-Yg-QnZ" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="JKG-82-nN7"/>
+                            <constraint firstItem="feK-yv-KpI" firstAttribute="top" secondItem="5us-Xf-sak" secondAttribute="top" constant="8" id="KG7-X9-CW1"/>
+                            <constraint firstItem="RFz-UQ-4BS" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="QvX-8T-d7b"/>
+                            <constraint firstItem="t9a-p1-ZxP" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="V7b-97-cYR"/>
+                            <constraint firstItem="TEI-wi-wpm" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="Ws5-QO-TjZ"/>
+                            <constraint firstAttribute="trailing" secondItem="t9a-p1-ZxP" secondAttribute="trailing" constant="8" id="XGv-xa-zo4"/>
+                            <constraint firstItem="RFz-UQ-4BS" firstAttribute="top" secondItem="t9a-p1-ZxP" secondAttribute="bottom" id="anY-hd-7yW"/>
+                            <constraint firstItem="feK-yv-KpI" firstAttribute="leading" secondItem="5us-Xf-sak" secondAttribute="leading" constant="8" id="au9-cr-g4c"/>
+                            <constraint firstItem="TEI-wi-wpm" firstAttribute="top" secondItem="XHt-Yg-QnZ" secondAttribute="bottom" constant="8" id="bIN-Sz-mMU"/>
+                            <constraint firstItem="t9a-p1-ZxP" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="hvL-Bl-UcG"/>
+                            <constraint firstAttribute="trailing" secondItem="feK-yv-KpI" secondAttribute="trailing" constant="8" id="sCI-uQ-RiQ"/>
+                            <constraint firstAttribute="trailing" secondItem="RFz-UQ-4BS" secondAttribute="trailing" constant="8" id="sbN-w4-Inz"/>
+                            <constraint firstItem="feK-yv-KpI" firstAttribute="centerX" secondItem="5us-Xf-sak" secondAttribute="centerX" id="tb4-8r-Aap"/>
+                            <constraint firstItem="t9a-p1-ZxP" firstAttribute="leading" secondItem="5us-Xf-sak" secondAttribute="leading" constant="8" id="wLt-8p-HqJ"/>
+                            <constraint firstItem="t9a-p1-ZxP" firstAttribute="top" secondItem="feK-yv-KpI" secondAttribute="bottom" id="zTi-Fd-DOR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ImU-ge-NMF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SZa-DM-3k3"/>
+                    <navigationItem key="navigationItem" title="Support Developer" id="SZa-DM-3k3"/>
+                    <connections>
+                        <outlet property="buyButton" destination="XHt-Yg-QnZ" id="Ivk-kA-TgP"/>
+                        <outlet property="restorePurchasesButton" destination="TEI-wi-wpm" id="DDR-XB-NsG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzj-d6-Jox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

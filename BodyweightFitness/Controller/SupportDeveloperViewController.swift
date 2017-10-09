@@ -29,22 +29,7 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
     var product: SKProduct?
     var productID = "bodyweight.fitness.gold"
     
-    init() {
-        super.init(nibName: "SupportDeveloperView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
-        self.setNavigationBar()
-        
-        
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        self.tabBarController?.title = "Support Developer"
-        
         SKPaymentQueue.default().add(self)
         
         self.getProductInfo()
