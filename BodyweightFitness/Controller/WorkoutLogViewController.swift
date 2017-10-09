@@ -320,9 +320,7 @@ extension Date {
     }
 }
 
-class WorkoutLogViewController: UIViewController,
-        UITableViewDataSource,
-        UITableViewDelegate {
+class WorkoutLogViewController: UIViewController {
 
     var numberOfRows = 1
 
@@ -383,7 +381,7 @@ class WorkoutLogViewController: UIViewController,
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
         calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
-      
+        
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.allowsMultipleSelection = false
@@ -448,6 +446,9 @@ class WorkoutLogViewController: UIViewController,
         }
     }
 
+}
+
+extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let routines = self.routines {
             return routines.count
@@ -455,50 +456,50 @@ class WorkoutLogViewController: UIViewController,
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutLogSectionCell") as! WorkoutLogSectionCell
-
+        
         cell.title.text = "Workout Log"
-
+        
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.97, alpha:1.00)
         cell.contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.97, alpha:1.00)
-
+        
         return cell
-
+        
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutLogCardCell", for: indexPath) as! WorkoutLogCardCell
-
+        
         if let routines = self.routines {
             let repositoryRoutine = routines[indexPath.row]
             let completionRate = RepositoryRoutineHelper.getCompletionRate(repositoryRoutine)
-
+            
             cell.parentController = self
             cell.date = date
-
+            
             cell.title.text = repositoryRoutine.title
             cell.subtitle.text = repositoryRoutine.subtitle
             cell.progressView.setCompletionRate(completionRate)
             cell.progressRate.text = completionRate.label
-
+            
             cell.repositoryRoutine = repositoryRoutine
         }
-
+        
         return cell
     }
 }
 
-extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
+extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = testCalendar.timeZone
@@ -518,9 +519,7 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
         
         return parameters
     }
-}
 
-extension WorkoutLogViewController: JTAppleCalendarViewDelegate {
     public func calendar(
         _ calendar: JTAppleCalendar.JTAppleCalendarView,
         cellForItemAt date: Date,
@@ -531,11 +530,12 @@ extension WorkoutLogViewController: JTAppleCalendarViewDelegate {
             withReuseIdentifier: "CellView",
             for: indexPath) as! CellView
         
-        
+        cell.dayLabel.text = "1"
 //        cell.dayLabel.text = "Text"
 //        cell.dayLabel.text = cellState.text
         
         return cell
     }
+    
     
 }
