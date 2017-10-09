@@ -320,126 +320,6 @@ extension Date {
     }
 }
 
-class CellView: JTAppleCell {
-    @IBInspectable var todayColor: UIColor!// = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.3)
-    @IBInspectable var normalDayColor: UIColor! //UIColor(white: 0.0, alpha: 0.1)
-
-    @IBOutlet var selectedView: AnimationView!
-    @IBOutlet var dot: UIView!
-    @IBOutlet var dayLabel: UILabel!
-
-    lazy var todayDate : String = {
-        [weak self] in
-        let aString = self!.c.string(from: Date())
-        return aString
-    }()
-
-    lazy var c : DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-
-        return f
-    }()
-
-    func setupCellBeforeDisplay(_ cellState: CellState, date: Date) {
-        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
-        
-        if (routines.count > 0) {
-            self.dot.isHidden = false
-        } else {
-            self.dot.isHidden = true
-        }
-
-        self.dot.layer.cornerRadius = self.dot.frame.width / 2
-        self.selectedView.layer.cornerRadius = self.selectedView.frame.width / 2
-
-        // Setup Cell text
-        self.dayLabel.text = cellState.text
-
-        // Mark todays date
-        if (c.string(from: date) == todayDate) {
-            selectedView.backgroundColor = UIColor.primaryDark()
-        } else {
-            selectedView.backgroundColor = UIColor.white
-        }
-
-        configureTextColor(cellState)
-
-        delayRunOnMainThread(0.0) {
-            self.configureViewIntoBubbleView(cellState)
-        }
-
-        configureVisibility(cellState)
-    }
-    
-    func delayRunOnMainThread(_ delay: Double, closure: @escaping () -> ()) {
-        DispatchQueue.main.asyncAfter(
-            deadline: DispatchTime.now() +
-                Double(Int64(delay * Double(NSEC_PER_SEC))) /
-                Double(NSEC_PER_SEC), execute: closure)
-    }
-
-    func configureVisibility(_ cellState: CellState) {
-        self.isHidden = false
-    }
-
-    func configureTextColor(_ cellState: CellState) {
-        if cellState.isSelected {
-            if (c.string(from: cellState.date as Date) == todayDate) {
-                dayLabel.textColor = UIColor.white
-            } else {
-                dayLabel.textColor = UIColor.black
-            }
-        } else if cellState.dateBelongsTo == .thisMonth {
-            dayLabel.textColor = UIColor.black
-        } else {
-            dayLabel.textColor = UIColor.primaryDark()
-        }
-    }
-
-    func cellSelectionChanged(_ cellState: CellState) {
-        if cellState.isSelected == true {
-            if selectedView.isHidden == true {
-                configureViewIntoBubbleView(cellState)
-                selectedView.animateWithBounceEffect(withCompletionHandler: nil)
-            }
-        } else {
-            configureViewIntoBubbleView(cellState, animateDeselection: true)
-        }
-    }
-
-    fileprivate func configureViewIntoBubbleView(_ cellState: CellState, animateDeselection: Bool = false) {
-        if cellState.isSelected {
-            self.selectedView.layer.cornerRadius =  self.selectedView.frame.width  / 2
-            self.selectedView.isHidden = false
-            self.dot.isHidden = true
-
-            self.configureTextColor(cellState)
-        } else {
-            if animateDeselection {
-                self.configureTextColor(cellState)
-
-                if self.selectedView.isHidden == false {
-                    self.selectedView.animateWithFadeEffect(withCompletionHandler: { () -> Void in
-                        self.selectedView.isHidden = true
-                        self.selectedView.alpha = 1
-                    })
-                }
-            } else {
-                self.selectedView.isHidden = true
-            }
-
-            let routines = RepositoryStream.sharedInstance.getRoutinesForDate(cellState.date)
-
-            if (routines.count > 0) {
-                self.dot.isHidden = false
-            } else {
-                self.dot.isHidden = true
-            }
-        }
-    }
-}
-
 class WorkoutLogViewController: UIViewController,
         UITableViewDataSource,
         UITableViewDelegate {
@@ -502,22 +382,25 @@ class WorkoutLogViewController: UIViewController,
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
+//        self.calendarView.register(UINib(nibName: "CellView", bundle: nil), forCellReuseIdentifier: "CellView")
+        calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
+      
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.allowsMultipleSelection = false
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         calendarView.isRangeSelectionUsed = false
-
+//
         calendarView.reloadData()
 
-//        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
-//            self.calendarView.selectDates([Date()])
-//        }
+        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
+            self.calendarView.selectDates([Date()])
+        }
     }
     
     func toggleCurrentDayView(_ sender: UIBarButtonItem) {
-        self.calendarView.scrollToDate(Date(), animateScroll: false)
-        self.calendarView.selectDates([Date()])
+//        self.calendarView.scrollToDate(Date(), animateScroll: false)
+//        self.calendarView.selectDates([Date()])
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -619,7 +502,6 @@ class WorkoutLogViewController: UIViewController,
 
 extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = testCalendar.timeZone
         formatter.locale = testCalendar.locale
@@ -629,7 +511,7 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
         
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate,
-                                                 numberOfRows: numberOfRows,
+                                                 numberOfRows: 1,
                                                  calendar: testCalendar,
                                                  generateInDates: InDateCellGeneration.forAllMonths,
                                                  generateOutDates: OutDateCellGeneration.tillEndOfGrid,
@@ -641,12 +523,19 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource {
 }
 
 extension WorkoutLogViewController: JTAppleCalendarViewDelegate {
-    public func calendar(_ calendar: JTAppleCalendar.JTAppleCalendarView, cellForItemAt date: Date, cellState: JTAppleCalendar.CellState, indexPath: IndexPath) -> JTAppleCalendar.JTAppleCell {
+    public func calendar(
+        _ calendar: JTAppleCalendar.JTAppleCalendarView,
+        cellForItemAt date: Date,
+        cellState: JTAppleCalendar.CellState,
+        indexPath: IndexPath) -> JTAppleCalendar.JTAppleCell {
+        
         let cell = calendar.dequeueReusableJTAppleCell(
             withReuseIdentifier: "CellView",
             for: indexPath) as! CellView
         
-        cell.dayLabel.text = cellState.text
+        
+//        cell.dayLabel.text = "Text"
+//        cell.dayLabel.text = cellState.text
         
         return cell
     }

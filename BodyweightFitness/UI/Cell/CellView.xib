@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CellView" customModule="Bodyweight_Fitness" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="S0w-C3-aBs" customClass="CellView" customModule="Bodyweight_Fitness" customModuleProvider="target">
+        <view contentMode="scaleToFill" restorationIdentifier="CellView" id="S0w-C3-aBs" customClass="CellView" customModule="Bodyweight_Fitness" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="181" height="144"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -56,11 +56,6 @@
                 <constraint firstItem="R5C-c7-wmq" firstAttribute="centerX" secondItem="S0w-C3-aBs" secondAttribute="centerX" id="pej-XD-MDP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="dayLabel" destination="A7s-8j-sxm" id="E0b-AV-IO5"/>
-                <outlet property="dot" destination="R5C-c7-wmq" id="CpZ-LU-5jr"/>
-                <outlet property="selectedView" destination="EbV-Fp-hR6" id="HWQ-0g-Hhq"/>
-            </connections>
             <point key="canvasLocation" x="-246.5" y="445"/>
         </view>
     </objects>

@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkoutLogViewController" customModule="Bodyweight_Fitness" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="jBm-b3-Q5K" id="mbJ-vX-M5U"/>
-                <outlet property="calendarView" destination="Or0-9A-zi9" id="OpN-iu-uGf"/>
+                <outlet property="calendarView" destination="rum-cc-ytb" id="PfV-LA-doW"/>
                 <outlet property="tableView" destination="bVK-Iq-XKM" id="7T7-ER-qCj"/>
                 <outlet property="view" destination="EnR-Q3-368" id="NA2-LU-w1c"/>
             </connections>
@@ -24,10 +24,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBm-b3-Q5K">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Or0-9A-zi9" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                            <rect key="frame" x="10" y="48" width="355" height="69"/>
-                            <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-J5-KfF">
                             <rect key="frame" x="8" y="8" width="359" height="32"/>
                             <subviews>
@@ -78,15 +74,29 @@
                                 <constraint firstAttribute="height" constant="32" id="YMr-el-Nxb"/>
                             </constraints>
                         </stackView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rum-cc-ytb" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                            <rect key="frame" x="8" y="48" width="359" height="69"/>
+                            <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="deviceRGB"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XVJ-HE-FEP">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="ibCalendarDataSource" destination="-1" id="lnS-Tf-XKI"/>
+                                <outlet property="ibCalendarDelegate" destination="-1" id="n2I-Si-Jsb"/>
+                            </connections>
+                        </collectionView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="Or0-9A-zi9" firstAttribute="top" secondItem="xzw-J5-KfF" secondAttribute="bottom" constant="8" id="CL8-kK-sig"/>
+                        <constraint firstAttribute="bottom" secondItem="rum-cc-ytb" secondAttribute="bottom" constant="8" id="V3D-Sw-ihV"/>
                         <constraint firstItem="xzw-J5-KfF" firstAttribute="top" secondItem="jBm-b3-Q5K" secondAttribute="top" constant="8" id="Vd6-SF-Rll"/>
-                        <constraint firstAttribute="bottom" secondItem="Or0-9A-zi9" secondAttribute="bottom" constant="8" id="dVL-IB-Z9s"/>
-                        <constraint firstItem="Or0-9A-zi9" firstAttribute="leading" secondItem="jBm-b3-Q5K" secondAttribute="leading" constant="10" id="f8w-WM-ukI"/>
+                        <constraint firstAttribute="trailing" secondItem="rum-cc-ytb" secondAttribute="trailing" constant="8" id="gOB-r7-bYb"/>
+                        <constraint firstItem="rum-cc-ytb" firstAttribute="leading" secondItem="jBm-b3-Q5K" secondAttribute="leading" constant="8" id="h9s-kn-YHY"/>
+                        <constraint firstItem="rum-cc-ytb" firstAttribute="top" secondItem="xzw-J5-KfF" secondAttribute="bottom" constant="8" id="hPD-DR-EHG"/>
                         <constraint firstAttribute="height" constant="125" id="k7h-Db-JQn"/>
-                        <constraint firstAttribute="trailing" secondItem="Or0-9A-zi9" secondAttribute="trailing" constant="10" id="kMK-ex-TYU"/>
                         <constraint firstAttribute="trailing" secondItem="xzw-J5-KfF" secondAttribute="trailing" constant="8" id="qY9-In-rbo"/>
                         <constraint firstItem="xzw-J5-KfF" firstAttribute="leading" secondItem="jBm-b3-Q5K" secondAttribute="leading" constant="8" id="tVG-lL-nht"/>
                     </constraints>
@@ -110,6 +120,7 @@
                 <constraint firstAttribute="trailing" secondItem="jBm-b3-Q5K" secondAttribute="trailing" id="zsM-EN-eyx"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>
