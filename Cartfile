@@ -1,4 +1,0 @@
-github "realm/realm-cocoa"
-github "ReactiveX/RxSwift"
-github "SwiftyJSON/SwiftyJSON"
-github "patchthecode/JTAppleCalendar" ~> 7.0
