@@ -51,7 +51,6 @@ class CalendarViewController: UIViewController {
         self.tableView.dataSource = self
 
         formatter.dateFormat = "yyyy MM dd"
-        testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
         self.calendarView.calendarDelegate = self
         self.calendarView.calendarDataSource = self
@@ -212,12 +211,12 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         print(visibleD)
         print(today)
         
-        if let f  = visibleD.first {
-            calendar.selectDates([f])
-        }
-        
         if visibleD.contains(today) {
-            print("is today")
+            calendar.selectDates([today])
+        } else {
+            if let f = visibleD.first {
+                calendar.selectDates([f])
+            }
         }
 //
 //        if let startDate = visibleDates.monthDates.first?.date {
