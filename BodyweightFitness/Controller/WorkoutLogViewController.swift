@@ -39,14 +39,16 @@ class WorkoutLogViewController: UIViewController {
 
         self.tableView.register(
                 UINib(nibName: "WorkoutLogSectionCell", bundle: nil),
-                forCellReuseIdentifier: "WorkoutLogSectionCell")
+                forCellReuseIdentifier: "WorkoutLogSectionCell"
+        )
 
         self.tableView.register(
                 UINib(nibName: "WorkoutLogCardCell", bundle: nil),
-                forCellReuseIdentifier: "WorkoutLogCardCell")
+                forCellReuseIdentifier: "WorkoutLogCardCell"
+        )
 
         self.tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.dataSource = self
 
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
@@ -63,24 +65,15 @@ class WorkoutLogViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.showOrHideCardViewForDate(date)
+    }
+    
     func toggleCurrentDayView(_ sender: UIBarButtonItem) {
         self.calendarView.scrollToDate(Date(), animateScroll: false)
         self.calendarView.selectDates([Date()])
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        self.tabBarController?.navigationItem.titleView = nil
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-                image: UIImage(named: "calendar"),
-                landscapeImagePhone: nil,
-                style: .plain,
-                target: self,
-                action: #selector(toggleCurrentDayView))
-
-        self.showOrHideCardViewForDate(date)
     }
 
     func showOrHideCardViewForDate(_ date: Date) {
