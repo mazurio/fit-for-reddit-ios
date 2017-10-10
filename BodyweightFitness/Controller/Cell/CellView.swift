@@ -1,7 +1,7 @@
 import UIKit
 import JTAppleCalendar
 
-class TestCellView: JTAppleCell {
+class CellView: JTAppleCell {
     @IBInspectable var todayColor: UIColor!// = UIColor(red: 254.0/255.0, green: 73.0/255.0, blue: 64.0/255.0, alpha: 0.3)
     @IBInspectable var normalDayColor: UIColor! //UIColor(white: 0.0, alpha: 0.1)
     

@@ -335,8 +335,6 @@ class WorkoutLogViewController: UIViewController {
     var testCalendar: Calendar! = Calendar.current
 
     override func viewDidLoad() {
-        self.setNavigationBar()
-
         let border = CALayer()
         let width = CGFloat(0.5)
 
@@ -366,29 +364,27 @@ class WorkoutLogViewController: UIViewController {
                 UINib(nibName: "WorkoutLogCardCell", bundle: nil),
                 forCellReuseIdentifier: "WorkoutLogCardCell")
 
-        tableView.delegate = self
+        self.tableView.delegate = self
         tableView.dataSource = self
 
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
-//        calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
-        
-        calendarView.calendarDelegate = self
-        calendarView.calendarDataSource = self
-        calendarView.allowsMultipleSelection = false
-        calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
-        calendarView.isRangeSelectionUsed = false
-        calendarView.reloadData()
+        self.calendarView.calendarDelegate = self
+        self.calendarView.calendarDataSource = self
+        self.calendarView.allowsMultipleSelection = false
+        self.calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
+        self.calendarView.isRangeSelectionUsed = false
+        self.calendarView.reloadData()
 
-        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
+        self.calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: false) {
             self.calendarView.selectDates([Date()])
         }
     }
     
     func toggleCurrentDayView(_ sender: UIBarButtonItem) {
-//        self.calendarView.scrollToDate(Date(), animateScroll: false)
-//        self.calendarView.selectDates([Date()])
+        self.calendarView.scrollToDate(Date(), animateScroll: false)
+        self.calendarView.selectDates([Date()])
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -403,33 +399,35 @@ class WorkoutLogViewController: UIViewController {
                 target: self,
                 action: #selector(toggleCurrentDayView))
 
-        self.tabBarController?.title = date.commonDescription
-
         self.showOrHideCardViewForDate(date)
     }
 
     func showOrHideCardViewForDate(_ date: Date) {
-//        self.date = date
-//
-//        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(date)
-//        if (routines.count > 0) {
-//            self.routines = routines
-//            self.tableView?.backgroundView = nil
-//        } else {
-//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-//
-//            label.text = "When you log a workout, you'll see it here."
-//            label.font = UIFont(name: "Helvetica Neue", size: 15)
-//            label.textAlignment = .center
-//            label.sizeToFit()
-//
-//            self.routines = nil
-//            self.tableView?.backgroundView = label
-//        }
-//
-//        self.tableView.reloadData()
-    }
+        self.date = date
 
+        self.navigationItem.title = date.commonDescription
+        
+        let routines = RepositoryStream.sharedInstance.getRoutinesForDate(date)
+        if (routines.count > 0) {
+            self.routines = routines
+            self.tableView?.backgroundView = nil
+        } else {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+
+            label.text = "When you log a workout, you'll see it here."
+            label.font = UIFont(name: "Helvetica Neue", size: 15)
+            label.textAlignment = .center
+            label.sizeToFit()
+
+            self.routines = nil
+            self.tableView?.backgroundView = label
+        }
+
+        self.tableView.reloadData()
+    }
+}
+
+extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if let _ = self.routines {
             return 1
@@ -437,10 +435,7 @@ class WorkoutLogViewController: UIViewController {
             return 0
         }
     }
-
-}
-
-extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let routines = self.routines {
             return routines.count
@@ -511,7 +506,7 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalend
         
         return parameters
     }
-
+    
     public func calendar(
         _ calendar: JTAppleCalendar.JTAppleCalendarView,
         cellForItemAt date: Date,
@@ -519,24 +514,21 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalend
         indexPath: IndexPath) -> JTAppleCalendar.JTAppleCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(
-            withReuseIdentifier: "MyCellView",
-            for: indexPath) as! MyCellView
+            withReuseIdentifier: "CellView",
+            for: indexPath) as! CellView
         
-//        cell.dayLabel.text = "1"
-//        cell.dayLabel.text = "Text"
-//        cell.dayLabel.text = cellState.text
+        cell.setupCellBeforeDisplay(cellState, date: date)
         
         return cell
     }
     
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        (cell as? CellView)?.setupCellBeforeDisplay(cellState, date: date)
+        
+        self.showOrHideCardViewForDate(date)
+    }
     
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        (cell as? CellView)?.setupCellBeforeDisplay(cellState, date: date)
+    }
 }
-
-import JTAppleCalendar
-
-class MyCellView: JTAppleCell {
-    @IBOutlet var selectedView: UIView!
-    @IBOutlet var dayLabel: UILabel!
-    @IBOutlet var monthLabel: UILabel!
-}
-

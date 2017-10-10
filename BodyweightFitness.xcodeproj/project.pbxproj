@@ -11,7 +11,6 @@
 		46B0271B985965324463B90C /* RoutineStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */; };
 		46B02780EEC08B16FB384A4F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B020C26FAF7645B926FA26 /* CardView.swift */; };
 		46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */; };
-		46B02BB2537A1F6A3B5768B8 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B023EDCEC03B772C0541C3 /* CellView.xib */; };
 		46B02FDDA16C9D54DBC1A61D /* RepositoryStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02F2362EA8A9111571B02 /* RepositoryStream.swift */; };
 		7329B68C1D0D8476005F5F74 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329B68B1D0D8476005F5F74 /* HomeViewController.swift */; };
 		732BA0241C5AE75900C1CDB5 /* ProgressPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0231C5AE75900C1CDB5 /* ProgressPageViewController.xib */; };
@@ -189,7 +188,6 @@
 		2BD2CA831B458FFD00841AB7 /* Bodyweight Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bodyweight Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B020C26FAF7645B926FA26 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		46B023EDCEC03B772C0541C3 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
 		46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineStream.swift; sourceTree = "<group>"; };
 		46B02F2362EA8A9111571B02 /* RepositoryStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryStream.swift; sourceTree = "<group>"; };
@@ -470,7 +468,6 @@
 				735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */,
 				732BA0441C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib */,
 				732BA0461C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib */,
-				46B023EDCEC03B772C0541C3 /* CellView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -918,7 +915,6 @@
 				732BA0451C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib in Resources */,
 				738B96911D760F66009A8625 /* bodyweight_fitness_rings_wide_pushup.mp4 in Resources */,
 				73BF3BAD1CBE6A5D00E0258D /* SettingsToggleCell.xib in Resources */,
-				46B02BB2537A1F6A3B5768B8 /* CellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
