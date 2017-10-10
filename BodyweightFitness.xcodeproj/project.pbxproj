@@ -395,6 +395,7 @@
 				73737FF61F8D064000C616B8 /* Date+Extensions.swift */,
 				7347DC2E1F8D3CD8001E1BE5 /* Main */,
 				7347DC2F1F8D3CF1001E1BE5 /* Workout */,
+				73D393251F8D474E00D9F4DD /* WorkoutLog */,
 				73BA31BC1CB83A9B001784F7 /* Controller */,
 				E078934D1B472CCD001195AC /* Domain */,
 				73AA28EB1CABE8E000DEED79 /* UI */,
@@ -584,9 +585,6 @@
 				73BF3BB71CBEF0CC00E0258D /* Cell */,
 				73BF3BB61CBEB0C100E0258D /* Modal */,
 				73AA28E91CABE69200DEED79 /* DashboardViewController.swift */,
-				73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */,
-				7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */,
-				7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */,
 				73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */,
 				73BADE181CC3E347001ACEDC /* TimedViewController.swift */,
 				73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */,
@@ -626,6 +624,16 @@
 				73BF637F1F3CAAE2007F37C8 /* CellView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		73D393251F8D474E00D9F4DD /* WorkoutLog */ = {
+			isa = PBXGroup;
+			children = (
+				73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */,
+				7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */,
+				7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */,
+			);
+			path = WorkoutLog;
 			sourceTree = "<group>";
 		};
 		E00242FB1B4F1CFD0003A230 /* Frameworks */ = {
