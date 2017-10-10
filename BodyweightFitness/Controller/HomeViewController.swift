@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.setNavigationBar()
+        self.setNavigationBar()
 
         self.stackView.axis = UILayoutConstraintAxis.vertical;
         self.stackView.distribution = UIStackViewDistribution.equalSpacing;

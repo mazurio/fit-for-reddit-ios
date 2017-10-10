@@ -14,6 +14,8 @@ class WorkoutLogViewController: UIViewController {
     var testCalendar: Calendar! = Calendar.current
 
     override func viewDidLoad() {
+        self.setNavigationBar()
+        
         let border = CALayer()
         let width = CGFloat(0.5)
 

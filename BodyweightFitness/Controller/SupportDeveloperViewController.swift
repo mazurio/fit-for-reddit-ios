@@ -30,6 +30,8 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
     var productID = "bodyweight.fitness.gold"
     
     override func viewDidLoad() {
+        self.setNavigationBar()
+        
         SKPaymentQueue.default().add(self)
         
         self.getProductInfo()
