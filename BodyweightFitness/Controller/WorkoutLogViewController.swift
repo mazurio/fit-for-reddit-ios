@@ -3,8 +3,6 @@ import RealmSwift
 import JTAppleCalendar
 
 class WorkoutLogViewController: UIViewController {
-    var numberOfRows = 1
-
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var tableView: UITableView!

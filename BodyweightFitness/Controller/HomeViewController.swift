@@ -40,14 +40,6 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-                image: UIImage(named: "plus"),
-                landscapeImagePhone: nil,
-                style: .plain,
-                target: self,
-                action: #selector(routine))
-
         self.tabBarController?.title = RoutineStream.sharedInstance.routine.title
     }
 
@@ -113,7 +105,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func routine(_ sender: UIBarButtonItem) {
+    @IBAction func routine(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(
             title: "Choose Workout Routine",
             message: nil,

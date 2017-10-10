@@ -329,7 +329,7 @@
             </objects>
             <point key="canvasLocation" x="-2562" y="1160"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Bodyweight Fitness-->
         <scene sceneID="zPA-2W-i4F">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0fB-kv-Ao9" customClass="HomeViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
@@ -623,7 +623,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YR0-Ew-fEi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="trb-IL-i5N"/>
+                    <navigationItem key="navigationItem" title="Bodyweight Fitness" id="trb-IL-i5N">
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="DHT-m5-Nrs">
+                            <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="routine:" destination="0fB-kv-Ao9" id="7On-mR-ZKY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="last31Days" destination="Sfb-3R-emd" id="YeB-IW-g5e"/>
                         <outlet property="last7Days" destination="0k8-Ch-NG2" id="bRJ-CK-vDA"/>
@@ -741,6 +748,7 @@
     </scenes>
     <resources>
         <image name="calendar" width="22" height="22"/>
+        <image name="plus" width="22" height="22"/>
         <image name="tab_home" width="25" height="25"/>
         <image name="tab_settings" width="25" height="25"/>
         <image name="tab_support_developer" width="25" height="25"/>

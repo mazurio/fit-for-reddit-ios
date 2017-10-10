@@ -592,20 +592,20 @@
 		73BA31BC1CB83A9B001784F7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
+				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
+				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
 				73BF3BB71CBEF0CC00E0258D /* Cell */,
 				73BF3BB61CBEB0C100E0258D /* Modal */,
 				73AA28E91CABE69200DEED79 /* DashboardViewController.swift */,
 				73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */,
 				7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */,
 				7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */,
-				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
 				73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */,
 				73BADE181CC3E347001ACEDC /* TimedViewController.swift */,
 				73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */,
 				E0F587381B52730000540104 /* SettingsViewController.swift */,
-				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
 				73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */,
-				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
