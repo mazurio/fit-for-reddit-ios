@@ -28,15 +28,18 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func onClickView(_ sender: AnyObject) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
         
-        self.parentController?.navigationItem.backBarButtonItem = backItem
+        let storyboard = UIStoryboard(name: "WorkoutLog", bundle: Bundle.main)
         
-        let progressViewController = ProgressViewController()
-        progressViewController.setRoutine(self.date!, repositoryRoutine: self.repositoryRoutine!)
+        let p = storyboard.instantiateViewController(
+            withIdentifier: "WorkoutLogViewController"
+        ) as! WorkoutLogViewController
         
-        self.parentController?.show(progressViewController, sender: nil)
+        p.date = date
+        p.repositoryRoutine = repositoryRoutine
+        p.hidesBottomBarWhenPushed = true
+        
+        self.parentController?.navigationController?.pushViewController(p, animated: true)
     }
     
     @IBAction func onClickExport(_ sender: AnyObject) {

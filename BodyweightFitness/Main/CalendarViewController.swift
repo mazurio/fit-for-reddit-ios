@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController {
 
     let formatter = DateFormatter()
     var testCalendar: Calendar! = Calendar.current
-
+    
     override func viewDidLoad() {
         self.setNavigationBar()
         

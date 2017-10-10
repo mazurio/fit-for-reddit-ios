@@ -18,7 +18,7 @@
         <!--Workout Log-->
         <scene sceneID="doj-ZH-GC7">
             <objects>
-                <viewController id="1Il-dr-vTg" customClass="CalendarViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Il-dr-vTg" customClass="CalendarViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ux-Fk-SXZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,6 +181,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Workout Log" id="jRr-Ty-yy2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="W8d-3Z-gYA"/>
                         <barButtonItem key="rightBarButtonItem" image="calendar" id="393-3Y-dF7">
                             <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -201,7 +202,7 @@
         <!--Support Developer-->
         <scene sceneID="8Z7-Z6-0tP">
             <objects>
-                <viewController id="OAY-4N-mf5" customClass="SupportDeveloperViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SupportDeveloperViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OAY-4N-mf5" customClass="SupportDeveloperViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5us-Xf-sak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -650,7 +651,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="zcE-nb-cza">
             <objects>
-                <tabBarController id="owH-3H-BtM" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="owH-3H-BtM" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ssn-xP-Fr2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -672,12 +673,13 @@
         <!--Home-->
         <scene sceneID="w6B-M3-oZU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ho-hT-U2A" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="8Ho-hT-U2A" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="tab_home" id="tLC-aJ-riC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jxB-Xu-PJE">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -692,12 +694,13 @@
         <!--Workout Log-->
         <scene sceneID="JAM-lE-tEk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="imV-Wz-xHp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="imV-Wz-xHp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Workout Log" image="tab_workout_log" id="3l4-If-U8R"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WLU-e9-FhB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -712,12 +715,13 @@
         <!--Support Developer-->
         <scene sceneID="mx4-A7-SE4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KrY-No-a1e" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="KrY-No-a1e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Support Developer" image="tab_support_developer" id="R5m-LR-XUl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="apt-kG-xQQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -732,12 +736,13 @@
         <!--Settings-->
         <scene sceneID="pMe-dl-5tD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pQH-nb-Icq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="pQH-nb-Icq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="tab_settings" id="sAG-Ww-SQO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ufk-uh-aMx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

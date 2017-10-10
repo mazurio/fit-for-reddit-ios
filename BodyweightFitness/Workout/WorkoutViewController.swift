@@ -297,16 +297,17 @@ class WorkoutViewController: UIViewController {
         }
         
         alertController.addAction(UIAlertAction(title: "Today's Workout", style: .default) { (action) in
-            let backItem = UIBarButtonItem()
-            backItem.title = "Back"
-
-            self.tabBarController?.navigationItem.backBarButtonItem = backItem
+            let storyboard = UIStoryboard(name: "WorkoutLog", bundle: Bundle.main)
             
-            let progressViewController = ProgressViewController()
+            let p = storyboard.instantiateViewController(
+                withIdentifier: "WorkoutLogViewController"
+                ) as! WorkoutLogViewController
             
-            progressViewController.setRoutine(Date(), repositoryRoutine: RepositoryStream.sharedInstance.getRepositoryRoutineForToday())
+            p.date = Date()
+            p.repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
+            p.hidesBottomBarWhenPushed = true
             
-            self.show(progressViewController, sender: nil)
+            self.navigationController?.pushViewController(p, animated: true)
         })
         
         if let currentSection = current.section {
