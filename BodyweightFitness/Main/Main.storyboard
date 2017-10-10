@@ -20,7 +20,7 @@
             <objects>
                 <viewController id="1Il-dr-vTg" customClass="WorkoutLogViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ux-Fk-SXZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-lZ-I3b">
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="45" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rW8-Vj-gIv">
-                                <rect key="frame" x="0.0" y="125" width="375" height="429"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="478"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
@@ -179,7 +179,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QTR-hA-C2V"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Workout Log" id="jRr-Ty-yy2">
                         <barButtonItem key="rightBarButtonItem" image="calendar" id="393-3Y-dF7">
                             <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -203,7 +203,7 @@
             <objects>
                 <viewController id="OAY-4N-mf5" customClass="SupportDeveloperViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5us-Xf-sak">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bodyweight Fitness is an advert free, open source mobile app." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feK-yv-KpI">
@@ -302,7 +302,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ImU-ge-NMF"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Support Developer" id="SZa-DM-3k3"/>
                     <connections>
                         <outlet property="buyButton" destination="XHt-Yg-QnZ" id="Ivk-kA-TgP"/>
@@ -318,11 +318,12 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOf-I7-qGE" customClass="SettingsViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sws-Gj-GzD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="PpE-Ta-bnW"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Settings" id="oWH-Mi-6Fi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kv3-Nt-hD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,11 +335,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0fB-kv-Ao9" customClass="HomeViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tHh-6S-UlN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Krk-Cp-PPx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-Dy-TeC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="773"/>
@@ -623,6 +624,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YR0-Ew-fEi"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Bodyweight Fitness" id="trb-IL-i5N">
                         <barButtonItem key="rightBarButtonItem" image="plus" id="DHT-m5-Nrs">
                             <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -649,6 +651,7 @@
         <scene sceneID="zcE-nb-cza">
             <objects>
                 <tabBarController id="owH-3H-BtM" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ssn-xP-Fr2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
