@@ -10,12 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workout Log View Controller-->
+        <!--Workout Log-->
         <scene sceneID="doj-ZH-GC7">
             <objects>
                 <viewController id="1Il-dr-vTg" customClass="WorkoutLogViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ux-Fk-SXZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-lZ-I3b">
@@ -100,7 +100,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="45" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rW8-Vj-gIv">
-                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="429"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
@@ -119,7 +119,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QTR-hA-C2V"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jRr-Ty-yy2"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Workout Log" id="jRr-Ty-yy2"/>
                     <connections>
                         <outlet property="backgroundView" destination="6Ux-Fk-SXZ" id="CSD-Ef-021"/>
                         <outlet property="calendarView" destination="R03-8f-Grp" id="2NQ-hX-png"/>
@@ -135,7 +136,7 @@
             <objects>
                 <viewController id="OAY-4N-mf5" customClass="SupportDeveloperViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5us-Xf-sak">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bodyweight Fitness is an advert free, open source mobile app." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feK-yv-KpI">
@@ -234,6 +235,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ImU-ge-NMF"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Support Developer" id="SZa-DM-3k3"/>
                     <connections>
                         <outlet property="buyButton" destination="XHt-Yg-QnZ" id="Ivk-kA-TgP"/>
