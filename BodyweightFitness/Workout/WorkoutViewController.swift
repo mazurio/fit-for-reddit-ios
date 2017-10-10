@@ -1,6 +1,8 @@
 import UIKit
 import AVFoundation
 
+class WorkoutViewNavigationController: UINavigationController {}
+
 class WorkoutViewController: UIViewController {
     @IBOutlet var actionButton: UIButton!
     @IBOutlet var topView: UIView!
@@ -11,8 +13,6 @@ class WorkoutViewController: UIViewController {
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     
-    @IBOutlet weak var middleViewHeightConstraint: NSLayoutConstraint!
-    
     let restTimerViewController: RestTimerViewController = RestTimerViewController()
     let timedViewController: TimedViewController = TimedViewController()
     let weightedViewController: WeightedViewController = WeightedViewController()
@@ -20,14 +20,6 @@ class WorkoutViewController: UIViewController {
     let userDefaults: UserDefaults = UserDefaults()
     
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
-    
-    init() {
-        super.init(nibName: "WorkoutView", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +55,6 @@ class WorkoutViewController: UIViewController {
             self.current = $0.getFirstExercise()
             self.changeExercise(self.current)
         })
-
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-                image: UIImage(named: "dashboard"),
-                landscapeImagePhone: nil,
-                style: .plain,
-                target: self,
-                action: #selector(dashboard))
         
         self.setTitle()
     }
@@ -115,7 +100,11 @@ class WorkoutViewController: UIViewController {
         self.navigationItem.titleView = titleView
     }
     
-    func dashboard(_ sender: UIBarButtonItem) {
+    @IBAction func close(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func dashboard(_ sender: UIBarButtonItem) {
         let dashboard = DashboardViewController()
         dashboard.currentExercise = current
         dashboard.rootViewController = self

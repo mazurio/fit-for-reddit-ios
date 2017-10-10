@@ -132,11 +132,16 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startWorkout(_ sender: AnyObject) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Home"
-
-        self.tabBarController?.navigationItem.backBarButtonItem = backItem
-        self.show(WorkoutViewController(), sender: nil)
+        let storyboard = UIStoryboard(name: "Workout", bundle: Bundle.main)
+        let destination = storyboard.instantiateViewController(
+            withIdentifier: "WorkoutViewNavigationController"
+        ) as! WorkoutViewNavigationController
+        
+        navigationController?.present(
+            destination,
+            animated: true,
+            completion: nil
+        )
     }
     
     @IBAction func readMore(_ sender: AnyObject) {
