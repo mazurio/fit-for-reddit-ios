@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,26 +97,20 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <subviews>
                                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0p-eQ-go3" customClass="AnimationView" customModule="Bodyweight_Fitness" customModuleProvider="target">
-                                                                    <rect key="frame" x="7.5" y="7.5" width="35" height="35"/>
+                                                                    <rect key="frame" x="10" y="10" width="30" height="30"/>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="4sw-8M-d2L"/>
-                                                                        <constraint firstAttribute="width" constant="20" id="Gmo-Ty-XK4"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="jOL-rd-Ikm"/>
+                                                                        <constraint firstAttribute="width" constant="30" id="nYb-Cl-nEh"/>
                                                                     </constraints>
-                                                                    <variation key="default">
-                                                                        <mask key="constraints">
-                                                                            <exclude reference="4sw-8M-d2L"/>
-                                                                            <exclude reference="Gmo-Ty-XK4"/>
-                                                                        </mask>
-                                                                    </variation>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-OA-Ryz">
-                                                                    <rect key="frame" x="19.5" y="13" width="11.5" height="24"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-OA-Ryz">
+                                                                    <rect key="frame" x="10.5" y="10" width="30" height="30"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKR-Bo-JHU">
-                                                                    <rect key="frame" x="23.5" y="38" width="3" height="3"/>
+                                                                    <rect key="frame" x="23.5" y="37" width="3" height="3"/>
                                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="3" id="O23-Q8-6Ao"/>
@@ -128,14 +120,14 @@
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="centerY" secondItem="uUU-jq-VCs" secondAttribute="centerY" id="1lM-mP-OMo"/>
-                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="width" secondItem="uUU-jq-VCs" secondAttribute="height" multiplier="0.7" id="29w-l7-Wjj"/>
-                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="AWL-LN-7kK"/>
-                                                                <constraint firstItem="KKR-Bo-JHU" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="E0x-Wa-RMy"/>
-                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="centerY" secondItem="uUU-jq-VCs" secondAttribute="centerY" id="ICR-gy-W8T"/>
-                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="O1D-Fb-QKm"/>
-                                                                <constraint firstItem="KKR-Bo-JHU" firstAttribute="top" secondItem="pvR-OA-Ryz" secondAttribute="bottom" constant="1" id="aaK-lP-xcu"/>
-                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="height" secondItem="uUU-jq-VCs" secondAttribute="height" multiplier="0.7" id="qbm-k2-3zL"/>
+                                                                <constraint firstItem="KKR-Bo-JHU" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="0XV-02-Yqb"/>
+                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="1Cg-YS-sWD"/>
+                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="centerY" secondItem="uUU-jq-VCs" secondAttribute="centerY" id="GCq-M0-MEp"/>
+                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="height" secondItem="A0p-eQ-go3" secondAttribute="height" id="GsU-wT-P5Z"/>
+                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="width" secondItem="A0p-eQ-go3" secondAttribute="width" id="KJR-IS-ee4"/>
+                                                                <constraint firstItem="pvR-OA-Ryz" firstAttribute="centerY" secondItem="uUU-jq-VCs" secondAttribute="centerY" id="aah-Lt-Q9e"/>
+                                                                <constraint firstItem="KKR-Bo-JHU" firstAttribute="bottom" secondItem="A0p-eQ-go3" secondAttribute="bottom" id="cer-nG-dXU"/>
+                                                                <constraint firstItem="A0p-eQ-go3" firstAttribute="centerX" secondItem="uUU-jq-VCs" secondAttribute="centerX" id="x7Y-6u-U5I"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
