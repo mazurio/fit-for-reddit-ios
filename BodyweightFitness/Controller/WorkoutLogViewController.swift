@@ -71,7 +71,7 @@ class WorkoutLogViewController: UIViewController {
         self.showOrHideCardViewForDate(date)
     }
     
-    func toggleCurrentDayView(_ sender: UIBarButtonItem) {
+    @IBAction func toggleCurrentDayView(_ sender: UIBarButtonItem) {
         self.calendarView.scrollToDate(Date(), animateScroll: false)
         self.calendarView.selectDates([Date()])
     }

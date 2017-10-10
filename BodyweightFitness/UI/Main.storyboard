@@ -180,7 +180,14 @@
                         <viewLayoutGuide key="safeArea" id="QTR-hA-C2V"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Workout Log" id="jRr-Ty-yy2"/>
+                    <navigationItem key="navigationItem" title="Workout Log" id="jRr-Ty-yy2">
+                        <barButtonItem key="rightBarButtonItem" image="calendar" id="393-3Y-dF7">
+                            <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="toggleCurrentDayView:" destination="1Il-dr-vTg" id="vNe-0N-x3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="6Ux-Fk-SXZ" id="CSD-Ef-021"/>
                         <outlet property="calendarView" destination="R03-8f-Grp" id="2NQ-hX-png"/>
@@ -733,6 +740,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="22" height="22"/>
         <image name="tab_home" width="25" height="25"/>
         <image name="tab_settings" width="25" height="25"/>
         <image name="tab_support_developer" width="25" height="25"/>
