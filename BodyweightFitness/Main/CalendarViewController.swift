@@ -198,18 +198,12 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-      
         let date = Date()
         let cal = Calendar(identifier: .gregorian)
-//        let today = cal.startOfDay(for: date)
         let today: Date = cal.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
         let visibleD = visibleDates.monthDates.map({ (date: Date, _) -> Date in
             date
         })
-        
-        print(visibleDates)
-        print(visibleD)
-        print(today)
         
         if visibleD.contains(today) {
             calendar.selectDates([today])
@@ -218,17 +212,5 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
                 calendar.selectDates([f])
             }
         }
-//
-//        if let startDate = visibleDates.monthDates.first?.date {
-//            calendar.selectDates([startDate])
-//        }
-//
-//        if (todayDate.isGreaterThanDate(startDate) && todayDate.isLessThanDate(endDate)) {
-//            calendar.selectDates([todayDate])
-//        } else if (todayDate.isEqualToDate(startDate) || todayDate.isEqualToDate(endDate)) {
-//            calendar.selectDates([todayDate])
-//        } else {
-//            calendar.selectDates([startDate])
-//        }
     }
 }
