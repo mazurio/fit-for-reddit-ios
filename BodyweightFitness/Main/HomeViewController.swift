@@ -36,14 +36,14 @@ class HomeViewController: UIViewController {
             self.routineTitle.text = it.title
             self.routineShortDescription.text = it.shortDescription
         })
+        
+        self.requestReviewIfAllowed()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         self.tabBarController?.title = RoutineStream.sharedInstance.routine.title
-        
-        self.requestReviewIfAllowed()
     }
 
     func renderWorkoutProgressView() {
@@ -117,7 +117,7 @@ class HomeViewController: UIViewController {
     }
     
     func isAllowedToOpenStoreReview() -> Bool {
-        let LAUNCH_COUNT_SKREVIEW = 2
+        let LAUNCH_COUNT_SKREVIEW = 5
         let LAUNCH_COUNT_USER_DEFAULTS_KEY = "LaunchCountUserDefaultsKey"
         
         let launchCount = Foundation.UserDefaults.standard.integer(forKey: LAUNCH_COUNT_USER_DEFAULTS_KEY)
