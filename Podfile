@@ -11,6 +11,7 @@ target 'Bodyweight Fitness' do
   pod 'RxSwift',         '~> 3.0'
   pod 'RxCocoa',         '~> 3.0'
   pod 'JTAppleCalendar', '~> 7.0'
+  pod 'Eureka',          '~> 4.0.1'
   
   pod 'Fabric'
   pod 'Crashlytics'
