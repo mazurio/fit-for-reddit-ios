@@ -1,7 +1,7 @@
 import UIKit
 import Eureka
 
-class NewSettingsViewController: FormViewController {
+class SettingsViewController: FormViewController {
     let defaults = Foundation.UserDefaults.standard
 
     override func viewDidLoad() {
@@ -11,7 +11,7 @@ class NewSettingsViewController: FormViewController {
     }
 }
 
-extension NewSettingsViewController {
+extension SettingsViewController {
     func createForm() {
         let hideWhenRestTimerIsOffCondition = Condition.function(["showRestTimerSwitchRow"], { form in
             return !((form.rowBy(tag: "showRestTimerSwitchRow") as? SwitchRow)?.value ?? false)

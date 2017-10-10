@@ -316,7 +316,7 @@
         <!--Settings-->
         <scene sceneID="OUl-2F-5Ip">
             <objects>
-                <viewController storyboardIdentifier="NewSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOf-I7-qGE" customClass="NewSettingsViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOf-I7-qGE" customClass="SettingsViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sws-Gj-GzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

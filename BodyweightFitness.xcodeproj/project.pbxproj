@@ -161,7 +161,6 @@
 		E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5872C1B5272C400540104 /* AppDelegate.swift */; };
 		E0F587311B5272E200540104 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587301B5272E200540104 /* Routine.swift */; };
 		E0F587351B5272F400540104 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587331B5272F400540104 /* ActionView.swift */; };
-		E0F5873C1B52730000540104 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587381B52730000540104 /* SettingsViewController.swift */; };
 		E0F5873D1B52730000540104 /* TimePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F587391B52730000540104 /* TimePickerController.swift */; };
 		E0F587471B52730C00540104 /* TimePickerModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F587431B52730C00540104 /* TimePickerModalView.xib */; };
 		E0F5874A1B52731C00540104 /* finished.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E0F587481B52731C00540104 /* finished.mp3 */; };
@@ -339,7 +338,6 @@
 		E0F5872C1B5272C400540104 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0F587301B5272E200540104 /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		E0F587331B5272F400540104 /* ActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
-		E0F587381B52730000540104 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E0F587391B52730000540104 /* TimePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerController.swift; sourceTree = "<group>"; };
 		E0F587441B52730C00540104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TimePickerModalView.xib; sourceTree = "<group>"; };
 		E0F587481B52731C00540104 /* finished.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = finished.mp3; sourceTree = "<group>"; };
@@ -586,7 +584,6 @@
 				73374A8D1E167A6300EBC47B /* RestTimerViewController.swift */,
 				73BADE181CC3E347001ACEDC /* TimedViewController.swift */,
 				73BADE1A1CC3F956001ACEDC /* WeightedViewController.swift */,
-				E0F587381B52730000540104 /* SettingsViewController.swift */,
 				73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */,
 			);
 			path = Controller;
@@ -990,7 +987,6 @@
 				73AA28F31CB7ACC100DEED79 /* DashboardCategoryCell.swift in Sources */,
 				E0F587311B5272E200540104 /* Routine.swift in Sources */,
 				7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */,
-				E0F5873C1B52730000540104 /* SettingsViewController.swift in Sources */,
 				732BA0431C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift in Sources */,
 				73BADE1B1CC3F956001ACEDC /* WeightedViewController.swift in Sources */,
 				73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */,
