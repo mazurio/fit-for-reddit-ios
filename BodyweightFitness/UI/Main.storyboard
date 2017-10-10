@@ -313,17 +313,17 @@
             </objects>
             <point key="canvasLocation" x="-2562" y="484"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="OUl-2F-5Ip">
             <objects>
-                <viewController id="WOf-I7-qGE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOf-I7-qGE" customClass="NewSettingsViewController" customModule="Bodyweight_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sws-Gj-GzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="PpE-Ta-bnW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oWH-Mi-6Fi"/>
+                    <navigationItem key="navigationItem" title="Settings" id="oWH-Mi-6Fi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kv3-Nt-hD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

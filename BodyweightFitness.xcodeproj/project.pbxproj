@@ -51,13 +51,12 @@
 		7341330A1E130FE900BAEFD2 /* starting_stretching_camel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F71E130FE900BAEFD2 /* starting_stretching_camel.mp4 */; };
 		7341330B1E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F81E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 */; };
 		7341330C1E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F91E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 */; };
+		7347DC2B1F8D2091001E1BE5 /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */; };
 		734B6F3F1C4AE7E900CFB6BD /* LogWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */; };
 		734B6FFF1C4BF46400CFB6BD /* RepositorySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */; };
 		734B70051C4BF7C700CFB6BD /* RepositoryRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */; };
 		734B70081C4BF7DD00CFB6BD /* RepositoryCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */; };
 		734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B700A1C4BF7E900CFB6BD /* RepositorySection.swift */; };
-		735BEA0A1CBD1F38003616C5 /* SideViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */; };
-		735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */; };
 		7366D8D11C4EE9CC00819790 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */; };
 		7366D8DD1C4EEFD500819790 /* ProgressPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */; };
 		7366D8E11C51810600819790 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8E01C51810600819790 /* Extensions.swift */; };
@@ -147,11 +146,6 @@
 		73BADE1D1CC3F98D001ACEDC /* WeightedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */; };
 		73BADE6E1CC78356001ACEDC /* BodyweightFitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BADE6D1CC78356001ACEDC /* BodyweightFitnessTests.swift */; };
 		73BADE7D1CC79648001ACEDC /* TestRoutine.json in Resources */ = {isa = PBXBuildFile; fileRef = 73BADE7C1CC79648001ACEDC /* TestRoutine.json */; };
-		73BF3BA91CBE643200E0258D /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BA81CBE643200E0258D /* SettingsView.xib */; };
-		73BF3BAD1CBE6A5D00E0258D /* SettingsToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BAC1CBE6A5D00E0258D /* SettingsToggleCell.xib */; };
-		73BF3BAF1CBE6A7000E0258D /* SettingsActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BAE1CBE6A7000E0258D /* SettingsActionCell.xib */; };
-		73BF3BB11CBE6A8000E0258D /* SettingsTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB01CBE6A8000E0258D /* SettingsTextCell.xib */; };
-		73BF3BB31CBE819B00E0258D /* SettingsActionSubtitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB21CBE819B00E0258D /* SettingsActionSubtitleCell.xib */; };
 		73BF3BB51CBEB08B00E0258D /* LogWorkoutModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB41CBEB08B00E0258D /* LogWorkoutModalView.xib */; };
 		73BF3BB91CBEFB0E00E0258D /* WorkoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */; };
 		73BF3BBB1CBEFB1E00E0258D /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */; };
@@ -231,13 +225,12 @@
 		734132F71E130FE900BAEFD2 /* starting_stretching_camel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_camel.mp4; sourceTree = "<group>"; };
 		734132F81E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_intermediate.mp4; sourceTree = "<group>"; };
 		734132F91E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_beginner.mp4; sourceTree = "<group>"; };
+		7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
 		734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWorkoutController.swift; sourceTree = "<group>"; };
 		734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySet.swift; sourceTree = "<group>"; };
 		734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryRoutine.swift; sourceTree = "<group>"; };
 		734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCategory.swift; sourceTree = "<group>"; };
 		734B700A1C4BF7E900CFB6BD /* RepositorySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySection.swift; sourceTree = "<group>"; };
-		735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideViewHeaderCell.xib; sourceTree = "<group>"; };
-		735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideViewMenuCell.xib; sourceTree = "<group>"; };
 		7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressPageViewController.swift; sourceTree = "<group>"; };
 		7366D8E01C51810600819790 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -329,11 +322,6 @@
 		73BADE6D1CC78356001ACEDC /* BodyweightFitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyweightFitnessTests.swift; sourceTree = "<group>"; };
 		73BADE6F1CC78356001ACEDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73BADE7C1CC79648001ACEDC /* TestRoutine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestRoutine.json; sourceTree = "<group>"; };
-		73BF3BA81CBE643200E0258D /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
-		73BF3BAC1CBE6A5D00E0258D /* SettingsToggleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsToggleCell.xib; sourceTree = "<group>"; };
-		73BF3BAE1CBE6A7000E0258D /* SettingsActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsActionCell.xib; sourceTree = "<group>"; };
-		73BF3BB01CBE6A8000E0258D /* SettingsTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTextCell.xib; sourceTree = "<group>"; };
-		73BF3BB21CBE819B00E0258D /* SettingsActionSubtitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsActionSubtitleCell.xib; sourceTree = "<group>"; };
 		73BF3BB41CBEB08B00E0258D /* LogWorkoutModalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogWorkoutModalView.xib; sourceTree = "<group>"; };
 		73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutView.xib; sourceTree = "<group>"; };
 		73BF3BBA1CBEFB1E00E0258D /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -463,12 +451,6 @@
 				73AA28F61CB7ACD900DEED79 /* DashboardSingleItemCell.xib */,
 				732BA0251C5AE8EF00C1CDB5 /* ProgressCardCell.xib */,
 				732BA0271C5AE8F900C1CDB5 /* ProgressSectionCell.xib */,
-				73BF3BAE1CBE6A7000E0258D /* SettingsActionCell.xib */,
-				73BF3BB21CBE819B00E0258D /* SettingsActionSubtitleCell.xib */,
-				73BF3BB01CBE6A8000E0258D /* SettingsTextCell.xib */,
-				73BF3BAC1CBE6A5D00E0258D /* SettingsToggleCell.xib */,
-				735BEA091CBD1F38003616C5 /* SideViewHeaderCell.xib */,
-				735BEA0B1CBD1F5E003616C5 /* SideViewMenuCell.xib */,
 				732BA0441C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib */,
 				732BA0461C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib */,
 			);
@@ -582,7 +564,6 @@
 				73374A8F1E167AEF00EBC47B /* RestTimerView.xib */,
 				73BADE161CC3E2F9001ACEDC /* TimedView.xib */,
 				73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */,
-				73BF3BA81CBE643200E0258D /* SettingsView.xib */,
 				73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */,
 				73737FF41F8C347200C616B8 /* Main.storyboard */,
 			);
@@ -595,6 +576,7 @@
 				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
 				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
 				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
+				7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */,
 				73BF3BB71CBEF0CC00E0258D /* Cell */,
 				73BF3BB61CBEB0C100E0258D /* Modal */,
 				73AA28E91CABE69200DEED79 /* DashboardViewController.swift */,
@@ -815,7 +797,6 @@
 				E0F5874B1B52731C00540104 /* bodyweight_fitness_recommended_routine.json in Resources */,
 				738B96AB1D760F66009A8625 /* molding_mobility_knee_rotations.mp4 in Resources */,
 				73BADE1D1CC3F98D001ACEDC /* WeightedView.xib in Resources */,
-				73BF3BB11CBE6A8000E0258D /* SettingsTextCell.xib in Resources */,
 				738B96961D760F66009A8625 /* bodyweight_fitness_straight_arm_chest_flies.mp4 in Resources */,
 				732CDDF21D84485D004C6607 /* bodyweight_fitness_tuck_l_sit.mp4 in Resources */,
 				738B96B61D760F66009A8625 /* bodyweight_fitness_reverse_plank.mp4 in Resources */,
@@ -845,7 +826,6 @@
 				732CDDF31D84485D004C6607 /* bodyweight_fitness_wrist_mobility.mp4 in Resources */,
 				732CDDF01D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 in Resources */,
 				734133091E130FE900BAEFD2 /* starting_stretching_full_squat_beginner.mp4 in Resources */,
-				73BF3BAF1CBE6A7000E0258D /* SettingsActionCell.xib in Resources */,
 				734132FA1E130FE900BAEFD2 /* starting_stretching_underarm_shoulder_stretch_intermediate.mp4 in Resources */,
 				E0F5874A1B52731C00540104 /* finished.mp3 in Resources */,
 				738B967F1D760F66009A8625 /* bodyweight_fitness_horizontal_row.mp4 in Resources */,
@@ -862,7 +842,6 @@
 				7341330A1E130FE900BAEFD2 /* starting_stretching_camel.mp4 in Resources */,
 				738B96971D760F66009A8625 /* bodyweight_fitness_straight_arm_overhead_pull_downs.mp4 in Resources */,
 				738B96B21D760F66009A8625 /* bodyweight_fitness_arch.mp4 in Resources */,
-				73BF3BB31CBE819B00E0258D /* SettingsActionSubtitleCell.xib in Resources */,
 				734133031E130FE900BAEFD2 /* starting_stretching_lying_twist_intermediate.mp4 in Resources */,
 				73E8F4551E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 in Resources */,
 				732BA0261C5AE8EF00C1CDB5 /* ProgressCardCell.xib in Resources */,
@@ -885,18 +864,15 @@
 				738B96A31D760F66009A8625 /* molding_mobility_ankle_tilts.mp4 in Resources */,
 				738B96931D760F66009A8625 /* bodyweight_fitness_squat_jumps.mp4 in Resources */,
 				738B96831D760F66009A8625 /* bodyweight_fitness_negative_pullup.mp4 in Resources */,
-				73BF3BA91CBE643200E0258D /* SettingsView.xib in Resources */,
 				738B968A1D760F66009A8625 /* bodyweight_fitness_ring_dips_l_sit.mp4 in Resources */,
 				738B96B51D760F66009A8625 /* bodyweight_fitness_plank.mp4 in Resources */,
 				734132E51E130FAE00BAEFD2 /* starting_stretching_flexibility_routine.json in Resources */,
 				732BA0241C5AE75900C1CDB5 /* ProgressPageViewController.xib in Resources */,
 				738B96821D760F66009A8625 /* bodyweight_fitness_l_sit_pullup.mp4 in Resources */,
 				73374A901E167AEF00EBC47B /* RestTimerView.xib in Resources */,
-				735BEA0A1CBD1F38003616C5 /* SideViewHeaderCell.xib in Resources */,
 				738B969D1D760F66009A8625 /* bodyweight_fitness_wall_pushup.mp4 in Resources */,
 				738B96A51D760F66009A8625 /* molding_mobility_circular_shrugs.mp4 in Resources */,
 				738B96841D760F66009A8625 /* bodyweight_fitness_parallel_bar_dips.mp4 in Resources */,
-				735BEA0C1CBD1F5E003616C5 /* SideViewMenuCell.xib in Resources */,
 				732CDDEF1D84485D004C6607 /* bodyweight_fitness_foot_supported_l_sit.mp4 in Resources */,
 				73BADE7D1CC79648001ACEDC /* TestRoutine.json in Resources */,
 				734133001E130FE900BAEFD2 /* starting_stretching_shoulder_extension_beginner.mp4 in Resources */,
@@ -917,7 +893,6 @@
 				738B96B31D760F66009A8625 /* bodyweight_fitness_camel_bends.mp4 in Resources */,
 				732BA0451C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib in Resources */,
 				738B96911D760F66009A8625 /* bodyweight_fitness_rings_wide_pushup.mp4 in Resources */,
-				73BF3BAD1CBE6A5D00E0258D /* SettingsToggleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +998,7 @@
 				E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */,
 				73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */,
 				73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */,
+				7347DC2B1F8D2091001E1BE5 /* NewSettingsViewController.swift in Sources */,
 				73374A8E1E167A6300EBC47B /* RestTimerViewController.swift in Sources */,
 				734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */,
 				73AA28F11CB7ABC300DEED79 /* DashboardSectionCell.swift in Sources */,
