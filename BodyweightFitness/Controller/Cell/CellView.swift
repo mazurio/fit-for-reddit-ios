@@ -120,4 +120,53 @@ class CellView: JTAppleCell {
         }
     }
 }
+import UIKit
 
+class AnimationView: UIView {
+    func animateWithBounceEffect(withCompletionHandler completionHandler:(() -> Void)?) {
+        let viewAnimation = AnimationClass.BounceEffect()
+        viewAnimation(self) { _ in
+            completionHandler?()
+        }
+    }
+    
+    func animateWithFadeEffect(withCompletionHandler completionHandler:(() -> Void)?) {
+        let viewAnimation = AnimationClass.fadeOutEffect()
+        viewAnimation(self) { _ in
+            completionHandler?()
+        }
+    }
+}
+
+class AnimationClass {
+    class func BounceEffect() -> (UIView, @escaping (Bool) -> Void) -> () {
+        return {
+            view, completion in
+            view.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0, usingSpringWithDamping: 0.3,
+                initialSpringVelocity: 0.1,
+                options: UIViewAnimationOptions.beginFromCurrentState,
+                animations: {
+                    view.transform = CGAffineTransform(scaleX: 1, y: 1)
+            },
+                completion: completion
+            )
+        }
+    }
+    
+    class func fadeOutEffect() -> (UIView, @escaping (Bool) -> Void) -> () {
+        return {
+            view, completion in
+            UIView.animate(withDuration: 0.6,
+                           delay: 0, usingSpringWithDamping: 0.6,
+                           initialSpringVelocity: 0,
+                           options: [],
+                           animations: {
+                            view.alpha = 0
+            },
+                           completion: completion)
+        }
+    }
+}
