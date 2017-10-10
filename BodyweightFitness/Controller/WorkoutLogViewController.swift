@@ -372,7 +372,7 @@ class WorkoutLogViewController: UIViewController {
         formatter.dateFormat = "yyyy MM dd"
         testCalendar.timeZone = TimeZone(abbreviation: "GMT")!
 
-        calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
+//        calendarView.register(CellView.self, forCellWithReuseIdentifier: "CellView")
         
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
@@ -519,8 +519,8 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalend
         indexPath: IndexPath) -> JTAppleCalendar.JTAppleCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(
-            withReuseIdentifier: "CellView",
-            for: indexPath) as! CellView
+            withReuseIdentifier: "MyCellView",
+            for: indexPath) as! MyCellView
         
 //        cell.dayLabel.text = "1"
 //        cell.dayLabel.text = "Text"
@@ -531,3 +531,12 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalend
     
     
 }
+
+import JTAppleCalendar
+
+class MyCellView: JTAppleCell {
+    @IBOutlet var selectedView: UIView!
+    @IBOutlet var dayLabel: UILabel!
+    @IBOutlet var monthLabel: UILabel!
+}
+
