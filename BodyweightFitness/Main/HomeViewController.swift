@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import StoreKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
@@ -41,6 +42,8 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
 
         self.tabBarController?.title = RoutineStream.sharedInstance.routine.title
+        
+        self.requestReviewIfAllowed()
     }
 
     func renderWorkoutProgressView() {
@@ -103,6 +106,29 @@ class HomeViewController: UIViewController {
         } else {
             return " Workouts"
         }
+    }
+    
+    func requestReviewIfAllowed() {
+        if #available(iOS 10.3, *) {
+            if isAllowedToOpenStoreReview() {
+                SKStoreReviewController.requestReview()
+            }
+        }
+    }
+    
+    func isAllowedToOpenStoreReview() -> Bool {
+        let LAUNCH_COUNT_SKREVIEW = 2
+        let LAUNCH_COUNT_USER_DEFAULTS_KEY = "LaunchCountUserDefaultsKey"
+        
+        let launchCount = Foundation.UserDefaults.standard.integer(forKey: LAUNCH_COUNT_USER_DEFAULTS_KEY)
+        
+        if launchCount >= LAUNCH_COUNT_SKREVIEW {
+            return true
+        } else {
+            Foundation.UserDefaults.standard.set((launchCount + 1), forKey: LAUNCH_COUNT_USER_DEFAULTS_KEY)
+        }
+        
+        return false
     }
     
     @IBAction func routine(_ sender: UIBarButtonItem) {
