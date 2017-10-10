@@ -7,6 +7,8 @@ class SettingsViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setNavigationBar()
+        
         self.createForm()
     }
 }

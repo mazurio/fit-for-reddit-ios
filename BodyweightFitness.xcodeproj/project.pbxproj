@@ -51,7 +51,7 @@
 		7341330A1E130FE900BAEFD2 /* starting_stretching_camel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F71E130FE900BAEFD2 /* starting_stretching_camel.mp4 */; };
 		7341330B1E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F81E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 */; };
 		7341330C1E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 734132F91E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 */; };
-		7347DC2B1F8D2091001E1BE5 /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */; };
+		7347DC2B1F8D2091001E1BE5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7347DC2A1F8D2091001E1BE5 /* SettingsViewController.swift */; };
 		734B6F3F1C4AE7E900CFB6BD /* LogWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */; };
 		734B6FFF1C4BF46400CFB6BD /* RepositorySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */; };
 		734B70051C4BF7C700CFB6BD /* RepositoryRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */; };
@@ -224,7 +224,7 @@
 		734132F71E130FE900BAEFD2 /* starting_stretching_camel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_camel.mp4; sourceTree = "<group>"; };
 		734132F81E130FE900BAEFD2 /* starting_stretching_butterfly_intermediate.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_intermediate.mp4; sourceTree = "<group>"; };
 		734132F91E130FE900BAEFD2 /* starting_stretching_butterfly_beginner.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starting_stretching_butterfly_beginner.mp4; sourceTree = "<group>"; };
-		7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
+		7347DC2A1F8D2091001E1BE5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		734B6F3E1C4AE7E900CFB6BD /* LogWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogWorkoutController.swift; sourceTree = "<group>"; };
 		734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorySet.swift; sourceTree = "<group>"; };
 		734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryRoutine.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
 				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
 				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
-				7347DC2A1F8D2091001E1BE5 /* NewSettingsViewController.swift */,
+				7347DC2A1F8D2091001E1BE5 /* SettingsViewController.swift */,
 				73BF3BB71CBEF0CC00E0258D /* Cell */,
 				73BF3BB61CBEB0C100E0258D /* Modal */,
 				73AA28E91CABE69200DEED79 /* DashboardViewController.swift */,
@@ -994,7 +994,7 @@
 				E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */,
 				73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */,
 				73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */,
-				7347DC2B1F8D2091001E1BE5 /* NewSettingsViewController.swift in Sources */,
+				7347DC2B1F8D2091001E1BE5 /* SettingsViewController.swift in Sources */,
 				73374A8E1E167A6300EBC47B /* RestTimerViewController.swift in Sources */,
 				734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */,
 				73AA28F11CB7ABC300DEED79 /* DashboardSectionCell.swift in Sources */,
