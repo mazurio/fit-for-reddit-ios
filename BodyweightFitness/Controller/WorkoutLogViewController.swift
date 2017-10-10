@@ -334,14 +334,6 @@ class WorkoutLogViewController: UIViewController {
     let formatter = DateFormatter()
     var testCalendar: Calendar! = Calendar.current
 
-    init() {
-        super.init(nibName: "WorkoutLogView", bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         self.setNavigationBar()
 
@@ -530,7 +522,7 @@ extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalend
             withReuseIdentifier: "CellView",
             for: indexPath) as! CellView
         
-        cell.dayLabel.text = "1"
+//        cell.dayLabel.text = "1"
 //        cell.dayLabel.text = "Text"
 //        cell.dayLabel.text = cellState.text
         

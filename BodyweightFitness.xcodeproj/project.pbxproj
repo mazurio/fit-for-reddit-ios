@@ -65,7 +65,6 @@
 		7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */; };
 		7366D8ED1C52943D00819790 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7366D8EC1C52943D00819790 /* StoreKit.framework */; };
 		73737FF51F8C347200C616B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73737FF41F8C347200C616B8 /* Main.storyboard */; };
-		737F3C781CBD52AB00251EFE /* WorkoutLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */; };
 		738B96771D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 738B96341D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 */; };
 		738B96781D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 738B96351D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 */; };
 		738B96791D760F66009A8625 /* bodyweight_fitness_band_dislocates.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 738B96361D760F66009A8625 /* bodyweight_fitness_band_dislocates.mp4 */; };
@@ -246,7 +245,6 @@
 		7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportDeveloperViewController.swift; sourceTree = "<group>"; };
 		7366D8EC1C52943D00819790 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		73737FF41F8C347200C616B8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutLogView.xib; sourceTree = "<group>"; };
 		738B96341D760F66009A8625 /* bodyweight_fitness_advanced_tuck_front_lever_row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_advanced_tuck_front_lever_row.mp4; sourceTree = "<group>"; };
 		738B96351D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_assisted_squat.mp4; sourceTree = "<group>"; };
 		738B96361D760F66009A8625 /* bodyweight_fitness_band_dislocates.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_band_dislocates.mp4; sourceTree = "<group>"; };
@@ -586,7 +584,6 @@
 				73BADE1C1CC3F98D001ACEDC /* WeightedView.xib */,
 				73BF3BA81CBE643200E0258D /* SettingsView.xib */,
 				73BF3BB81CBEFB0E00E0258D /* WorkoutView.xib */,
-				737F3C771CBD52AB00251EFE /* WorkoutLogView.xib */,
 				73737FF41F8C347200C616B8 /* Main.storyboard */,
 			);
 			path = UI;
@@ -849,7 +846,6 @@
 				732CDDF01D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 in Resources */,
 				734133091E130FE900BAEFD2 /* starting_stretching_full_squat_beginner.mp4 in Resources */,
 				73BF3BAF1CBE6A7000E0258D /* SettingsActionCell.xib in Resources */,
-				737F3C781CBD52AB00251EFE /* WorkoutLogView.xib in Resources */,
 				734132FA1E130FE900BAEFD2 /* starting_stretching_underarm_shoulder_stretch_intermediate.mp4 in Resources */,
 				E0F5874A1B52731C00540104 /* finished.mp3 in Resources */,
 				738B967F1D760F66009A8625 /* bodyweight_fitness_horizontal_row.mp4 in Resources */,
