@@ -396,24 +396,13 @@
 				7347DC2E1F8D3CD8001E1BE5 /* Main */,
 				7347DC2F1F8D3CF1001E1BE5 /* Workout */,
 				73BA31BC1CB83A9B001784F7 /* Controller */,
-				E078934D1B472CCD001195AC /* Model */,
+				E078934D1B472CCD001195AC /* Domain */,
 				73AA28EB1CABE8E000DEED79 /* UI */,
-				46B02B5CCCC5682EEFC8E161 /* Service */,
 				E078934C1B472CAF001195AC /* View */,
 				E0F587B31B52734900540104 /* Images.xcassets */,
 				E08139041B5270EE00390A73 /* Resources */,
 			);
 			path = BodyweightFitness;
-			sourceTree = "<group>";
-		};
-		46B02B5CCCC5682EEFC8E161 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */,
-				46B02F2362EA8A9111571B02 /* RepositoryStream.swift */,
-				46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		734132E61E130FC300BAEFD2 /* Starting Stretching - Flexibility Routine */ = {
@@ -660,9 +649,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E078934D1B472CCD001195AC /* Model */ = {
+		E078934D1B472CCD001195AC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */,
+				46B02F2362EA8A9111571B02 /* RepositoryStream.swift */,
+				46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */,
 				734B70071C4BF7DD00CFB6BD /* RepositoryCategory.swift */,
 				73FE1F5A1C4BF82A0047C97A /* RepositoryExercise.swift */,
 				734B70041C4BF7C700CFB6BD /* RepositoryRoutine.swift */,
@@ -670,7 +662,7 @@
 				734B6FFE1C4BF46400CFB6BD /* RepositorySet.swift */,
 				E0F587301B5272E200540104 /* Routine.swift */,
 			);
-			path = Model;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		E08139041B5270EE00390A73 /* Resources */ = {
