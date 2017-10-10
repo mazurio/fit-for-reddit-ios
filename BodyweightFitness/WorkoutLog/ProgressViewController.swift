@@ -10,6 +10,7 @@ class ProgressViewController: UIViewController {
         super.viewDidLoad()
         
         self.setNavigationBar()
+        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor.primaryDark()
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.primaryDark()
 
         if let routine = repositoryRoutine {

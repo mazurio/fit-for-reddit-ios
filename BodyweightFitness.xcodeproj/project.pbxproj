@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46B021B6A56C2000CA08000B /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */; };
+		46B021B6A56C2000CA08000B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02AEDB4B0B259C2EAE1E8 /* CalendarViewController.swift */; };
 		46B0271B985965324463B90C /* RoutineStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */; };
 		46B02780EEC08B16FB384A4F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B020C26FAF7645B926FA26 /* CardView.swift */; };
 		46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */; };
@@ -22,8 +22,6 @@
 		732BA03D1C5BC9D400C1CDB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA03C1C5BC9D400C1CDB5 /* LaunchScreen.xib */; };
 		732BA0431C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA0421C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift */; };
 		732BA0451C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0441C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib */; };
-		732BA0471C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732BA0461C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib */; };
-		732BA0491C5EBBA400C1CDB5 /* WorkoutLogSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA0481C5EBBA400C1CDB5 /* WorkoutLogSectionCell.swift */; };
 		732CDDEF1D84485D004C6607 /* bodyweight_fitness_foot_supported_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEA1D84485D004C6607 /* bodyweight_fitness_foot_supported_l_sit.mp4 */; };
 		732CDDF01D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEB1D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 */; };
 		732CDDF11D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */; };
@@ -153,6 +151,8 @@
 		73BF63801F3CAAE2007F37C8 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF637F1F3CAAE2007F37C8 /* CellView.swift */; };
 		73C328321F3C81D60076AF19 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */; };
 		73C8E4AF1C5A1D30005E0248 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */; };
+		73D393271F8D4B7D00D9F4DD /* WorkoutLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73D393261F8D4B7D00D9F4DD /* WorkoutLog.storyboard */; };
+		73D393291F8D4BAE00D9F4DD /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D393281F8D4BAE00D9F4DD /* WorkoutLogViewController.swift */; };
 		73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */; };
 		73E8F4551E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73E8F4531E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 */; };
 		73E8F4561E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 73E8F4541E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 */; };
@@ -182,7 +182,7 @@
 		2BD2CA831B458FFD00841AB7 /* Bodyweight Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bodyweight Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B020C26FAF7645B926FA26 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		46B022B7A7B5E9A8B85DEBA0 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
-		46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
+		46B02AEDB4B0B259C2EAE1E8 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		46B02B2F18B13D956F1E2AD6 /* RoutineStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutineStream.swift; sourceTree = "<group>"; };
 		46B02F2362EA8A9111571B02 /* RepositoryStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryStream.swift; sourceTree = "<group>"; };
 		7329B68B1D0D8476005F5F74 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -195,8 +195,6 @@
 		732BA03C1C5BC9D400C1CDB5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		732BA0421C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogCardCell.swift; sourceTree = "<group>"; };
 		732BA0441C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutLogCardCell.xib; sourceTree = "<group>"; };
-		732BA0461C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutLogSectionCell.xib; sourceTree = "<group>"; };
-		732BA0481C5EBBA400C1CDB5 /* WorkoutLogSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogSectionCell.swift; sourceTree = "<group>"; };
 		732CDDEA1D84485D004C6607 /* bodyweight_fitness_foot_supported_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_foot_supported_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDEB1D84485D004C6607 /* bodyweight_fitness_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_l_sit.mp4; sourceTree = "<group>"; };
 		732CDDEC1D84485D004C6607 /* bodyweight_fitness_one_leg_foot_supported_l_sit.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_one_leg_foot_supported_l_sit.mp4; sourceTree = "<group>"; };
@@ -328,6 +326,8 @@
 		73BF637F1F3CAAE2007F37C8 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		73C328311F3C81D60076AF19 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
+		73D393261F8D4B7D00D9F4DD /* WorkoutLog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkoutLog.storyboard; sourceTree = "<group>"; };
+		73D393281F8D4BAE00D9F4DD /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
 		73D508D51DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = molding_mobility_3_plane_neck_movement.mp4; sourceTree = "<group>"; };
 		73E8F4531E21724F00D544A0 /* bodyweight_fitness_left_side_plank.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_left_side_plank.mp4; sourceTree = "<group>"; };
 		73E8F4541E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bodyweight_fitness_right_side_plank.mp4; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				7329B68B1D0D8476005F5F74 /* HomeViewController.swift */,
-				46B02AEDB4B0B259C2EAE1E8 /* WorkoutLogViewController.swift */,
+				46B02AEDB4B0B259C2EAE1E8 /* CalendarViewController.swift */,
 				7366D8E91C52416C00819790 /* SupportDeveloperViewController.swift */,
 				7347DC2A1F8D2091001E1BE5 /* SettingsViewController.swift */,
 				73737FF41F8C347200C616B8 /* Main.storyboard */,
@@ -463,7 +463,6 @@
 				732BA0251C5AE8EF00C1CDB5 /* ProgressCardCell.xib */,
 				732BA0271C5AE8F900C1CDB5 /* ProgressSectionCell.xib */,
 				732BA0441C5EB9CE00C1CDB5 /* WorkoutLogCardCell.xib */,
-				732BA0461C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -620,7 +619,6 @@
 				732BA0291C5B76DD00C1CDB5 /* ProgressCardCell.swift */,
 				732BA02B1C5B76E500C1CDB5 /* ProgressSectionCell.swift */,
 				732BA0421C5EB9C300C1CDB5 /* WorkoutLogCardCell.swift */,
-				732BA0481C5EBBA400C1CDB5 /* WorkoutLogSectionCell.swift */,
 				73BF637F1F3CAAE2007F37C8 /* CellView.swift */,
 			);
 			path = Cell;
@@ -632,6 +630,8 @@
 				73C8E4AE1C5A1D30005E0248 /* ProgressGeneralViewController.swift */,
 				7366D8DC1C4EEFD500819790 /* ProgressPageViewController.swift */,
 				7366D8D01C4EE9CC00819790 /* ProgressViewController.swift */,
+				73D393281F8D4BAE00D9F4DD /* WorkoutLogViewController.swift */,
+				73D393261F8D4B7D00D9F4DD /* WorkoutLog.storyboard */,
 			);
 			path = WorkoutLog;
 			sourceTree = "<group>";
@@ -796,7 +796,6 @@
 				73AA28ED1CABE8F800DEED79 /* DashboardView.xib in Resources */,
 				73AA28EF1CB7ABB500DEED79 /* DashboardSectionCell.xib in Resources */,
 				738B96AE1D760F66009A8625 /* molding_mobility_side_bends.mp4 in Resources */,
-				732BA0471C5EBB9900C1CDB5 /* WorkoutLogSectionCell.xib in Resources */,
 				73D508D61DA6C76500D98F20 /* molding_mobility_3_plane_neck_movement.mp4 in Resources */,
 				73E8F4561E21724F00D544A0 /* bodyweight_fitness_right_side_plank.mp4 in Resources */,
 				734133021E130FE900BAEFD2 /* starting_stretching_rear_hand_clasp_beginner.mp4 in Resources */,
@@ -824,6 +823,7 @@
 				738B96921D760F66009A8625 /* bodyweight_fitness_side_leg_swings.mp4 in Resources */,
 				738B96781D760F66009A8625 /* bodyweight_fitness_assisted_squat.mp4 in Resources */,
 				738B96951D760F66009A8625 /* bodyweight_fitness_stomach_to_wall_handstand.mp4 in Resources */,
+				73D393271F8D4B7D00D9F4DD /* WorkoutLog.storyboard in Resources */,
 				738B96A81D760F66009A8625 /* molding_mobility_forward_back_bends.mp4 in Resources */,
 				738B96AA1D760F66009A8625 /* molding_mobility_knee_raises.mp4 in Resources */,
 				738B967B1D760F66009A8625 /* bodyweight_fitness_deep_step_up.mp4 in Resources */,
@@ -999,7 +999,6 @@
 				7366D8DD1C4EEFD500819790 /* ProgressPageViewController.swift in Sources */,
 				73AA28FD1CB7ACF500DEED79 /* DashboardDoubleItemCell.swift in Sources */,
 				734B6FFF1C4BF46400CFB6BD /* RepositorySet.swift in Sources */,
-				732BA0491C5EBBA400C1CDB5 /* WorkoutLogSectionCell.swift in Sources */,
 				73AA28F31CB7ACC100DEED79 /* DashboardCategoryCell.swift in Sources */,
 				E0F587311B5272E200540104 /* Routine.swift in Sources */,
 				7366D8EA1C52416C00819790 /* SupportDeveloperViewController.swift in Sources */,
@@ -1010,6 +1009,7 @@
 				E0F5872E1B5272C400540104 /* AppDelegate.swift in Sources */,
 				73AA28FB1CB7ACEB00DEED79 /* DashboardSingleItemCell.swift in Sources */,
 				73AA28EA1CABE69200DEED79 /* DashboardViewController.swift in Sources */,
+				73D393291F8D4BAE00D9F4DD /* WorkoutLogViewController.swift in Sources */,
 				7347DC2B1F8D2091001E1BE5 /* SettingsViewController.swift in Sources */,
 				73374A8E1E167A6300EBC47B /* RestTimerViewController.swift in Sources */,
 				734B700B1C4BF7E900CFB6BD /* RepositorySection.swift in Sources */,
@@ -1021,7 +1021,7 @@
 				73BADE191CC3E347001ACEDC /* TimedViewController.swift in Sources */,
 				734B6F3F1C4AE7E900CFB6BD /* LogWorkoutController.swift in Sources */,
 				46B02780EEC08B16FB384A4F /* CardView.swift in Sources */,
-				46B021B6A56C2000CA08000B /* WorkoutLogViewController.swift in Sources */,
+				46B021B6A56C2000CA08000B /* CalendarViewController.swift in Sources */,
 				73737FF71F8D064000C616B8 /* Date+Extensions.swift in Sources */,
 				738B96CF1D76337C009A8625 /* HomeBarView.swift in Sources */,
 				46B02827BB8DE1BAFE67526A /* PersistenceManager.swift in Sources */,

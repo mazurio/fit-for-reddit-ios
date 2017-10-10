@@ -134,8 +134,8 @@ class HomeViewController: UIViewController {
     @IBAction func startWorkout(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Workout", bundle: Bundle.main)
         let destination = storyboard.instantiateViewController(
-            withIdentifier: "WorkoutViewNavigationController"
-        ) as! WorkoutViewNavigationController
+            withIdentifier: "WorkoutNavigationController"
+        ) as! WorkoutNavigationController
         
         navigationController?.present(
             destination,

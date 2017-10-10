@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class WorkoutViewNavigationController: UINavigationController {}
+class WorkoutNavigationController: UINavigationController {}
 
 class WorkoutViewController: UIViewController {
     @IBOutlet var actionButton: UIButton!

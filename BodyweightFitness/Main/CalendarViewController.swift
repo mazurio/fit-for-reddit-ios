@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 import JTAppleCalendar
 
-class WorkoutLogViewController: UIViewController {
+class CalendarViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var tableView: UITableView!
@@ -101,7 +101,7 @@ class WorkoutLogViewController: UIViewController {
     }
 }
 
-extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
+extension CalendarViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if let _ = self.routines {
             return 1
@@ -119,7 +119,7 @@ extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -127,15 +127,7 @@ extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutLogSectionCell") as! WorkoutLogSectionCell
-        
-        cell.title.text = "Workout Log"
-        
-        cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.97, alpha:1.00)
-        cell.contentView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.97, alpha:1.00)
-        
-        return cell
-        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,7 +152,7 @@ extension WorkoutLogViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension WorkoutLogViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
+extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = testCalendar.timeZone

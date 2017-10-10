@@ -162,7 +162,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                     realm.delete(self.repositoryRoutine!)
                 }
                 
-                if let parent = self.parentController as? WorkoutLogViewController {
+                if let parent = self.parentController as? CalendarViewController {
                     if let date = self.date {
                         parent.showOrHideCardViewForDate(date)
                     }
