@@ -165,9 +165,9 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
                                                  endDate: endDate,
                                                  numberOfRows: 1,
                                                  calendar: testCalendar,
-                                                 generateInDates: InDateCellGeneration.off,
-                                                 generateOutDates: OutDateCellGeneration.off,
-                                                 firstDayOfWeek: DaysOfWeek.monday,
+                                                 generateInDates: .forFirstMonthOnly,
+                                                 generateOutDates: .off,
+                                                 firstDayOfWeek: .monday,
                                                  hasStrictBoundaries: false)
         
         return parameters
