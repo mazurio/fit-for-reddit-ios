@@ -79,15 +79,19 @@ class RepositoryRoutineHelper {
     }
 
     class func numberOfCompletedExercises(_ repositoryRoutine: RepositoryRoutine) -> Int {
-        return repositoryRoutine.exercises.filter({
+        let exercises = repositoryRoutine.exercises
+        let completed = exercises.filter {
             $0.visible && isCompleted($0)
-        }).count
+        }
+        return completed.count
     }
 
     class func numberOfExercises(_ repositoryRoutine: RepositoryRoutine) -> Int {
-        return repositoryRoutine.exercises.filter({
+        let exercises = repositoryRoutine.exercises
+        let visible = exercises.filter {
             $0.visible
-        }).count
+        }
+        return visible.count
     }
     
     func completedExercises() -> Int {
@@ -112,9 +116,11 @@ class RepositoryRoutineHelper {
     }
     
     func totalExercises() -> Int {
-        return repositoryRoutine.exercises.filter({
+        let exercises = repositoryRoutine.exercises
+        let visible = exercises.filter {
             $0.visible == true
-        }).count
+        }
+        return visible.count
     }
     
     func exercisesLeft() -> Int {

@@ -111,7 +111,7 @@ class Routine {
     var linkedRoutine: NSMutableArray = []
     
     init(fileName: String) {
-        let json = JSON(data: loadRoutineFromFile(fileName))
+        let json = try! JSON(data: loadRoutineFromFile(fileName))
         
         self.routineId = json["routineId"].stringValue
         self.title = json["title"].stringValue
@@ -123,7 +123,7 @@ class Routine {
     }
     
     init(fileName: String, dictionary: Dictionary<String, String>) {
-        let json = JSON(data: loadRoutineFromFile(fileName))
+        let json = try! JSON(data: loadRoutineFromFile(fileName))
         
         self.routineId = json["routineId"].stringValue
         self.title = json["title"].stringValue
