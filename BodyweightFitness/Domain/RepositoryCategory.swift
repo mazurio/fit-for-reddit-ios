@@ -39,15 +39,20 @@ class RepositoryCategoryHelper {
     }
 
     class func numberOfCompletedExercises(_ repositoryCategory: RepositoryCategory) -> Int {
-        return repositoryCategory.exercises.filter({
+        // Split expresion to workaround swift compiler bug: "Ambiguous use of 'filter'"
+        let exercises = repositoryCategory.exercises
+        let completedExercises = exercises.filter {
             $0.visible && isCompleted($0)
-        }).count
+        }
+        return completedExercises.count
     }
 
     class func numberOfExercises(_ repositoryCategory: RepositoryCategory) -> Int {
-        return repositoryCategory.exercises.filter({
+        let exercises = repositoryCategory.exercises
+        let visibleExercises = exercises.filter {
             $0.visible
-        }).count
+        }
+        return visibleExercises.count
     }
 }
 
