@@ -227,15 +227,15 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
 
                 it("exercisesAsCSV should return empty string") {
                     let companion = RepositoryRoutineCompanion(RepositoryRoutine())
-                    let csv = companion.exercisesAsCSV(weightUnit: unit)
-                    expect(csv).to(beEmpty())
+                    let csv = companion.csv(weightUnit: unit)
+                    expect(csv).to(beNil())
                 }
 
                 it("exercisesAsCSV should return correct CSV") {
                     let companion = RepositoryRoutineCompanion(self.routineCompleted)
-                    let csv = companion.exercisesAsCSV(weightUnit: unit)
+                    let csv = companion.csv(weightUnit: unit)
 
-                    let expected =
+                    let expectedStr =
 """
 Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds
 Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1,0.000000,kg,0,0,10
@@ -243,6 +243,7 @@ Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1
 Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1,0.000000,kg,0,0,10
 
 """
+                    let expected = expectedStr.data(using: String.Encoding.utf8, allowLossyConversion: false)
                     expect(csv).to(equal(expected))
                 }
 
