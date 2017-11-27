@@ -79,8 +79,7 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
             context("lastUpdatedTime()") {
                 it("should return last updated time in HH:mm format") {
                     let repositoryRoutine = RepositoryRoutine()
-                    let md = self.mockDate(from: "2017-08-07T14:13:21Z")
-                    repositoryRoutine.lastUpdatedTime = md
+                    repositoryRoutine.lastUpdatedTime = self.mockDate(from: "2017-08-07T14:13:21Z")
 
                     let companion = RepositoryRoutineCompanion(repositoryRoutine)
 
@@ -217,6 +216,31 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
                     let companion = RepositoryRoutineCompanion(repositoryRoutine)
 
                     expect(companion.workoutLengthInMinutes()).to(equal(215))
+                }
+            }
+
+            context("email") {
+                let unit = "kg"
+
+                it("exercisesAsCSV should return empty string") {
+                    let companion = RepositoryRoutineCompanion(RepositoryRoutine())
+                    let csv = companion.exercisesAsCSV(weightUnit: unit)
+                    expect(csv).to(beEmpty())
+                }
+
+                it("exercisesAsCSV should return correct CSV") {
+                    let companion = RepositoryRoutineCompanion(self.routineCompleted)
+                    let csv = companion.exercisesAsCSV(weightUnit: unit)
+
+                    let expected =
+"""
+Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds
+Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
+Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
+Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
+
+"""
+                    expect(csv).to(equal(expected))
                 }
             }
         }
