@@ -112,6 +112,10 @@ class RepositoryRoutineCompanion {
         return mailString as String
     }
 
+    func csvName() -> String {
+        return "Workout-\(self.repositoryRoutine.title)-\(self.dateWithTime()).csv"
+    }
+
     func emailSubject() -> String {
         return "\(self.repositoryRoutine.title) workout for \(self.dateWithTime())"
     }
