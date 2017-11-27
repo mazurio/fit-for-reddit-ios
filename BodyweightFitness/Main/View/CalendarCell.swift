@@ -57,13 +57,13 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
 
         let mailString = companion.exercisesAsCSV(weightUnit: weightUnit)
         let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+
         let subject = companion.emailSubject()
         let body = companion.emailBody(weightUnit: weightUnit)
+        let csvName = companion.csvName()
 
-        if let data = data {
-            let emailViewController = configuredMailComposeViewController(data, subject: subject, messageBody: body)
-            self.parentController?.present(emailViewController, animated: true, completion: nil)
-        }
+        let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: data, csvName: csvName)
+        self.parentController?.present(emailViewController, animated: true, completion: nil)
     }
     
     @IBAction func onClickRemove(_ sender: AnyObject) {
@@ -98,18 +98,23 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
         
         self.parentController?.present(alertController, animated: true, completion: nil)
     }
-    
-    func configuredMailComposeViewController(_ data: Data, subject: String, messageBody: String) -> MFMailComposeViewController {
+
+    func configuredMailComposeViewController(subject: String, messageBody: String, csv: Data?, csvName: String) -> MFMailComposeViewController {
         let emailController = MFMailComposeViewController()
-        
+
         emailController.mailComposeDelegate = self
         emailController.setSubject(subject)
         emailController.setMessageBody(messageBody, isHTML: false)
-        emailController.addAttachmentData(data, mimeType: "text/csv", fileName: "Workout.csv")
-        
+
+        if let data = csv {
+            emailController.addAttachmentData(data, mimeType: "text/csv", fileName: csvName)
+        }
+
         return emailController
     }
-    
+
+    // MARK: - MFMailComposeViewControllerDelegate
+
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
