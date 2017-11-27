@@ -47,7 +47,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
             return
         }
 
-        let mailString = NSMutableString()
+        let weightUnit = getWeightUnit()
         
         if let routine = repositoryRoutine {
             let companion = RepositoryRoutineCompanion(routine)
@@ -55,37 +55,10 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
             let exercises = repositoryRoutine?.exercises.filter { (exercise) in
                 exercise.visible == true
             }
-            
-            mailString.append("Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds\n")
-            
-            for exercise in exercises! {
-                let title = exercise.title
-                let weightValue = getWeightUnit()
-                var index = 1
-                
-                for set in exercise.sets {
-                    let (_, minutes, seconds) = secondsToHoursMinutesSeconds(set.seconds)
-                    
-                    mailString.append(String(
-                        format: "%@,%@,%@,%@,%@,%@,%d,%f,%@,%d,%d,%d\n",
-                        companion.date(),
-                        companion.startTime(),
-                        companion.lastUpdatedTime(),
-                        companion.workoutLength(),
-                        "\(routine.title) - \(routine.subtitle)",
-                        title,
-                        index,
-                        set.weight,
-                        weightValue,
-                        set.reps,
-                        minutes,
-                        seconds
-                    ))
-                    
-                    index += 1
-                }
-            }
-            
+
+            let mailString = companion.exercisesAsCSV(weightUnit: weightUnit)
+            let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+
             let content = NSMutableString()
             let emailTitle = "\(routine.title) workout for \(companion.dateWithTime())"
             
@@ -129,7 +102,7 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
                 
             }
             
-            let data = mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
+
             if let data = data {
                 let emailViewController = configuredMailComposeViewController(data, subject: emailTitle, messageBody: content as String)
                 self.parentController?.present(emailViewController, animated: true, completion: nil)
