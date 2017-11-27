@@ -42,6 +42,11 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func onClickExport(_ sender: AnyObject) {
+        if !MFMailComposeViewController.canSendMail() {
+            print("Mail services are not available")
+            return
+        }
+
         let mailString = NSMutableString()
         
         if let routine = repositoryRoutine {
@@ -126,16 +131,8 @@ class WorkoutLogCardCell: UITableViewCell, MFMailComposeViewControllerDelegate {
             
             let data = mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
             if let data = data {
-                if !MFMailComposeViewController.canSendMail() {
-                    print("Mail services are not available")
-                    return
-                }
-                
                 let emailViewController = configuredMailComposeViewController(data, subject: emailTitle, messageBody: content as String)
-                
-                if MFMailComposeViewController.canSendMail() {
-                    self.parentController?.present(emailViewController, animated: true, completion: nil)
-                }
+                self.parentController?.present(emailViewController, animated: true, completion: nil)
             }
         }
     }
