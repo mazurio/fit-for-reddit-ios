@@ -13,6 +13,34 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
         return dateFormatter.date(from: from)!
     }
 
+    var routineCompleted: RepositoryRoutine {
+        let completedSet = RepositorySet()
+        completedSet.isTimed = true
+        completedSet.seconds = 10
+
+        let firstExercise = RepositoryExercise()
+        firstExercise.visible = true
+        firstExercise.sets.append(completedSet)
+
+        let secondExercise = RepositoryExercise()
+        secondExercise.visible = true
+        secondExercise.sets.append(completedSet)
+
+        let thirdExercise = RepositoryExercise()
+        thirdExercise.visible = true
+        thirdExercise.sets.append(completedSet)
+
+        let repositoryRoutine = RepositoryRoutine()
+        repositoryRoutine.exercises.append(firstExercise)
+        repositoryRoutine.exercises.append(secondExercise)
+        repositoryRoutine.exercises.append(thirdExercise)
+
+        repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T13:13:00Z")
+        repositoryRoutine.lastUpdatedTime = self.mockDate(from: "2017-08-07T15:13:21Z")
+
+        return repositoryRoutine
+    }
+
     override func spec() {
         describe("RepositoryRoutineCompanion") {
             context("date()") {
@@ -62,29 +90,7 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
 
             context("lastUpdatedTimeLabel()") {
                 it("should return 'End Time' if all exercises are completed") {
-                    let completedSet = RepositorySet()
-                    completedSet.isTimed = true
-                    completedSet.seconds = 10
-
-                    let firstExercise = RepositoryExercise()
-                    firstExercise.visible = true
-                    firstExercise.sets.append(completedSet)
-
-                    let secondExercise = RepositoryExercise()
-                    secondExercise.visible = true
-                    secondExercise.sets.append(completedSet)
-
-                    let thirdExercise = RepositoryExercise()
-                    thirdExercise.visible = true
-                    thirdExercise.sets.append(completedSet)
-
-                    let repositoryRoutine = RepositoryRoutine()
-                    repositoryRoutine.exercises.append(firstExercise)
-                    repositoryRoutine.exercises.append(secondExercise)
-                    repositoryRoutine.exercises.append(thirdExercise)
-
-                    let companion = RepositoryRoutineCompanion(repositoryRoutine)
-
+                    let companion = RepositoryRoutineCompanion(self.routineCompleted)
                     expect(companion.lastUpdatedTimeLabel()).to(equal("End Time"))
                 }
 
