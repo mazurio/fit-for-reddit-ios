@@ -38,6 +38,9 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
         repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T13:13:00Z")
         repositoryRoutine.lastUpdatedTime = self.mockDate(from: "2017-08-07T15:13:21Z")
 
+        repositoryRoutine.title = "Bodyweight Fitness"
+        repositoryRoutine.subtitle = "Recommended Routine"
+
         return repositoryRoutine
     }
 
@@ -235,12 +238,21 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
                     let expected =
 """
 Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds
-Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
-Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
-Monday, 7 August 2017,13:13,15:13,2h, - ,,1,0.000000,kg,0,0,10
+Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1,0.000000,kg,0,0,10
+Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1,0.000000,kg,0,0,10
+Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1,0.000000,kg,0,0,10
 
 """
                     expect(csv).to(equal(expected))
+                }
+
+                it("emailSubject should be correct") {
+                    let companion = RepositoryRoutineCompanion(self.routineCompleted)
+                    let subject = companion.emailSubject()
+
+                    let expected = "Bodyweight Fitness workout for Monday, 7 August 2017 - 13:13"
+
+                    expect(subject).to(equal(expected))
                 }
             }
         }
