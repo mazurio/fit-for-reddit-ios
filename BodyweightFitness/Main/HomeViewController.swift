@@ -8,6 +8,8 @@ class HomeViewController: AbstractViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.primary()
         
         self.setNavigationBar()
         self.initializeScrollView()

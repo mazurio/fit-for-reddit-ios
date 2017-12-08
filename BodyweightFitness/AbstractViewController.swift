@@ -46,6 +46,7 @@ class AbstractViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = UIColor.primary()
         
+        self.contentView.backgroundColor = UIColor.white
         self.contentView.addSubview(view)
         
         view.snp.makeConstraints { (make) -> Void in
