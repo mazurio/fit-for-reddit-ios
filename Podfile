@@ -34,7 +34,6 @@ post_install do |installer|
     if ['Charts'].include? target.name
       target.build_configurations.each do |config|
         config.build_settings['SWIFT_VERSION'] = '4.0'
-        end
       end
     end
   end
