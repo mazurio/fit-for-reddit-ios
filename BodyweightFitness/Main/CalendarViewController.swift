@@ -174,6 +174,11 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
     }
 
     @IBAction func exportWorkout(_ sender: CardButton) {
+        if !MFMailComposeViewController.canSendMail() {
+           print("Mail services are not available")
+           return
+        }
+
         let mailString = NSMutableString()
 
         if let repositoryRoutine = sender.repositoryRoutine {
@@ -252,16 +257,8 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
 
             let data = mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
             if let data = data {
-                if !MFMailComposeViewController.canSendMail() {
-                    print("Mail services are not available")
-                    return
-                }
-
                 let emailViewController = configuredMailComposeViewController(data, subject: emailTitle, messageBody: content as String)
-
-                if MFMailComposeViewController.canSendMail() {
-                    self.present(emailViewController, animated: true, completion: nil)
-                }
+                self.present(emailViewController, animated: true, completion: nil)
             }
         }
     }
