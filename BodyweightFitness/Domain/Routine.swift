@@ -110,6 +110,8 @@ class Routine {
     var linkedExercises: NSMutableArray = []
     var linkedRoutine: NSMutableArray = []
     
+    init() {}
+    
     init(fileName: String) {
         let json = try! JSON(data: loadRoutineFromFile(fileName))
         
