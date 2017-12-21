@@ -187,10 +187,10 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
 
         let companion = RepositoryRoutineCompanion(routine)
 
-        let mailString = companion.exercisesAsCSV(weightUnit: weightUnit)
-        let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
         let subject = companion.emailSubject()
         let body = companion.emailBody(weightUnit: weightUnit)
+
+        let csv = companion.csv(weightUnit: weightUnit)
         let csvName = companion.csvName()
 
         let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: data, csvName: csvName)
@@ -248,7 +248,7 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
     }
 
     // MARK: - MFMailComposeViewControllerDelegate
-    
+
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

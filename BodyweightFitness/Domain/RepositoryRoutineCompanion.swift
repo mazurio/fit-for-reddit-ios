@@ -67,13 +67,13 @@ class RepositoryRoutineCompanion {
         return Double(Int(interval) / 60)
     }
 
-    func exercisesAsCSV(weightUnit: String) -> String {
+    func csv(weightUnit: String) -> Data? {
         let exercises = self.repositoryRoutine.exercises.filter { (exercise) in
             exercise.visible == true
         }
 
         if exercises.isEmpty {
-            return ""
+            return nil
         }
 
         let mailString = NSMutableString()
@@ -106,7 +106,7 @@ class RepositoryRoutineCompanion {
             }
         }
 
-        return mailString as String
+        return mailString.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
     }
 
     func csvName() -> String {
