@@ -9,7 +9,6 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
 
         return dateFormatter.date(from: from)!
     }
@@ -30,18 +29,18 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
             context("dateWithTime()") {
                 it("should return start date and time in EEE, d MMMM YYYY - HH:mm format") {
                     let repositoryRoutine = RepositoryRoutine()
-                    repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T12:13:00Z")
+                    repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T15:13:00Z")
 
                     let companion = RepositoryRoutineCompanion(repositoryRoutine)
 
-                    expect(companion.dateWithTime()).to(equal("Monday, 7 August 2017 - 13:13"))
+                    expect(companion.dateWithTime()).to(equal("Monday, 7 August 2017 - 15:13"))
                 }
             }
 
             context("startTime()") {
                 it("should return start time in HH:mm format") {
                     let repositoryRoutine = RepositoryRoutine()
-                    repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T12:13:21Z")
+                    repositoryRoutine.startTime = self.mockDate(from: "2017-08-07T13:13:21Z")
 
                     let companion = RepositoryRoutineCompanion(repositoryRoutine)
 
@@ -52,8 +51,7 @@ class RepositoryRoutineCompanionSpec: QuickSpec {
             context("lastUpdatedTime()") {
                 it("should return last updated time in HH:mm format") {
                     let repositoryRoutine = RepositoryRoutine()
-                    repositoryRoutine.lastUpdatedTime = self.mockDate(from: "2017-08-07T13:13:21Z")
-
+                    repositoryRoutine.lastUpdatedTime = self.mockDate(from: "2017-08-07T14:13:21Z")
                     let companion = RepositoryRoutineCompanion(repositoryRoutine)
 
                     expect(companion.lastUpdatedTime()).to(equal("14:13"))
