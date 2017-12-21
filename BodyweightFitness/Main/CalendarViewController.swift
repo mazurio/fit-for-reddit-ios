@@ -18,7 +18,7 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
         self.calendarView.calendarDelegate = self
         self.calendarView.calendarDataSource = self
         self.calendarView.allowsMultipleSelection = false
-        self.calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
+        self.calendarView.scrollingMode = .stopAtEachCalendarFrame
         self.calendarView.isRangeSelectionUsed = false
         self.calendarView.reloadData()
 
@@ -393,5 +393,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
                 calendar.selectDates([f])
             }
         }
+    }
+
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
     }
 }
