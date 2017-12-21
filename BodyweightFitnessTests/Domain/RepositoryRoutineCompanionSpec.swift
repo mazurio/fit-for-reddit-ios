@@ -253,6 +253,35 @@ Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1
 
                     expect(subject).to(equal(expected))
                 }
+
+                it("emailBody should return correct body text") {
+                    let companion = RepositoryRoutineCompanion(self.routineCompleted)
+                    let body = companion.emailBody(weightUnit: unit)
+
+                    let expected =
+                    """
+Hello,
+The following is your workout in Text/HTML format (CSV attached).
+
+Workout on Monday, 7 August 2017 - 13:13.
+Last Updated at 15:13
+Workout length: 2h
+
+Bodyweight Fitness
+Recommended Routine
+
+
+Set 1, Seconds: 10
+
+
+Set 1, Seconds: 10
+
+
+Set 1, Seconds: 10
+"""
+
+                    expect(body).to(equal(expected))
+                }
             }
         }
     }
