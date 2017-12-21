@@ -179,59 +179,22 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
            return
         }
 
+        guard let routine = sender.repositoryRoutine else {
+            return
+        }
+
         let weightUnit = getWeightUnit()
 
-        if let repositoryRoutine = sender.repositoryRoutine {
-            let companion = RepositoryRoutineCompanion(repositoryRoutine)
-            let exercisesCompanion = ListOfRepositoryExercisesCompanion(repositoryRoutine.exercises)
+        let companion = RepositoryRoutineCompanion(routine)
 
-            let mailString = companion.exercisesAsCSV(weightUnit: weightUnit)
-            let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        let mailString = companion.exercisesAsCSV(weightUnit: weightUnit)
+        let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        let subject = companion.emailSubject()
+        let body = companion.emailBody(weightUnit: weightUnit)
 
-            let content = NSMutableString()
-            let emailTitle = "\(repositoryRoutine.title) workout for \(companion.dateWithTime())"
-
-            content.append("Hello,\nThe following is your workout in Text/HTML format (CSV attached).")
-
-            content.append("\n\nWorkout on \(companion.dateWithTime()).")
-            content.append("\nLast Updated at \(companion.lastUpdatedTime())")
-            content.append("\nWorkout length: \(companion.workoutLength())")
-
-            content.append("\n\n\(repositoryRoutine.title)\n\(repositoryRoutine.subtitle)")
-
-            let weightUnit = getWeightUnit()
-
-            for exercise in exercisesCompanion.visibleExercises() {
-                content.append("\n\n\(exercise.title)")
-
-                var index = 1
-                for set in exercise.sets {
-                    let (_, minutes, seconds) = secondsToHoursMinutesSeconds(set.seconds)
-
-                    content.append("\nSet \(index)")
-
-                    if (set.isTimed) {
-                        if minutes > 0 {
-                            content.append(", Minutes: \(minutes)")
-                        }
-
-                        content.append(", Seconds: \(seconds)")
-                    } else {
-                        content.append(", Reps: \(set.reps)")
-
-                        if set.weight > 0 {
-                            content.append(", Weight: \(set.weight) \(weightUnit)")
-                        }
-                    }
-
-                    index += 1
-                }
-            }
-
-            if let data = data {
-                let emailViewController = configuredMailComposeViewController(data, subject: emailTitle, messageBody: content as String)
-                self.present(emailViewController, animated: true, completion: nil)
-            }
+        if let data = data {
+            let emailViewController = configuredMailComposeViewController(data, subject: subject, messageBody: body)
+            self.present(emailViewController, animated: true, completion: nil)
         }
     }
 
