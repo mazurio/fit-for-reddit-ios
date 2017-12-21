@@ -67,6 +67,48 @@ class RepositoryRoutineCompanion {
         return Double(Int(interval) / 60)
     }
 
+    func exercisesAsCSV(weightUnit: String) -> String {
+        let exercises = self.repositoryRoutine.exercises.filter { (exercise) in
+            exercise.visible == true
+        }
+
+        if exercises.isEmpty {
+            return ""
+        }
+
+        let mailString = NSMutableString()
+        mailString.append("Date, Start Time, End Time, Workout Length, Routine, Exercise, Set Order, Weight, Weight Units, Reps, Minutes, Seconds\n")
+
+        for exercise in exercises {
+            let title = exercise.title
+            var index = 1
+
+            for set in exercise.sets {
+                let (_, minutes, seconds) = secondsToHoursMinutesSeconds(set.seconds)
+
+                mailString.append(String(
+                    format: "%@,%@,%@,%@,%@,%@,%d,%f,%@,%d,%d,%d\n",
+                    self.date(),
+                    self.startTime(),
+                    self.lastUpdatedTime(),
+                    self.workoutLength(),
+                    "\(self.repositoryRoutine.title) - \(self.repositoryRoutine.subtitle)",
+                    title,
+                    index,
+                    set.weight,
+                    weightUnit,
+                    set.reps,
+                    minutes,
+                    seconds
+                ))
+
+                index += 1
+            }
+        }
+
+        return mailString as String
+    }
+
     fileprivate func stringFromTimeInterval(_ interval: TimeInterval) -> (Int, Int) {
         let interval = Int(interval)
 
