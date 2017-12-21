@@ -2,14 +2,6 @@ import SnapKit
 import Charts
 import RealmSwift
 
-extension WorkoutLogGeneralViewController: ChartViewDelegate {
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        if let data = repositoryRoutine as? RepositoryRoutine {
-            print("\(entry.x) \(entry.y) with data \(data.startTime)")
-        }
-    }
-}
-
 class WorkoutLogGeneralViewController: AbstractViewController {
     var repositoryRoutine: RepositoryRoutine?
 
@@ -22,9 +14,9 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         
         self.initializeContent()
     }
-    
-    func initializeContent() {
-        self.removeAllViews()
+
+    override func initializeContent() {
+        super.initializeContent()
 
         if let repositoryRoutine = self.repositoryRoutine {
             self.addView(self.createStatisticsCard(repositoryRoutine: repositoryRoutine))
@@ -33,7 +25,7 @@ class WorkoutLogGeneralViewController: AbstractViewController {
             self.addView(ValueLabel.create(text: "Workout Length History"))
             self.addView(self.createWorkoutLengthHistoryCard(repositoryRoutine: repositoryRoutine))
             self.addView(ValueLabel.create(text: "Completion Rate History"))
-            self.addView(self.createCompletionRateHistoryCard())
+            self.addView(self.createCompletionRateHistoryCard(repositoryRoutine: repositoryRoutine))
             self.addView(ValueLabel.create(text: "Not Completed Exercises"))
             self.addView(self.createNotCompletedExercisesCard(repositoryRoutine: repositoryRoutine))
         }
@@ -276,26 +268,52 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         let card = CardView()
 
         let realm = try! Realm()
-
         let allWorkouts = realm.objects(RepositoryRoutine.self)
-
-        let values = Array(allWorkouts).map({
-            (repositoryRoutine: $0, workoutLength: RepositoryRoutineCompanion($0).workoutLengthInMinutes())
-        })
-
-        let graph = LineChartView()
-        card.addSubview(graph)
-
-        setupChart(graph)
-        setChart(values, lineChartView: graph)
+                .filter("routineId == '\(repositoryRoutine.routineId)'")
 
         let label = TitleLabel()
-        label.text = "{{date}}"
-        card.addSubview(label)
+        label.text = RepositoryRoutineCompanion(repositoryRoutine).date()
 
         let value = ValueLabel()
-        value.text = "11%"
+        value.text = RepositoryRoutineCompanion(repositoryRoutine).workoutLength()
+
+        let buttonBar = UIView()
+        buttonBar.backgroundColor = UIColor.primary()
+
+        let graph = WorkoutChartView()
+        graph.workoutChartType = .WorkoutLength
+        graph.workoutChartLength = 7
+        graph.values = Array(allWorkouts)
+        graph.titleLabel = label
+        graph.valueLabel = value
+        graph.buttonBar = buttonBar
+        graph.setValues()
+
+        let segmentedControl = UISegmentedControl()
+        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControlEvents.valueChanged)
+        segmentedControl.insertSegment(withTitle: "1W", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "1M", at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "3M", at: 2, animated: true)
+        segmentedControl.insertSegment(withTitle: "6M", at: 3, animated: true)
+        segmentedControl.insertSegment(withTitle: "1Y", at: 4, animated: true)
+        segmentedControl.insertSegment(withTitle: "ALL", at: 5, animated: true)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = .clear
+        segmentedControl.tintColor = .clear
+        segmentedControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+            NSForegroundColorAttributeName: UIColor.lightGray
+        ], for: .normal)
+        segmentedControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+            NSForegroundColorAttributeName: UIColor.primary()
+        ], for: .selected)
+
+        card.addSubview(label)
         card.addSubview(value)
+        card.addSubview(graph)
+        card.addSubview(segmentedControl)
+        card.addSubview(buttonBar)
 
         label.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(card).offset(20)
@@ -313,83 +331,120 @@ class WorkoutLogGeneralViewController: AbstractViewController {
             make.top.equalTo(value.snp.bottom).offset(8)
             make.left.equalTo(card).offset(0)
             make.right.equalTo(card).offset(0)
-            make.bottom.equalTo(card).offset(0)
 
             make.height.equalTo(200)
+        }
+
+        segmentedControl.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(graph.snp.bottom).offset(16)
+            make.left.equalTo(card).offset(16)
+            make.right.equalTo(card).offset(-16)
+
+            make.height.equalTo(36)
+        }
+
+        buttonBar.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(segmentedControl.snp.bottom)
+            make.left.equalTo(segmentedControl.snp.left)
+            make.bottom.equalTo(card).offset(-16)
+
+            make.width.equalTo(segmentedControl.snp.width).multipliedBy(1 / CGFloat(segmentedControl.numberOfSegments))
+
+            make.height.equalTo(2)
         }
         
         return card
     }
-
-    func setupChart(_ lineChartView: LineChartView) {
-        lineChartView.delegate = self
-        lineChartView.backgroundColor = UIColor.white
-        lineChartView.chartDescription?.enabled = false
-        lineChartView.dragEnabled = true
-        lineChartView.drawGridBackgroundEnabled = false
-        lineChartView.drawMarkers = false
-        lineChartView.legend.enabled = false
-        lineChartView.animate(
-                xAxisDuration: 1.0,
-                yAxisDuration: 1.0,
-                easingOption: .easeInSine
-        )
-
-        lineChartView.xAxis.enabled = false
-        lineChartView.xAxis.drawLabelsEnabled = false
-        lineChartView.xAxis.drawGridLinesEnabled = false
-
-        lineChartView.leftAxis.enabled = false
-        lineChartView.leftAxis.drawLabelsEnabled = false
-        lineChartView.leftAxis.drawGridLinesEnabled = false
-
-        lineChartView.rightAxis.enabled = false
-        lineChartView.rightAxis.drawLabelsEnabled = false
-        lineChartView.rightAxis.drawGridLinesEnabled = false
-    }
-
-    func setChart(_ values: [(repositoryRoutine: RepositoryRoutine, workoutLength: Double)], lineChartView: LineChartView) {
-        var dataEntries: [ChartDataEntry] = []
-
-        for (index, entry) in values.enumerated() {
-            let dataEntry = ChartDataEntry(
-                    x: Double(index),
-                    y: entry.workoutLength,
-                    data: entry.repositoryRoutine
-            )
-
-            dataEntries.append(dataEntry)
-        }
-
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: nil)
-        lineChartDataSet.lineWidth = 1.8
-        lineChartDataSet.mode = .cubicBezier
-        lineChartDataSet.cubicIntensity = 0.2
-        lineChartDataSet.drawCirclesEnabled = false
-        lineChartDataSet.drawValuesEnabled = false
-        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartDataSet.colors = [UIColor.primary()]
-
-        let lineChartData = LineChartData()
-        lineChartData.addDataSet(lineChartDataSet)
-
-        lineChartView.data = lineChartData
-    }
     
-    func createCompletionRateHistoryCard() -> CardView {
+    func createCompletionRateHistoryCard(repositoryRoutine: RepositoryRoutine) -> CardView {
         let card = CardView()
 
+        let realm = try! Realm()
+        let allWorkouts = realm.objects(RepositoryRoutine.self)
+                .filter("routineId == '\(repositoryRoutine.routineId)'")
+
         let label = TitleLabel()
-        label.text = "12 October 2017"
+        label.text = RepositoryRoutineCompanion(repositoryRoutine).date()
+
+        let value = ValueLabel()
+        value.text = ListOfRepositoryExercisesCompanion(repositoryRoutine.exercises).completionRate().label
+
+        let buttonBar = UIView()
+        buttonBar.backgroundColor = UIColor.primary()
+
+        let graph = WorkoutChartView()
+        graph.workoutChartType = .CompletionRate
+        graph.workoutChartLength = 7
+        graph.values = Array(allWorkouts)
+        graph.titleLabel = label
+        graph.valueLabel = value
+        graph.buttonBar = buttonBar
+        graph.setValues()
+
+        let segmentedControl = UISegmentedControl()
+        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControlEvents.valueChanged)
+        segmentedControl.insertSegment(withTitle: "1W", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "1M", at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "3M", at: 2, animated: true)
+        segmentedControl.insertSegment(withTitle: "6M", at: 3, animated: true)
+        segmentedControl.insertSegment(withTitle: "1Y", at: 4, animated: true)
+        segmentedControl.insertSegment(withTitle: "ALL", at: 5, animated: true)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = .clear
+        segmentedControl.tintColor = .clear
+        segmentedControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+            NSForegroundColorAttributeName: UIColor.lightGray
+        ], for: .normal)
+        segmentedControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+            NSForegroundColorAttributeName: UIColor.primary()
+        ], for: .selected)
+
         card.addSubview(label)
-        
+        card.addSubview(value)
+        card.addSubview(graph)
+        card.addSubview(segmentedControl)
+        card.addSubview(buttonBar)
+
         label.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(card).offset(20)
             make.left.equalTo(card).offset(16)
             make.right.equalTo(card).offset(-16)
-            make.bottom.equalTo(card).offset(-20)
         }
-        
+
+        value.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(label.snp.bottom).offset(8)
+            make.left.equalTo(card).offset(16)
+            make.right.equalTo(card).offset(-16)
+        }
+
+        graph.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(value.snp.bottom).offset(8)
+            make.left.equalTo(card).offset(0)
+            make.right.equalTo(card).offset(0)
+
+            make.height.equalTo(200)
+        }
+
+        segmentedControl.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(graph.snp.bottom).offset(16)
+            make.left.equalTo(card).offset(16)
+            make.right.equalTo(card).offset(-16)
+
+            make.height.equalTo(36)
+        }
+
+        buttonBar.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(segmentedControl.snp.bottom)
+            make.left.equalTo(segmentedControl.snp.left)
+            make.bottom.equalTo(card).offset(-16)
+
+            make.width.equalTo(segmentedControl.snp.width).multipliedBy(1 / CGFloat(segmentedControl.numberOfSegments)).constraint
+
+            make.height.equalTo(2)
+        }
+
         return card
     }
     

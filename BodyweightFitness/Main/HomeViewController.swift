@@ -2,8 +2,9 @@ import UIKit
 import RxSwift
 import StoreKit
 import SnapKit
+import MessageUI
 
-class HomeViewController: AbstractViewController {
+class HomeViewController: AbstractViewController, MFMailComposeViewControllerDelegate {
     var routine: Routine? = nil
     
     override func viewDidLoad() {
@@ -12,7 +13,6 @@ class HomeViewController: AbstractViewController {
         self.view.backgroundColor = UIColor.primary()
         
         self.setNavigationBar()
-        self.initializeScrollView()
         
         _ = RoutineStream.sharedInstance.repositoryObservable().subscribe(onNext: { (it) in
             self.initializeContent()
@@ -26,14 +26,15 @@ class HomeViewController: AbstractViewController {
         self.requestReviewIfAllowed()
     }
 
-    func initializeContent() {
-        self.navigationItem.title = self.routine?.title
+    override func initializeContent() {
+        super.initializeContent()
 
-        self.removeAllViews()
+        self.navigationItem.title = self.routine?.title
         
         self.addView(self.createTodaysProgressCard())
         self.addView(self.createAboutRoutineCard())
         self.addView(self.createStatisticsCard())
+        self.addView(self.createFeedbackCard())
     }
     
     func createTodaysProgressCard() -> CardView {
@@ -279,7 +280,49 @@ class HomeViewController: AbstractViewController {
         
         return card
     }
-    
+
+    func createFeedbackCard() -> CardView {
+        let card = CardView()
+
+        let label = TitleLabel()
+        label.text = "Feedback"
+        card.addSubview(label)
+
+        let description = DescriptionTextView()
+        description.text = "Found a bug? Would like to request a new feature? Let me know!"
+        card.addSubview(description)
+
+        let cardButton = CardButton()
+        cardButton.setTitle("Send Email", for: .normal)
+        cardButton.addTarget(self, action: #selector(sendFeedback), for: .touchUpInside)
+        card.addSubview(cardButton)
+
+        label.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(card).offset(20)
+            make.left.equalTo(card).offset(16)
+            make.right.equalTo(card).offset(-16)
+
+            make.height.equalTo(24)
+        }
+
+        description.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(label.snp.bottom)
+            make.left.equalTo(card).offset(12)
+            make.right.equalTo(card).offset(-12)
+            make.bottom.equalTo(cardButton.snp.top).offset(-12)
+        }
+
+        cardButton.snp.makeConstraints { (make) -> Void in
+            make.left.equalTo(card).offset(16)
+            make.right.equalTo(card).offset(-16)
+            make.bottom.equalTo(card).offset(-16)
+
+            make.height.equalTo(36)
+        }
+
+        return card
+    }
+
     func getNumberOfWorkoutsPostfix(_ count: Int) -> String {
         if (count == 1) {
             return " Workout"
@@ -354,5 +397,22 @@ class HomeViewController: AbstractViewController {
         if let requestUrl = URL(string: RoutineStream.sharedInstance.routine.url) {
             UIApplication.shared.open(requestUrl, options: [:], completionHandler: nil)
         }
+    }
+
+    @IBAction func sendFeedback(_ sender: AnyObject) {
+        if MFMailComposeViewController.canSendMail() {
+            let emailController = MFMailComposeViewController()
+
+            emailController.mailComposeDelegate = self
+            emailController.setToRecipients(["damian@mazur.io"])
+            emailController.setSubject("Bodyweight Fitness App for iOS - Feedback")
+            emailController.setMessageBody("Hi Damian,\n", isHTML: false)
+
+            self.present(emailController, animated: true, completion: nil)
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

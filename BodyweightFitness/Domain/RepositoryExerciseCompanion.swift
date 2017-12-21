@@ -33,7 +33,7 @@ class RepositoryExerciseCompanion {
             if (firstSet.isTimed) {
                 let totalTime = self.repositoryExercise.sets.map({ $0.seconds }).reduce(0, +)
 
-                let (hours, minutes, seconds) = secondsToHoursMinutesSeconds(totalTime)
+                let (_, minutes, seconds) = secondsToHoursMinutesSeconds(totalTime)
 
                 let minutesLabel = (minutes == 1) ? "Minute" : "Minutes"
                 let secondsLabel = (seconds == 1) ? "Second" : "Seconds"
@@ -47,8 +47,6 @@ class RepositoryExerciseCompanion {
                 } else {
                     return "\(totalNumberOfSets) \(setLabel), \(minutes) \(minutesLabel), \(seconds) \(secondsLabel)"
                 }
-
-                return defaultLabel
             } else {
                 let totalNumberOfReps = self.repositoryExercise.sets.map({ $0.reps }).reduce(0, +)
 
