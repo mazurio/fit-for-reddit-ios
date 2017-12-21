@@ -109,6 +109,10 @@ class RepositoryRoutineCompanion {
         return mailString as String
     }
 
+    func emailSubject() -> String {
+        return "\(self.repositoryRoutine.title) workout for \(self.dateWithTime())"
+    }
+
     fileprivate func stringFromTimeInterval(_ interval: TimeInterval) -> (Int, Int) {
         let interval = Int(interval)
 
