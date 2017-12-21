@@ -10,6 +10,7 @@ class HomeViewController: AbstractViewController, MFMailComposeViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.primary()
         self.setNavigationBar()
         
         _ = RoutineStream.sharedInstance.repositoryObservable().subscribe(onNext: { (it) in
