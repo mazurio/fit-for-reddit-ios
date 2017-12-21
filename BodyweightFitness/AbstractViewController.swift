@@ -53,7 +53,7 @@ class AbstractViewController: UIViewController {
     func createBackgroundView(height: Int = 50) {
         let view = UIView()
         view.backgroundColor = UIColor.primary()
-        self.contentView.backgroundColor = UIColor.white
+        
         self.contentView.addSubview(view)
         
         view.snp.makeConstraints { (make) -> Void in
