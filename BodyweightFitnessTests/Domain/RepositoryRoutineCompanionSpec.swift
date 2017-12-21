@@ -245,6 +245,14 @@ Monday, 7 August 2017,13:13,15:13,2h,Bodyweight Fitness - Recommended Routine,,1
                     expect(csv).to(equal(expected))
                 }
 
+                it("csvName should return correct filename") {
+                    let companion = RepositoryRoutineCompanion(self.routineCompleted)
+                    let csvName = companion.csvName()
+
+                    let expected = "Workout-Bodyweight Fitness-Monday, 7 August 2017 - 13:13.csv"
+                    expect(csvName).to(equal(expected))
+                }
+
                 it("emailSubject should be correct") {
                     let companion = RepositoryRoutineCompanion(self.routineCompleted)
                     let subject = companion.emailSubject()
