@@ -28,7 +28,7 @@ class WeightedViewController: UIViewController {
         self.updateLabels()
 
         _ = RoutineStream.sharedInstance.repositoryObservable().subscribe(onNext: { (it) in
-            self.sets.text = self.printSets()
+            self.sets.text = self.printSets(exercise: self.rootViewController?.current)
         })
     }
     
@@ -55,7 +55,7 @@ class WeightedViewController: UIViewController {
     func updateLabels() {
         PersistenceManager.storeNumberOfReps(current.exerciseId, numberOfReps: self.numberOfReps)
         
-        self.sets.text = self.printSets()
+        self.sets.text = self.printSets(exercise: self.rootViewController?.current)
         self.reps.setTitle(printValue(self.numberOfReps), for: UIControlState())
     }
     
@@ -87,18 +87,18 @@ class WeightedViewController: UIViewController {
         self.updateLabels()
     }
 
-    func printSets() -> String {
+    func printSets(exercise: Exercise?) -> String {
         var numberOfSets = 0
         var isEmpty = false
 
         let asString = NSMutableString()
 
-        if let current = self.rootViewController?.current {
+        if let exercise = exercise {
             if (RepositoryStream.sharedInstance.repositoryRoutineForTodayExists()) {
                 let repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
 
                 if let repositoryExercise = repositoryRoutine.exercises.filter({
-                    $0.exerciseId == current.exerciseId
+                    $0.exerciseId == exercise.exerciseId
                 }).first {
                     for set in repositoryExercise.sets {
                         if (repositoryExercise.sets.count == 1 && set.reps == 0) {
