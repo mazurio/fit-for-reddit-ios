@@ -53,14 +53,10 @@ class WeightedViewController: UIViewController {
     }
     
     func updateLabels() {
-        self.update(numberOfReps: self.numberOfReps, for: self.current)
+        PersistenceManager.storeNumberOfReps(current.exerciseId, numberOfReps: self.numberOfReps)
         
         self.sets.text = self.printSets(exercise: self.rootViewController?.current)
         self.reps.setTitle(printValue(self.numberOfReps), for: UIControlState())
-    }
-
-    func update(numberOfReps: Int, for exercise: Exercise) {
-        PersistenceManager.storeNumberOfReps(exercise.exerciseId, numberOfReps: numberOfReps)
     }
     
     func printValue(_ value: Int) -> String {
