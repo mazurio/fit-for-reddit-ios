@@ -24,7 +24,8 @@ class WeightedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.numberOfReps = PersistenceManager.getNumberOfReps(self.current.exerciseId)
         self.updateLabels()
 
         _ = RoutineStream.sharedInstance.repositoryObservable().subscribe(onNext: { (it) in
