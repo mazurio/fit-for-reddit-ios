@@ -7,7 +7,9 @@ class WeightedViewController: UIViewController {
     
     @IBOutlet var sets: UILabel!
     @IBOutlet var reps: UIButton!
-    
+
+    var delegate: WorkoutInteractionDelegate?
+
     var numberOfReps: Int = 5
     var rootViewController: WorkoutViewController? = nil
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
@@ -66,7 +68,7 @@ class WeightedViewController: UIViewController {
     }
     
     func showRestTimer() {
-        self.rootViewController?.restTimerShouldStart()
+        self.delegate?.restTimerShouldStart()
     }
     
     func showNotification(_ set: Int, reps: Int) {
@@ -127,11 +129,11 @@ class WeightedViewController: UIViewController {
     }
     
     @IBAction func previousButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.previousButtonClicked(sender)
+        self.delegate?.selectPreviousExercise()
     }
     
     @IBAction func nextButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.nextButtonClicked(sender)
+        self.delegate?.selectNextExercise()
     }
     
     @IBAction func increaseRepsClicked(_ sender: AnyObject) {
