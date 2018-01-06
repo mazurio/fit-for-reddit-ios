@@ -9,6 +9,8 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var previousButton: UIButton!
     @IBOutlet var nextButton: UIButton!
+
+    var delegate: WorkoutInteractionDelegate?
     
     var rootViewController: WorkoutViewController? = nil
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
@@ -212,7 +214,7 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func showRestTimer() {
-        self.rootViewController?.restTimerShouldStart()
+        self.delegate?.restTimerShouldStart()
     }
     
     func showNotification(_ seconds: Int) {
@@ -266,10 +268,10 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func previousButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.previousButtonClicked(sender)
+        self.delegate?.selectPreviousExercise()
     }
     
     @IBAction func nextButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.nextButtonClicked(sender)
+        self.delegate?.selectNextExercise()
     }
 }

@@ -176,7 +176,7 @@ class HomeViewController: AbstractViewController, MFMailComposeViewControllerDel
         topRightLabel.textAlignment = .right
         
         if let workout = lastWorkout {
-            topRightLabel.text = String(Date.timeAgoSince(workout.startTime))
+            topRightLabel.text = workout.startTime.timeAgo()
         } else {
             topRightLabel.text = String("Never")
         }

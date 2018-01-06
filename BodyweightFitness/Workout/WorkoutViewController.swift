@@ -1,9 +1,16 @@
 import UIKit
 import AVFoundation
 
+protocol WorkoutInteractionDelegate {
+    func selectPreviousExercise()
+    func selectNextExercise()
+    func restTimerShouldStart()
+    func restTimerShouldStop()
+}
+
 class WorkoutNavigationController: UINavigationController {}
 
-class WorkoutViewController: UIViewController {
+class WorkoutViewController: UIViewController, WorkoutInteractionDelegate {
     @IBOutlet var actionButton: UIButton!
     @IBOutlet var topView: UIView!
 
@@ -25,10 +32,13 @@ class WorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         _ = try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-        
-        self.restTimerViewController.rootViewController = self
+
         self.timedViewController.rootViewController = self
         self.weightedViewController.rootViewController = self
+
+        self.weightedViewController.delegate = self
+        self.timedViewController.delegate = self
+        self.weightedViewController.delegate = self
         
         self.restTimerViewController.view.frame = self.topView.frame
         self.restTimerViewController.willMove(toParentViewController: self)
@@ -131,34 +141,6 @@ class WorkoutViewController: UIViewController {
         self.navigationController?.present(logWorkoutController, animated: true, completion: nil)
     }
 
-    func restTimerShouldStart() {
-        if userDefaults.showRestTimer() {
-            let routineId = RoutineStream.sharedInstance.routine.routineId
-            
-            if let section = current.section {
-                if (section.sectionId == "section0") {
-                    if userDefaults.showRestTimerAfterWarmup() {
-                        showRestTimer()
-                    }
-                } else if (section.sectionId == "section1") {
-                    if userDefaults.showRestTimerAfterBodylineDrills() {
-                        showRestTimer()
-                    }
-                } else {
-                    if (routineId != "routine0") {
-                        if userDefaults.showRestTimerAfterFlexibilityExercises() {
-                            showRestTimer()
-                        }
-                    } else {
-                        showRestTimer()
-                    }
-                }
-            } else {
-                showRestTimer()
-            }
-        }
-    }
-    
     fileprivate func showRestTimer() {
         self.restTimerViewController.startTimer()
         self.restTimerViewController.view.isHidden = false
@@ -166,20 +148,7 @@ class WorkoutViewController: UIViewController {
         self.timedViewController.view.isHidden = true
         self.weightedViewController.view.isHidden = true
     }
-    
-    func restTimerStopped() {
-        self.restTimerViewController.stopTimer()
-        self.restTimerViewController.view.isHidden = true
-        
-        if current.isTimed() {
-            self.timedViewController.view.isHidden = false
-            self.weightedViewController.view.isHidden = true
-        } else {
-            self.timedViewController.view.isHidden = true
-            self.weightedViewController.view.isHidden = false
-        }
-    }
-    
+
     internal func changeExercise(_ currentExercise: Exercise, updateTitle: Bool = true) {
         self.current = currentExercise
         
@@ -371,15 +340,58 @@ class WorkoutViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    @IBAction func previousButtonClicked(_ sender: AnyObject) {
+    // MARK: - WorkoutInteractionDelegate
+
+    func selectPreviousExercise() {
         if let previous = self.current.previous {
             changeExercise(previous)
         }
     }
- 
-    @IBAction func nextButtonClicked(_ sender: AnyObject) {
+
+    func selectNextExercise() {
         if let next = self.current.next {
             changeExercise(next)
+        }
+    }
+
+    func restTimerShouldStart() {
+        if userDefaults.showRestTimer() {
+            let routineId = RoutineStream.sharedInstance.routine.routineId
+
+            if let section = current.section {
+                if (section.sectionId == "section0") {
+                    if userDefaults.showRestTimerAfterWarmup() {
+                        showRestTimer()
+                    }
+                } else if (section.sectionId == "section1") {
+                    if userDefaults.showRestTimerAfterBodylineDrills() {
+                        showRestTimer()
+                    }
+                } else {
+                    if (routineId != "routine0") {
+                        if userDefaults.showRestTimerAfterFlexibilityExercises() {
+                            showRestTimer()
+                        }
+                    } else {
+                        showRestTimer()
+                    }
+                }
+            } else {
+                showRestTimer()
+            }
+        }
+    }
+
+    func restTimerShouldStop() {
+        self.restTimerViewController.stopTimer()
+        self.restTimerViewController.view.isHidden = true
+
+        if current.isTimed() {
+            self.timedViewController.view.isHidden = false
+            self.weightedViewController.view.isHidden = true
+        } else {
+            self.timedViewController.view.isHidden = true
+            self.weightedViewController.view.isHidden = false
         }
     }
   }
