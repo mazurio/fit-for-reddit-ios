@@ -154,53 +154,42 @@ class WeightedViewController: UIViewController {
     
     @IBAction func logReps(_ sender: AnyObject) {
         if let current = self.rootViewController?.current {
-            self.logReps(exercise: current)
-        }
-    }
+            if (self.numberOfReps >= 1 && self.numberOfReps <= 25 && !current.isTimed()) {
+                let realm = RepositoryStream.sharedInstance.getRealm()
+                let repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
+                
+                if let repositoryExercise = repositoryRoutine.exercises.filter({
+                    $0.exerciseId == current.exerciseId
+                }).first {
+                    let sets = repositoryExercise.sets
+                    
+                    try! realm.write {
+                        if (sets.count == 1 && sets[0].reps == 0) {
+                            sets[0].reps = self.numberOfReps
+                            
+                            self.showNotification(1, reps: self.numberOfReps)
+                            self.showRestTimer()
+                        } else if (sets.count >= 1 && sets.count < 9) {
+                            let repositorySet = RepositorySet()
+                            
+                            repositorySet.exercise = repositoryExercise
+                            repositorySet.isTimed = false
+                            repositorySet.reps = self.numberOfReps
+                            
+                            sets.append(repositorySet)
+                            
+                            repositoryRoutine.lastUpdatedTime = Date()
+                        }
+                        
+                        realm.add(repositoryRoutine, update: true)
+                        
+                        self.showNotification(sets.count, reps: self.numberOfReps)
+                        self.showRestTimer()
+                    }
 
-    func logReps(exercise: Exercise) {
-        if (exercise.isTimed()) {
-            return
-        }
-
-        let numberOfRepsIsValid = self.numberOfReps >= 1 && self.numberOfReps <= 25
-        if (!numberOfRepsIsValid) {
-            return
-        }
-
-        let realm = RepositoryStream.sharedInstance.getRealm()
-        let repositoryRoutine = RepositoryStream.sharedInstance.getRepositoryRoutineForToday()
-
-        if let repositoryExercise = repositoryRoutine.exercises.filter({
-            $0.exerciseId == exercise.exerciseId
-        }).first {
-            let sets = repositoryExercise.sets
-
-            try! realm.write {
-                if (sets.count == 1 && sets[0].reps == 0) {
-                    sets[0].reps = self.numberOfReps
-
-                    self.showNotification(1, reps: self.numberOfReps)
-                    self.showRestTimer()
-                } else if (sets.count >= 1 && sets.count < 9) {
-                    let repositorySet = RepositorySet()
-
-                    repositorySet.exercise = repositoryExercise
-                    repositorySet.isTimed = false
-                    repositorySet.reps = self.numberOfReps
-
-                    sets.append(repositorySet)
-
-                    repositoryRoutine.lastUpdatedTime = Date()
+                    RoutineStream.sharedInstance.setRepository()
                 }
-
-                realm.add(repositoryRoutine, update: true)
-
-                self.showNotification(sets.count, reps: self.numberOfReps)
-                self.showRestTimer()
             }
-
-            RoutineStream.sharedInstance.setRepository()
         }
     }
 }
