@@ -9,8 +9,9 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var previousButton: UIButton!
     @IBOutlet var nextButton: UIButton!
-    
-    var rootViewController: WorkoutViewController? = nil
+
+    var delegate: WorkoutInteractionDelegate?
+
     var current: Exercise = RoutineStream.sharedInstance.routine.getFirstExercise()
     
     var audioPlayer: AVAudioPlayer?
@@ -100,7 +101,7 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
         seconds -= 1
         
         if(seconds <= 0) {
-            self.rootViewController?.restTimerStopped()
+            self.delegate?.restTimerShouldStop()
             
             let defaults = Foundation.UserDefaults.standard
             if(defaults.object(forKey: "playAudioWhenTimerStops") != nil) {
@@ -142,14 +143,14 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func stopButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.restTimerStopped()
+        self.delegate?.restTimerShouldStop()
     }
     
     @IBAction func previousButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.previousButtonClicked(sender)
+        self.delegate?.selectPreviousExercise()
     }
     
     @IBAction func nextButtonClicked(_ sender: AnyObject) {
-        self.rootViewController?.nextButtonClicked(sender)
+        self.delegate?.selectNextExercise()
     }
 }

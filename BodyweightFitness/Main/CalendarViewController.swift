@@ -193,7 +193,7 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
         let csv = companion.csv(weightUnit: weightUnit)
         let csvName = companion.csvName()
 
-        let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: data, csvName: csvName)
+        let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: csv, csvName: csvName)
         self.present(emailViewController, animated: true, completion: nil)
     }
 
