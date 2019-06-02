@@ -201,7 +201,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         return 150
     }
     
-    func dismissAnimated(_ sender: UIBarButtonItem) {
+    @objc func dismissAnimated(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -193,7 +193,7 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
         let csv = companion.csv(weightUnit: weightUnit)
         let csvName = companion.csvName()
 
-        let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: data, csvName: csvName)
+        let emailViewController = configuredMailComposeViewController(subject: subject, messageBody: body, csv: csv, csvName: csvName)
         self.present(emailViewController, animated: true, completion: nil)
     }
 
@@ -202,13 +202,13 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
             let alertController = UIAlertController(
                     title: "Remove Workout",
                     message: "Are you sure you want to remove this workout?",
-                    preferredStyle: UIAlertControllerStyle.alert
+                    preferredStyle: UIAlertController.Style.alert
             )
 
             alertController.addAction(
                     UIAlertAction(
                             title: "Cancel",
-                            style: UIAlertActionStyle.cancel,
+                            style: UIAlertAction.Style.cancel,
                             handler: nil
                     )
             )
@@ -216,7 +216,7 @@ class CalendarViewController: AbstractViewController, MFMailComposeViewControlle
             alertController.addAction(
                     UIAlertAction(
                             title: "Remove",
-                            style: UIAlertActionStyle.destructive,
+                            style: UIAlertAction.Style.destructive,
                             handler: { (action: UIAlertAction!) in
                                 let realm = try! Realm()
 

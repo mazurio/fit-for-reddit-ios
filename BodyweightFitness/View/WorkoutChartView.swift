@@ -87,7 +87,7 @@ class WorkoutChartView: LineChartView, ChartViewDelegate {
         }
     }
 
-    func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         UIView.animate(withDuration: 0.2) {
             let offset = ((sender.frame.width) / CGFloat(sender.numberOfSegments)) * CGFloat(sender.selectedSegmentIndex)
 

@@ -6,14 +6,14 @@ target 'BodyweightFitness' do
   use_frameworks!
 
   # Pods for Bodyweight Fitness
-  pod 'RealmSwift', '~> 3.0.2'
+  pod 'RealmSwift', '~> 3.16'
   pod 'SwiftyJSON'
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxCocoa', '~> 4.0'
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'Eureka', '~> 4.0.1'
   pod 'Charts', '~> 3.0.4'
-  pod 'SnapKit', '~> 3.2.0'
+  pod 'SnapKit', '~> 4.0.0'
   pod 'Fabric'
   pod 'Crashlytics'
   

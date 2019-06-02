@@ -24,29 +24,29 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        _ = try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient)
         
         self.restTimerViewController.rootViewController = self
         self.timedViewController.rootViewController = self
         self.weightedViewController.rootViewController = self
         
         self.restTimerViewController.view.frame = self.topView.frame
-        self.restTimerViewController.willMove(toParentViewController: self)
-        self.addChildViewController(self.restTimerViewController)
+        self.restTimerViewController.willMove(toParent: self)
+        self.addChild(self.restTimerViewController)
         self.topView.addSubview(self.restTimerViewController.view)
-        self.restTimerViewController.didMove(toParentViewController: self)
+        self.restTimerViewController.didMove(toParent: self)
         
         self.timedViewController.view.frame = self.topView.frame
-        self.timedViewController.willMove(toParentViewController: self)
-        self.addChildViewController(self.timedViewController)
+        self.timedViewController.willMove(toParent: self)
+        self.addChild(self.timedViewController)
         self.topView.addSubview(self.timedViewController.view)
-        self.timedViewController.didMove(toParentViewController: self)
+        self.timedViewController.didMove(toParent: self)
         
         self.weightedViewController.view.frame = self.topView.frame
-        self.weightedViewController.willMove(toParentViewController: self)
-        self.addChildViewController(self.weightedViewController)
+        self.weightedViewController.willMove(toParent: self)
+        self.addChild(self.weightedViewController)
         self.topView.addSubview(self.weightedViewController.view)
-        self.weightedViewController.didMove(toParentViewController: self)
+        self.weightedViewController.didMove(toParent: self)
         
         self.setNavigationBar()
         self.timedViewController.updateLabel()
@@ -191,11 +191,11 @@ class WorkoutViewController: UIViewController {
         
         if (currentExercise.section?.mode == SectionMode.all) {
             if let image = UIImage(named: "plus") {
-                actionButton.setImage(image, for: UIControlState())
+                actionButton.setImage(image, for: UIControl.State())
             }
         } else {
             if let image = UIImage(named: "progression") {
-                actionButton.setImage(image, for: UIControlState())
+                actionButton.setImage(image, for: UIControl.State())
             }
         }
         
@@ -235,7 +235,7 @@ class WorkoutViewController: UIViewController {
             let path = Bundle.main.path(forResource: videoId, ofType: "mp4")
             
             player = AVPlayer(url: URL(fileURLWithPath: path!))
-            player!.actionAtItemEnd = AVPlayerActionAtItemEnd.none;
+            player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none;
             
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = videoView.bounds
@@ -248,7 +248,7 @@ class WorkoutViewController: UIViewController {
                 name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                 object: player!.currentItem)
             
-            player!.seek(to: kCMTimeZero)
+            player!.seek(to: CMTime.zero)
             player!.play()
         } else {
             if let player = self.player {
@@ -265,8 +265,8 @@ class WorkoutViewController: UIViewController {
         }
     }
     
-    func playerItemDidReachEnd() {
-        player!.seek(to: kCMTimeZero)
+    @objc func playerItemDidReachEnd() {
+        player!.seek(to: CMTime.zero)
     }
     
     @IBAction func actionButtonClicked(_ sender: AnyObject) {

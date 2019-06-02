@@ -2,15 +2,15 @@ import Foundation
 import RealmSwift
 
 class RepositoryExercise: Object {
-    dynamic var id = "Exercise-" + UUID().uuidString
-    dynamic var exerciseId = ""
-    dynamic var title = ""
-    dynamic var desc = ""
-    dynamic var defaultSet = ""
-    dynamic var visible = true
-    dynamic var routine: RepositoryRoutine?
-    dynamic var category: RepositoryCategory?
-    dynamic var section: RepositorySection?
+    @objc dynamic var id = "Exercise-" + UUID().uuidString
+    @objc dynamic var exerciseId = ""
+    @objc dynamic var title = ""
+    @objc dynamic var desc = ""
+    @objc dynamic var defaultSet = ""
+    @objc dynamic var visible = true
+    @objc dynamic var routine: RepositoryRoutine?
+    @objc dynamic var category: RepositoryCategory?
+    @objc dynamic var section: RepositorySection?
     
     let sets = List<RepositorySet>()
     

@@ -290,7 +290,7 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         graph.setValues()
 
         let segmentedControl = UISegmentedControl()
-        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControlEvents.valueChanged)
+        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControl.Event.valueChanged)
         segmentedControl.insertSegment(withTitle: "1W", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "1M", at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "3M", at: 2, animated: true)
@@ -301,12 +301,12 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         segmentedControl.backgroundColor = .clear
         segmentedControl.tintColor = .clear
         segmentedControl.setTitleTextAttributes([
-            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-            NSForegroundColorAttributeName: UIColor.lightGray
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
         ], for: .normal)
         segmentedControl.setTitleTextAttributes([
-            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-            NSForegroundColorAttributeName: UIColor.primary()
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.primary()
         ], for: .selected)
 
         card.addSubview(label)
@@ -382,7 +382,7 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         graph.setValues()
 
         let segmentedControl = UISegmentedControl()
-        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControlEvents.valueChanged)
+        segmentedControl.addTarget(graph, action: #selector(graph.segmentedControlValueChanged(_:)), for: UIControl.Event.valueChanged)
         segmentedControl.insertSegment(withTitle: "1W", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "1M", at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "3M", at: 2, animated: true)
@@ -393,12 +393,12 @@ class WorkoutLogGeneralViewController: AbstractViewController {
         segmentedControl.backgroundColor = .clear
         segmentedControl.tintColor = .clear
         segmentedControl.setTitleTextAttributes([
-            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-            NSForegroundColorAttributeName: UIColor.lightGray
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
         ], for: .normal)
         segmentedControl.setTitleTextAttributes([
-            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-            NSForegroundColorAttributeName: UIColor.primary()
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.primary()
         ], for: .selected)
 
         card.addSubview(label)

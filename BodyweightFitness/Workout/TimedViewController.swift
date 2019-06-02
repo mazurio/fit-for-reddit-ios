@@ -60,8 +60,8 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
     func updateLabel() {
         let (_, m, s) = secondsToHoursMinutesSeconds(seconds)
         
-        timerMinutesButton.setTitle(printTimerValue(m), for: UIControlState())
-        timerSecondsButton.setTitle(printTimerValue(s), for: UIControlState())
+        timerMinutesButton.setTitle(printTimerValue(m), for: UIControl.State())
+        timerSecondsButton.setTitle(printTimerValue(s), for: UIControl.State())
     }
     
     func printTimerValue(_ value: Int) -> String {
@@ -81,7 +81,7 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
         
         timerPlayButton.setImage(
             UIImage(named: "play") as UIImage?,
-            for: UIControlState())
+            for: UIControl.State())
         
         timer.invalidate()
         
@@ -93,7 +93,7 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
         
         timerPlayButton.setImage(
             UIImage(named: "pause") as UIImage?,
-            for: UIControlState())
+            for: UIControl.State())
         
         timer = Timer.scheduledTimer(
             timeInterval: 1,
@@ -113,7 +113,7 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
         updateLabel()
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         seconds -= 1
         loggedSeconds += 1
         
@@ -204,8 +204,8 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         do {
-            try AVAudioSession.sharedInstance().setActive(false, with:
-                AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setActive(false, options: 
+                AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
         } catch {
             print("AVAudioSession errors.")
         }
@@ -252,11 +252,11 @@ class TimedViewController: UIViewController, AVAudioPlayerDelegate {
         timePickerController = TimePickerController()
         timePickerController?.setDefaultTimer(self.seconds)
         
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertController.Style.alert)
         
         let setTimeAlertAction = UIAlertAction(
             title: "Set Timer",
-            style: UIAlertActionStyle.default) { action -> Void in self.setTimeAction() }
+            style: UIAlertAction.Style.default) { action -> Void in self.setTimeAction() }
         
         alertController.setValue(timePickerController, forKey: "contentViewController");
         alertController.addAction(setTimeAlertAction)
