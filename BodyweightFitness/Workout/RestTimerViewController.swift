@@ -52,8 +52,8 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     func updateLabel() {
         let (_, m, s) = secondsToHoursMinutesSeconds(seconds)
         
-        timerMinutesButton.setTitle(printTimerValue(m), for: UIControlState())
-        timerSecondsButton.setTitle(printTimerValue(s), for: UIControlState())
+        timerMinutesButton.setTitle(printTimerValue(m), for: UIControl.State())
+        timerSecondsButton.setTitle(printTimerValue(s), for: UIControl.State())
     }
     
     func printTimerValue(_ value: Int) -> String {
@@ -96,7 +96,7 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
         updateLabel()
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         seconds -= 1
         
         if(seconds <= 0) {
@@ -134,8 +134,7 @@ class RestTimerViewController: UIViewController, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         do {
-            try AVAudioSession.sharedInstance().setActive(false, with:
-                AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setActive(false, options: AVAudioSession.SetActiveOptions.notifyOthersOnDeactivation)
         } catch {
             print("AVAudioSession errors.")
         }

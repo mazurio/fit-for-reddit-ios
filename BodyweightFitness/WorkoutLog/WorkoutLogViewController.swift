@@ -66,8 +66,8 @@ class WorkoutLogViewController: UIViewController {
             pageMenuOptions: parameters
         )
 
-        self.addChildViewController(pageMenu!)
+        self.addChild(pageMenu!)
         self.view.addSubview(pageMenu!.view)
-        self.pageMenu!.didMove(toParentViewController: self)
+        self.pageMenu!.didMove(toParent: self)
     }
 }

@@ -59,7 +59,7 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
             product = products[0]
 
             if let product = product {
-                buyButton.setTitle("Buy \(product.localizedPrice())", for: UIControlState())
+                buyButton.setTitle("Buy \(product.localizedPrice())", for: UIControl.State())
             }
             
             self.buyButton.isEnabled = true
@@ -101,7 +101,7 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
     }
     
     func purchased() {
-        self.buyButton.setTitle("Purchased, thank you!", for: UIControlState())
+        self.buyButton.setTitle("Purchased, thank you!", for: UIControl.State())
         self.buyButton.isEnabled = false
         
         self.restorePurchasesButton.isHidden = true
@@ -114,7 +114,7 @@ class SupportDeveloperViewController: UIViewController, SKPaymentTransactionObse
             preferredStyle: .alert
         )
         
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
     }

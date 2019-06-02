@@ -54,7 +54,7 @@ class WeightedViewController: UIViewController {
         PersistenceManager.storeNumberOfReps(current.exerciseId, numberOfReps: self.numberOfReps)
         
         self.sets.text = self.printSets()
-        self.reps.setTitle(printValue(self.numberOfReps), for: UIControlState())
+        self.reps.setTitle(printValue(self.numberOfReps), for: UIControl.State())
     }
     
     func printValue(_ value: Int) -> String {

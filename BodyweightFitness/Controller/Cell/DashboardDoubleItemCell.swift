@@ -23,9 +23,9 @@ class DashboardDoubleItemCell: UITableViewCell {
             
             if let exercise = newValue {
                 if (exercise.isTimed()) {
-                    self.leftButton.setImage(UIImage(named: "timed"), for: UIControlState())
+                    self.leftButton.setImage(UIImage(named: "timed"), for: UIControl.State())
                 } else {
-                    self.leftButton.setImage(UIImage(named: "weighted"), for: UIControlState())
+                    self.leftButton.setImage(UIImage(named: "weighted"), for: UIControl.State())
                 }
             }
         }
@@ -42,9 +42,9 @@ class DashboardDoubleItemCell: UITableViewCell {
             
             if let exercise = newValue {
                 if (exercise.isTimed()) {
-                    self.rightButton.setImage(UIImage(named: "timed"), for: UIControlState())
+                    self.rightButton.setImage(UIImage(named: "timed"), for: UIControl.State())
                 } else {
-                    self.rightButton.setImage(UIImage(named: "weighted"), for: UIControlState())
+                    self.rightButton.setImage(UIImage(named: "weighted"), for: UIControl.State())
                 }
             }
         }
@@ -67,11 +67,11 @@ class DashboardDoubleItemCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func onLeftClick(_ sender: UITapGestureRecognizer) {
+    @objc func onLeftClick(_ sender: UITapGestureRecognizer) {
         self.dashboardViewController?.dismissWithExercise(leftExercise!)
     }
     
-    func onRightClick(_ sender: UITapGestureRecognizer) {
+    @objc func onRightClick(_ sender: UITapGestureRecognizer) {
         self.dashboardViewController?.dismissWithExercise(rightExercise!)
     }
 }

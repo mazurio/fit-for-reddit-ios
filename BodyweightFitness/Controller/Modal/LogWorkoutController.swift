@@ -48,7 +48,7 @@ class LogWorkoutController: UIViewController {
 
     var parentController: UIViewController?
     
-    func increaseRepsButtonDown(_ sender: AnyObject) {
+    @objc func increaseRepsButtonDown(_ sender: AnyObject) {
         self.invalidateTimer(sender)
         
         increaseReps()
@@ -61,7 +61,7 @@ class LogWorkoutController: UIViewController {
             repeats: true)
     }
     
-    func decreaseRepsButtonDown(_ sender: AnyObject) {
+    @objc func decreaseRepsButtonDown(_ sender: AnyObject) {
         self.invalidateTimer(sender)
         
         decreaseReps()
@@ -74,7 +74,7 @@ class LogWorkoutController: UIViewController {
             repeats: true)
     }
     
-    func increaseWeightButtonDown(_ sender: AnyObject) {
+    @objc func increaseWeightButtonDown(_ sender: AnyObject) {
         self.invalidateTimer(sender)
         
         increaseWeight()
@@ -87,7 +87,7 @@ class LogWorkoutController: UIViewController {
             repeats: true)
     }
     
-    func decreaseWeightButtonDown(_ sender: AnyObject) {
+    @objc func decreaseWeightButtonDown(_ sender: AnyObject) {
         self.invalidateTimer(sender)
         
         decreaseWeight()
@@ -100,7 +100,7 @@ class LogWorkoutController: UIViewController {
             repeats: true)
     }
     
-    func invalidateTimer(_ sender: AnyObject) {
+    @objc func invalidateTimer(_ sender: AnyObject) {
         increaseRepsTimer?.invalidate()
         decreaseRepsTimer?.invalidate()
         
@@ -119,12 +119,12 @@ class LogWorkoutController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let controlEvents: UIControlEvents = [
-            UIControlEvents.touchUpInside,
-            UIControlEvents.touchUpOutside,
-            UIControlEvents.touchDragOutside,
-            UIControlEvents.touchDragExit,
-            UIControlEvents.touchCancel
+        let controlEvents: UIControl.Event = [
+            UIControl.Event.touchUpInside,
+            UIControl.Event.touchUpOutside,
+            UIControl.Event.touchDragOutside,
+            UIControl.Event.touchDragExit,
+            UIControl.Event.touchCancel
         ]
         
         self.increaseRepsButton.addTarget(
@@ -179,9 +179,9 @@ class LogWorkoutController: UIViewController {
         self.actionView?.isHidden = true
         
         self.verticalStackView = UIStackView()
-        self.verticalStackView?.axis = UILayoutConstraintAxis.vertical;
-        self.verticalStackView?.distribution = UIStackViewDistribution.equalSpacing;
-        self.verticalStackView?.alignment = UIStackViewAlignment.center;
+        self.verticalStackView?.axis = NSLayoutConstraint.Axis.vertical;
+        self.verticalStackView?.distribution = UIStackView.Distribution.equalSpacing;
+        self.verticalStackView?.alignment = UIStackView.Alignment.center;
         self.verticalStackView?.spacing = 8;
         
         self.verticalStackView?.translatesAutoresizingMaskIntoConstraints = false
@@ -216,9 +216,9 @@ class LogWorkoutController: UIViewController {
     func addHorizontalStackViewIfNeeded() {
         if(numberOfSetViews == 0 || numberOfSetViews == 3 || numberOfSetViews == 6 || numberOfSetViews == 9) {
             self.horizontalStackView = UIStackView()
-            self.horizontalStackView?.axis = UILayoutConstraintAxis.horizontal;
-            self.horizontalStackView?.distribution = UIStackViewDistribution.equalSpacing;
-            self.horizontalStackView?.alignment = UIStackViewAlignment.center;
+            self.horizontalStackView?.axis = NSLayoutConstraint.Axis.horizontal;
+            self.horizontalStackView?.distribution = UIStackView.Distribution.equalSpacing;
+            self.horizontalStackView?.alignment = UIStackView.Alignment.center;
             self.horizontalStackView?.spacing = 8;
             
             self.horizontalStackView?.translatesAutoresizingMaskIntoConstraints = false
@@ -227,7 +227,7 @@ class LogWorkoutController: UIViewController {
         }
     }
     
-    func pressed(_ setView: SetView!) {
+    @objc func pressed(_ setView: SetView!) {
         showActionView(setView)
     }
     
@@ -400,7 +400,7 @@ class LogWorkoutController: UIViewController {
         }
     }
     
-    func increaseReps() {
+    @objc func increaseReps() {
         try! realm.write {
             if let set = set {
                 if set.isTimed {
@@ -425,7 +425,7 @@ class LogWorkoutController: UIViewController {
         }
     }
     
-    func decreaseReps() {
+    @objc func decreaseReps() {
         try! realm.write {
             if let set = set {
                 if set.isTimed {
@@ -448,7 +448,7 @@ class LogWorkoutController: UIViewController {
         }
     }
 
-    func increaseWeight() {
+    @objc func increaseWeight() {
         try! realm.write {
             if let set = set {
                 if set.isTimed {
@@ -473,7 +473,7 @@ class LogWorkoutController: UIViewController {
         }
     }
     
-    func decreaseWeight() {
+    @objc func decreaseWeight() {
         try! realm.write {
             if let set = set {
                 if set.isTimed {
@@ -528,8 +528,8 @@ class SetView: UIButton {
         layer.borderColor = UIColor(red:0, green:0.27, blue:0.24, alpha:1).cgColor
         layer.backgroundColor = UIColor.white.cgColor
         
-        setTitleColor(tintColor, for: UIControlState())
-        setTitleColor(UIColor.white, for: UIControlState.selected)
+        setTitleColor(tintColor, for: UIControl.State())
+        setTitleColor(UIColor.white, for: UIControl.State.selected)
     }
     
     func customizeAppearance() {

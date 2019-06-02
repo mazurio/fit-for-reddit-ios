@@ -23,11 +23,11 @@ extension UIColor {
 extension UIViewController {
     func setNavigationBar() {
         let titleDict: NSDictionary = [
-            NSForegroundColorAttributeName: UIColor(red:0, green:0.27, blue:0.24, alpha:1)
+            NSAttributedString.Key.foregroundColor: UIColor(red:0, green:0.27, blue:0.24, alpha:1)
         ]
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0, green:0.59, blue:0.53, alpha:1)
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : AnyObject]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedString.Key : AnyObject]
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(

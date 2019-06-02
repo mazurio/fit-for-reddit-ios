@@ -2,10 +2,10 @@ import Foundation
 import RealmSwift
 
 class RepositoryCategory: Object {
-    dynamic var id = "Category-" + UUID().uuidString
-    dynamic var categoryId = ""
-    dynamic var title = ""
-    dynamic var routine: RepositoryRoutine?
+    @objc dynamic var id = "Category-" + UUID().uuidString
+    @objc dynamic var categoryId = ""
+    @objc dynamic var title = ""
+    @objc dynamic var routine: RepositoryRoutine?
     
     let sections = List<RepositorySection>()
     let exercises = List<RepositoryExercise>()
